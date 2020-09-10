@@ -1,13 +1,15 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #dfe6e9;
     font-family: "Roboto", sans-serif;
   }
   
   header{
     z-index: 1;
     position: fixed;
-    background: #22242A;
+    /*background: #22242A;*/
+    background: #102842;
     padding: 20px;
     width: calc(100% - 0%);
     top: 0;
@@ -17,22 +19,24 @@ body{
   .left_area h3{
     color: #fff;
     margin: 0;
+    margin-left: 2%;
     text-transform: uppercase;
     font-size: 22px;
     font-weight: 900;
   }
   
   .left_area span{
-    color: #19B3D3;
+    color: #ef441d;
   }
   
-  .logout_btn{
+  .login_btn{
     padding: 5px;
-    background: #19B3D3;
+    background: #ef441d;
     text-decoration: none;
     float: right;
+    margin-right: 55px;
     margin-top: -30px;
-    margin-right: 40px;
+    margin-right: 55px;
     border-radius: 2px;
     font-size: 15px;
     font-weight: 600;
@@ -41,14 +45,14 @@ body{
     transition-property: background;
   }
   
-  .logout_btn:hover{
-    background: #0B87A6;
+  .login_btn:hover{
+    background: #2b3e5b;
   }
   
   .sidebar{
     z-index: 1;
     top: 0;
-    background: #2f323a;
+    background: #222;
     margin-top: 70px;
     padding-top: 30px;
     position: fixed;
@@ -60,6 +64,19 @@ body{
     overflow-y: auto;
   }
   
+  /*PARTES MODIFICADAS*/
+    #video_gif{
+      width: 100%;
+      margin-top: 0.3%;
+    }
+
+    #home{
+      background-color: #102842;
+    }
+
+
+
+
   .profile_info{
     display: flex;
     flex-direction: column;
@@ -93,7 +110,7 @@ body{
   }
   
   .sidebar a:hover{
-    background: #19B3D3;
+    background: #102842;
   }
   
   .sidebar i{
@@ -123,7 +140,7 @@ body{
     display: none;
   }
   
-  #check:checked ~ .sidebar a{
+  #check:checked  ~ .sidebar a{
     font-size: 20px;
     margin-left: 165px;
     width: 100%;
@@ -174,6 +191,15 @@ body{
   
     #sidebar_btn{
       display: none;
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 60px;
+      text-decoration: none;
+      padding-left: 40px;
+      box-sizing: border-box;
+      transition: 0.5s;
+      transition-property: background;
     }
   
     .content{
@@ -217,7 +243,7 @@ body{
     }
   
     .nav_bar .nav_btn:hover{
-      color: #19B3D3;
+      color: #2b3e5b;
     }
   
     .mobile_nav_items{
@@ -238,7 +264,7 @@ body{
     }
   
     .mobile_nav_items a:hover{
-      background: #19B3D3;
+      background: #2b3e5b;
     }
   
     .mobile_nav_items i{
