@@ -253,7 +253,7 @@ body{
   
     .mobile_nav_items a{
       color: #fff;
-      display: block;
+      display: inline block;
       text-align: center;
       letter-spacing: 1px;
       line-height: 60px;
