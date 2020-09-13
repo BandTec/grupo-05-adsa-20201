@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagem/png" href="../Image/logo3.png"/>
     <title>Supervisor - Login</title>
     <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
 
-<body>
+<body class="body_login">
 
     <input type="checkbox" id="check">
     <!--header area start-->
@@ -18,14 +21,14 @@
             <h3>Super<span>visor</span></h3>
         </div>
         <div class="right_area">
-            <a href="#" class="logout_btn">Logout</a>
+            <a href="../index.html" class="logout_btn">Logout</a>
         </div>
     </header>
     <!--header area end-->
     <!--mobile navigation bar start-->
-    <div class="mobile_nav">
+   <!-- <div class="mobile_nav">
         <div class="nav_bar">
-            <img src="../Image/logo.jpg" class="mobile_profile_image" alt="">
+            <img src="../Image/logo3.png" class="mobile_profile_image" alt="">
             <i class="fa fa-bars nav_btn"></i>
         </div>
         <div class="mobile_nav_items">
@@ -35,11 +38,12 @@
             <a href="#"><i class="fas fa-th"></i><span>Forms</span></a>
             <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
             <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
-        </div>
-    </div>
+        </div> 
+    </div>-->
+
     <!--mobile navigation bar end-->
     <!--sidebar start-->
-    <div class="sidebar">
+    <!--<div class="sidebar">
         <div class="profile_info">
             <img src="1.png" class="profile_image" alt="">
         </div>
@@ -51,37 +55,43 @@
                 <i class="fas fa-bars" id="sidebar_btn"></i>
             </label>
         </a>
-    </div>
+    </div> -->
     <!--sidebar end-->
 
-    <div class="content">
-        <div class="card">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-        <div class="card">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-        <div class="card">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
-                into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-    </div>
+    <div class="container"> 
+        <img src="../Image/logo3.png">    
+        <div class="box_cadastro" id="box_login">
+            
+            <h2>Sign In:</h2>
+           
+            <label class="label_cadastro" for="func_cadastrado">Funcionário:</label>
+            <select class="cbxfuncionario" id="funcionarios">
+                <option value="1">Professor</option>
+                <option value="2">Suporte de T.I.</option>
+            </select>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.nav_btn').click(function () {
-                $('.mobile_nav_items').toggleClass('active');
-            });
-        });
-    </script>
+            <form id="form_user" method="post" class="form_cadastrado" onsubmit="return entrar()">
+                <label class="label_cadastro" for="user_cadastrado">Insira seu Usuário*:</label>
+                <input class="input_u" type="password" placeholder="User"  id="user_cadastrado" name="user" required>
+            
+                <label class="label_cadastro" for="senha_cadastrado">Insira sua Senha*:</label>
+                <input class="input_u" type="password" placeholder="*****"  id="senha_cadastrado" name="senha" required>
+               
+            <button id="btn_entrar" class="btn"> Login </button>
+
+
+            <a href="" class="forgot_pass">Esqueceu a senha?</a>
+            </form>
+
+            
+        </div>
+
+        <div class="register">
+            Não tem conta? <a href="cadastro.html">Faça seu cadastro AQUI</a> 
+        </div>     
+    
+      
+         
 
 </body>
 
