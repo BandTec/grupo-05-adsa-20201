@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="imagem/png" href="../Image/logo3.png"/>
     <title>Supervisor - Login</title>
+    <link rel="stylesheet" href="../CSS/login.css">
     <link rel="stylesheet" href="../CSS/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -26,7 +27,7 @@
     </header>
     <!--header area end-->
     <!--mobile navigation bar start-->
-   <!-- <div class="mobile_nav">
+   <div class="mobile_nav">
         <div class="nav_bar">
             <img src="../Image/logo3.png" class="mobile_profile_image" alt="">
             <i class="fa fa-bars nav_btn"></i>
@@ -39,15 +40,16 @@
             <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
             <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
         </div> 
-    </div>-->
+    </div>
 
     <!--mobile navigation bar end-->
     <!--sidebar start-->
-    <!--<div class="sidebar">
+
+    <div class="sidebar">
         <div class="profile_info">
             <img src="1.png" class="profile_image" alt="">
         </div>
-        <a href="#"><i class="fas fa-cogs"></i><span>Home</span></a>
+        <a href="../index.html"><i class="fas fa-cogs"></i><span>Home</span></a>
         <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
         <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
         <a href="#">
@@ -55,10 +57,12 @@
                 <i class="fas fa-bars" id="sidebar_btn"></i>
             </label>
         </a>
-    </div> -->
+    </div> 
+
     <!--sidebar end-->
 
     <div class="container"> 
+      <div class="card">
         <img src="../Image/logo3.png">    
         <div class="box_cadastro" id="box_login">
             
@@ -77,6 +81,7 @@
                 <label class="label_cadastro" for="senha_cadastrado">Insira sua Senha*:</label>
                 <input class="input_u" type="password" placeholder="*****"  id="senha_cadastrado" name="senha" required>
                
+                
             <button id="btn_entrar" class="btn"> Login </button>
 
 
