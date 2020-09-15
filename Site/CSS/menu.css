@@ -1,0 +1,41 @@
+/* Cadastro */
+
+.cadastro_btn {
+    padding: 7px;
+    background: #e75c3d;
+    text-decoration: none;
+    float: right;
+    margin-right: 55px;
+    margin-top: -30px;
+    margin-right: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.cadastro_btn:hover {
+    background: #2b3e5b;
+}
+
+.login_btn {
+    padding: 7px;
+    background: #ef441d;
+    text-decoration: none;
+    float: right;
+    margin-right: 55px;
+    margin-top: -30px;
+    margin-right: 55px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.login_btn:hover {
+    background: #2b3e5b;
+}

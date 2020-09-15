@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagem/png" href="../Image/logo3.png" />
+    <title>Supervisor - Cadastro</title>
+    <link rel="stylesheet" href="../CSS/cadastrar.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body class="body_cadastro">
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+
+        <div class="left_area">
+            <a href="../index.html">
+                <h3>Super<span>visor</span></h3>
+            </a>
+        </div>
+        <div class="right_area">
+            <a href="../Pages/Login.html" class="login_btn">LOGIN</a>
+            <a href="../Pages/cadastro.html" class="cadastro_btn">CADASTRAR</a>
+        </div>
+
+    </header>
+    <!--header area end-->
+
+    <div class="container">
+        <div class="card">
+            <img src="../Image/logo3.png">
+            <div class="box_cadastro" id="box_cadastrar">
+
+                <h2>Cadastro</h2>
+
+                <form class="form_cadastrado" id="form_cadastro" method="post" class="form" action="login.html">
+
+                    <label class="label_cadastro" for="nome">Nome:</label><br>
+                    <input class="input1" placeholder="Ex: Supervisor" type="nome" name="nome" minlength="4" required><br>
+
+                    <label class="label_cadastro" for="email_cadastro">E-mail:</label><br>
+                    <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" name="login" required><br>
+
+                    <label class="label_cadastro" for="usuario_cadastro">Nome do Usuário:</label><br>
+                    <input class="input1" placeholder="Ex: supervisor_2020 " type="nome" name="usuario" minlength="5" required><br>
+
+                    <label class="label_cadastro" for="cargo_cadastro">Cargo de Ocupação:</label><br>
+                    <select class="cbxcargo" id="cargo">
+                <option value="0" selected disabled>Selecionar</option>
+                <option value="1">Professor</option>
+                <option value="2">Suporte de T.I.</option>
+              </select><br>
+
+                    <label class="label_cadastro" for="senha_cadastro">Senha:</label><br>
+                    <input class="input1" placeholder="********" type="password" name="senha" minlength="5" required><br><br>
+
+                    <button id="btn_cadastrar" class="btn"> Cadastrar </button>
+
+                </form>
+
+
+            </div>
+
+            <div class="entrar">
+                Já possui cadastro? <a href="login.html">Entrar</a>
+            </div>
+            <div class="footer">
+                .
+            </div>
+        </div>
+</body>
+
+</html>
+
+
+</body>
+
+</html>

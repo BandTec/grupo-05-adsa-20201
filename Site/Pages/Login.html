@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="imagem/png" href="../Image/logo3.png"/>
+    <link rel="icon" type="imagem/png" href="../Image/logo3.png" />
     <title>Supervisor - Login</title>
-    <link rel="stylesheet" href="../CSS/login.css">
     <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="../CSS/menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 </head>
@@ -19,9 +20,12 @@
     <header>
 
         <div class="left_area">
-            <h3>Super<span>visor</span></h3>
+            <a href="../index.html">
+                <h3>Super<span>visor</span></h3>
+            </a>
         </div>
         <div class="right_area">
+<<<<<<< HEAD
             <a href="Login.html" class="logout_btn">Logout</a>
         </div>
     </header>
@@ -68,6 +72,20 @@
             
             <h2>Sign In:</h2>
            
+=======
+            <a href="../Pages/Login.html" class="login_btn">LOGIN</a>
+            <a href="../Pages/cadastro.html" class="cadastro_btn">CADASTRAR</a>
+        </div>
+    </header>
+    <!--header area end-->
+
+    <div class="container">
+        <img src="../Image/logo3.png">
+        <div class="box_login" id="box_login">
+
+            <h2>Login</h2>
+
+>>>>>>> 721abea320b3264da3399e1aafec8f4ef5fd06b4
             <label class="label_cadastro" for="func_cadastrado">Funcionário:</label>
             <select class="cbxfuncionario" id="funcionarios">
                 <option value="1">Professor</option>
@@ -76,28 +94,42 @@
 
             <form id="form_user" method="post" class="form_cadastrado" onsubmit="return entrar()">
                 <label class="label_cadastro" for="user_cadastrado">Insira seu Usuário*:</label>
-                <input class="input_u" type="password" placeholder="User"  id="user_cadastrado" name="user" required>
-            
+                <input class="input_u" type="text" placeholder="User" id="user_cadastrado" name="user" required>
+
                 <label class="label_cadastro" for="senha_cadastrado">Insira sua Senha*:</label>
+<<<<<<< HEAD
                 <input class="input_u" type="password" placeholder="*****"  id="senha_cadastrado" name="senha" required>
                
                 
             <button id="btn_entrar" class="btn"> Login </button>
+=======
+                <input class="input_u" type="password" placeholder="*****" id="senha_cadastrado" name="senha" required>
+>>>>>>> 721abea320b3264da3399e1aafec8f4ef5fd06b4
+
+                <button id="btn_entrar" onclick="fazer_login()" class="btn"> Login </button>
 
 
-            <a href="" class="forgot_pass">Esqueceu a senha?</a>
+                <a href="" class="forgot_pass">Esqueceu a senha?</a>
             </form>
-
-            
         </div>
 
         <div class="register">
-            Não tem conta? <a href="cadastro.html">Faça seu cadastro AQUI</a> 
-        </div>     
-    
-      
-         
+            Não tem conta? <a href="cadastro.html">Faça seu cadastro AQUI</a>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.nav_btn').click(function() {
+                    $('.mobile_nav_items').toggleClass('active');
+                });
+            });
+        </script>
+
+
+
 
 </body>
 
 </html>
+
+<script src="../JS/login.js"></script>
