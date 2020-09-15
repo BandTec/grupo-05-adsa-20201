@@ -1,3 +1,4 @@
+<<<<<<< HEAD
     body {
         margin: 0;
         padding: 0;
@@ -98,3 +99,103 @@
             transition: 0s;
         }
     }
+=======
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #dfe6e9;
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    z-index: 1;
+    position: fixed;
+    /*background: #22242A;*/
+    background: #102842;
+    padding: 20px;
+    width: calc(100% - 0%);
+    top: 0;
+    height: 30px;
+}
+
+.left_area h3 {
+    color: #fff;
+    margin: 0;
+    margin-left: 2%;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.left_area span {
+    color: #ef441d;
+}
+
+
+/*************************************/
+
+
+/*PARTES MODIFICADAS*/
+
+#video_gif {
+    width: 100%;
+    margin-top: 0.3%;
+}
+
+#home {
+    background-color: #102842;
+}
+
+#divPreta {
+    background-color: #060E17;
+    color: white;
+    width: 100%;
+    margin-top: -1%;
+    margin-left: 0%;
+    height: 60%;
+    z-index: 2;
+}
+
+#divPreta img {
+    z-index: 3;
+    width: 30%;
+    margin-top: 3%;
+    position: absolute;
+}
+#um:hover{
+    transform: translateY(4.8214px);
+}
+
+.card p {
+    float: left;
+    width: 20%;
+    margin-top: 9%;
+    margin: 10% 8% 0% 8%;
+}
+
+.card p span {
+    color: #ef441d;
+    font-size: 30px;
+}
+
+.content {
+    width: (100% - 250px);
+    margin-top: 60px;
+    background: url(background.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.content .card div {
+    background: #fff;
+    padding: 1%;
+    margin-top: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+>>>>>>> 6fce03c8b0e0a6bf3ef287e6dedc2b5090f065ca
