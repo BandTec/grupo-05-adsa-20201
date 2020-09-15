@@ -29,7 +29,7 @@
         border-radius: 60px;
     }
     
-    .box_cadastro {
+    .box_login {
         margin-left: 400px;
         margin-left: 35%;
         padding-bottom: 1%;
@@ -40,14 +40,14 @@
         border-radius: 20px;
     }
     
-    .box_cadastro h2 {
+    .box_login h2 {
         text-align: center;
         color: #ef441d;
         margin-bottom: 30px;
         padding-top: 20px;
     }
     
-    .box_cadastro .cbxfuncionario {
+    .box_login .cbxfuncionario {
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 25px;
@@ -61,7 +61,7 @@
         border-color: white;
     }
     
-    .box_cadastro .input_u {
+    .box_login .input_u {
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 25px;
@@ -75,13 +75,7 @@
         border-color: white;
     }
     
-    .box_cadastro .label_cadastro {
-        margin-left: 5%;
-        margin-bottom: 5%;
-        color: white;
-    }
-    
-    .box_cadastro .btn {
+    .box_login .btn {
         text-align: center;
         text-decoration: none;
         margin-left: 5%;
@@ -96,26 +90,32 @@
         border-radius: 5px;
     }
     
-    .box_cadastro button:hover {
+    .box_login button:hover {
         background: #102842;
         cursor: pointer;
     }
     
-    .box_cadastro .check {
+    .box_login .check {
         margin-left: 5%;
         color: #6b6e70;
+    }
+    
+    .box_login .label_cadastro {
+        margin-left: 5%;
+        margin-bottom: 5%;
+        color: white;
     }
     
     #text {
         color: #6b6e70;
     }
     
-    .box_cadastro .forgot_pass {
+    .box_login .forgot_pass {
         margin-left: 20px;
         color: #6b6e70;
     }
     
-    .box_cadastro .forgot_pass:hover {
+    .box_login .forgot_pass:hover {
         font-weight: bold;
     }
     
