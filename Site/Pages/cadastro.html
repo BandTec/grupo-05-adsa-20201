@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="imagem/png" href="../Image/logo3.png"/>
+    <link rel="icon" type="imagem/png" href="../Image/logo3.png" />
     <title>Supervisor - Cadastro</title>
     <link rel="stylesheet" href="../CSS/cadastrar.css">
     <link rel="stylesheet" href="../CSS/index.css">
@@ -19,97 +19,64 @@
     <header>
 
         <div class="left_area">
-            <h3>Super<span>visor</span></h3>
+            <a href="../index.html">
+                <h3>Super<span>visor</span></h3>
+            </a>
         </div>
         <div class="right_area">
-            <a href="../Pages/Login.html" class="logout_btn">Login</a>
+            <a href="../Pages/Login.html" class="logout_btn">LOGIN</a>
+            <a href="../Pages/cadastro.html" class="cadastro_btn">CADASTRAR</a>
         </div>
-        <div class="right_area">
-            <a href="../Pages/cadastro.html" class="logout_btn">Cadastro</a>
-        </div>
-    
+
     </header>
     <!--header area end-->
-    <!--mobile navigation bar start-->
-   <div class="mobile_nav">
-        <div class="nav_bar">
-            <img src="../Image/logo3.png" class="mobile_profile_image" alt="">
-            <i class="fa fa-bars nav_btn"></i>
-        </div>
-        <div class="mobile_nav_items">
-            <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-            <a href="#"><i class="fas fa-cogs"></i><span>Components</span></a>
-            <a href="#"><i class="fas fa-table"></i><span>Tables</span></a>
-            <a href="#"><i class="fas fa-th"></i><span>Forms</span></a>
-            <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
-            <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
-        </div> 
-    </div>
 
-    <!--mobile navigation bar end-->
-    <!--sidebar start-->
+    <div class="container">
+        <div class="card">
+            <img src="../Image/logo3.png">
+            <div class="box_cadastro" id="box_cadastrar">
 
-    <div class="sidebar">
-        <div class="profile_info">
-            <img src="1.png" class="profile_image" alt="">
-        </div>
-        <a href="../Pages/index.html"><i class="fas fa-cogs"></i><span>Home</span></a>
-        <a href="#"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
-        <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
-        <a href="#">
-            <label for="check">
-                <i class="fas fa-bars" id="sidebar_btn"></i>
-            </label>
-        </a>
-    </div> 
+                <h2>Cadastro:</h2>
 
-    <!--sidebar end-->
+                <form class="form_cadastrado" id="form_cadastro" method="post" class="form" action="login.html">
 
-    <div class="container"> 
-      <div class="card">
-        <img src="../Image/logo3.png">    
-        <div class="box_cadastro" id="box_cadastrar">
-            
-            <h2>Cadastro:</h2>
-        
-            <form class="form_cadastrado" id="form_cadastro" method="post" class="form" action="login.html">
+                    <label class="label_cadastro" for="nome">Nome:</label><br>
+                    <input class="input1" placeholder="Ex: Supervisor" type="nome" name="nome" minlength="4" required><br>
 
-              <label class="label_cadastro" for="nome">Nome:</label><br>
-              <input class="input1" placeholder="Ex: Supervisor" type="nome" name="nome" minlength="4" required><br>
+                    <label class="label_cadastro" for="email_cadastro">E-mail:</label><br>
+                    <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" name="login" required><br>
 
-              <label class="label_cadastro" for="email_cadastro">E-mail:</label><br>  
-              <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" name="login" required><br>
+                    <label class="label_cadastro" for="usuario_cadastro">Nome do Usuário:</label><br>
+                    <input class="input1" placeholder="Ex: supervisor_2020 " type="nome" name="usuario" minlength="5" required><br>
 
-              <label class="label_cadastro" for="usuario_cadastro">Nome do Usuário:</label><br>  
-              <input class="input1" placeholder="Ex: supervisor_2020 " type="nome" name="usuario" minlength="5" required><br>
-
-              <label class="label_cadastro" for="cargo_cadastro">Cargo de Ocupação:</label><br>  
-              <select class="cbxcargo" id="cargo">
+                    <label class="label_cadastro" for="cargo_cadastro">Cargo de Ocupação:</label><br>
+                    <select class="cbxcargo" id="cargo">
                 <option value="0" selected disabled>Selecionar</option>
                 <option value="1">Professor</option>
                 <option value="2">Suporte de T.I.</option>
               </select><br>
 
-              <label class="label_cadastro" for="senha_cadastro">Senha:</label><br>  
-              <input class="input1" placeholder="********" type="password" name="senha" minlength="5" required><br><br>
+                    <label class="label_cadastro" for="senha_cadastro">Senha:</label><br>
+                    <input class="input1" placeholder="********" type="password" name="senha" minlength="5" required><br><br>
 
-              <button id="btn_cadastrar" class="btn"> Cadastrar </button>
+                    <button id="btn_cadastrar" class="btn"> Cadastrar </button>
 
-            </form>
+                </form>
 
-            
-        </div>
 
-        <div class="entrar">
-            Já possui cadastro? <a href="login.html">Entrar</a> 
-        </div> 
+            </div>
+
+            <div class="entrar">
+                Já possui cadastro? <a href="login.html">Entrar</a>
+            </div>
             <div class="footer">
                 .
             </div>
         </div>
 </body>
+
 </html>
-         
+
 
 </body>
 
