@@ -42,17 +42,16 @@ body {
     animation-duration: 1s;
 }
 
-@keyframes teste{
-    from{
+@keyframes teste {
+    from {
         opacity: 0;
-        transform: scale(0.95);  
+        transform: scale(0.95);
     }
-    to{
+    to {
         opacity: 1;
         transform: scale(1);
     }
 }
-
 
 .box_cadastro h2 {
     text-align: center;
@@ -133,7 +132,6 @@ a {
     border-top: black solid 2px;
 }
 
-<<<<<<< HEAD
 .entrar a {
     color: #dfe6e9;
 }
@@ -141,9 +139,6 @@ a {
 .entrar a:hover {
     font-weight: 500;
 }
-=======
-
->>>>>>> 3dc0949692624aa02cc91207d759a3e0e07362bd
 
 .footer {
     width: 300px;
