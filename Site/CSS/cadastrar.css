@@ -26,6 +26,7 @@ body {
     margin-top: 10%;
     margin-left: 46.5%;
     border-radius: 60px;
+    animation-name: teste;
 }
 
 .box_cadastro {
@@ -37,7 +38,21 @@ body {
     background: #102842;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.90);
     border-radius: 20px;
+    animation-name: teste;
+    animation-duration: 1s;
 }
+
+@keyframes teste{
+    from{
+        opacity: 0;
+        transform: scale(0.95);  
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 
 .box_cadastro h2 {
     text-align: center;
@@ -118,6 +133,7 @@ a {
     border-top: black solid 2px;
 }
 
+<<<<<<< HEAD
 .entrar a {
     color: #dfe6e9;
 }
@@ -125,6 +141,9 @@ a {
 .entrar a:hover {
     font-weight: 500;
 }
+=======
+
+>>>>>>> 3dc0949692624aa02cc91207d759a3e0e07362bd
 
 .footer {
     width: 300px;
