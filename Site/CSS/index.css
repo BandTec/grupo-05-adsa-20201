@@ -65,6 +65,9 @@ body{
     overflow-y: auto;
   }
   
+
+/*************************************/
+
   /*PARTES MODIFICADAS*/
     #video_gif{
       width: 100%;
@@ -74,6 +77,37 @@ body{
     #home{
       background-color: #102842;
     }
+
+    #divPreta{
+      background-color: #060E17;
+      color: white;
+      width: 100%;
+      margin-top: 0%;
+      margin-left: 0%;
+      height: 60%;
+      z-index: 2;
+    }
+    
+    #divPreta img{
+      z-index: 3;
+      width: 30%;
+      margin-top: 3%;
+    }
+
+    .card p {
+      float: left;
+      width: 20%;
+      margin-top: 9%;
+      margin: 10% 8% 0% 8%
+    }
+
+    .card p span{
+      color: #ef441d;
+      font-size: 30px;
+    }
+
+
+
 
 
 
@@ -150,8 +184,6 @@ body{
   .content{
     width: (100% - 250px);
     margin-top: 60px;
-    padding: 20px;
-    margin-left: 250px;
     background: url(background.png) no-repeat;
     background-position: center;
     background-size: cover;
@@ -175,9 +207,12 @@ body{
     display: none;
   }
   
-  .content .card p{
+  .content .card div{
     background: #fff;
-    padding: 15px;
+    padding: 1%;
+    margin-top: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 10px;
     font-size: 14px;
     opacity: 0.8;
@@ -206,7 +241,6 @@ body{
     .content{
       margin-left: 0;
       margin-top: 0;
-      padding: 10px 20px;
       transition: 0s;
     }
   
@@ -426,8 +460,6 @@ body{
   .content{
     width: (100% - 250px);
     margin-top: 60px;
-    padding: 20px;
-    margin-left: 250px;
     background: url(background.png) no-repeat;
     background-position: center;
     background-size: cover;
@@ -451,9 +483,8 @@ body{
     display: none;
   }
   
-  .content .card p{
+  .content .card div{
     background: #fff;
-    padding: 15px;
     margin-bottom: 10px;
     font-size: 14px;
     opacity: 0.8;
@@ -482,7 +513,6 @@ body{
     .content{
       margin-left: 0;
       margin-top: 0;
-      padding: 10px 20px;
       transition: 0s;
     }
   
@@ -850,8 +880,6 @@ body{
   .content{
     width: (100% - 250px);
     margin-top: 60px;
-    padding: 20px;
-    margin-left: 250px;
     background: url(background.png) no-repeat;
     background-position: center;
     background-size: cover;
@@ -875,9 +903,9 @@ body{
     display: none;
   }
   
-  .content .card p{
+  .content .card div{
     background: #fff;
-    padding: 15px;
+    width: 20%;
     margin-bottom: 10px;
     font-size: 14px;
     opacity: 0.8;
@@ -906,7 +934,6 @@ body{
     .content{
       margin-left: 0;
       margin-top: 0;
-      padding: 10px 20px;
       transition: 0s;
     }
   
