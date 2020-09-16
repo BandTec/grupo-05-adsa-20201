@@ -9,6 +9,6 @@ function fazer_login() {
     } else if (login && !senha) {
         alert("Senha incorreta")
     } else if (!login && !senha) {
-        alert("TA TUDO ERRADO!")
+        gif_aqui.innerHTML += `<div style="width:70%;height:0;padding-bottom:57%;position:relative;"><iframe src="https://giphy.com/embed/jPAdK8Nfzzwt2" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>`
     }
 }
