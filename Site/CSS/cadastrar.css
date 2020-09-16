@@ -77,7 +77,7 @@ body {
 .box_cadastro .label_cadastro {
     margin-left: 5%;
     margin-bottom: 5%;
-    color: white;
+    color: #dfe6e9;
 }
 
 .box_cadastro .btn {
@@ -109,12 +109,21 @@ a {
 }
 
 .entrar {
+    color: #dfe6e9;
     margin: auto;
     width: 28%;
     margin-top: 1%;
     margin-bottom: 1%;
     text-align: center;
     border-top: black solid 2px;
+}
+
+.entrar a {
+    color: #dfe6e9;
+}
+
+.entrar a:hover {
+    font-weight: 500;
 }
 
 .footer {

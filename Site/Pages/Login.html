@@ -32,18 +32,31 @@
     <!--header area end-->
 
     <div class="container">
+
+        <div id="alerta_login_id" class="alerta">
+            <span>Verifique seu login!</span><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        </div>
+
+        <div id="alerta_senha_id" class="alerta">
+            <span>Verifique sua senha!</span><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        </div>
+
+        <div id="alerta_login_senha_id" class="alerta">
+            <span>Verifique suas credenciais!</span><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        </div>
+
         <img src="../Image/logo3.png">
         <div class="box_login" id="box_login">
-
             <h2>Sign In:</h2>
 
             <label class="label_cadastro" for="func_cadastrado">Funcionário:</label>
             <select class="cbxfuncionario" id="funcionarios">
+                <option value="" selected disabled>Selecione uma opção</option>
                 <option value="1">Professor</option>
                 <option value="2">Suporte de T.I.</option>
             </select>
 
-            <form id="form_user" method="post" class="form_cadastrado" onsubmit="return entrar()">
+            <div id="form_user" method="post" class="form_cadastrado" onsubmit="return entrar()">
                 <label class="label_cadastro" for="user_cadastrado">Insira seu Usuário*:</label>
                 <input class="input_u" type="text" placeholder="User" id="user_cadastrado" name="user" required>
 
@@ -52,9 +65,9 @@
 
                 <button id="btn_entrar" onclick="fazer_login()" class="btn"> Login </button>
 
-
                 <a href="" class="forgot_pass">Esqueceu a senha?</a>
-            </form>
+            </div>
+
             <div id="gif_aqui">
 
 
