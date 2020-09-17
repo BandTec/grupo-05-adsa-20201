@@ -174,18 +174,18 @@ header {
 
 
 #img_apoio{
-    margin-left: 2%;
+    margin-left: 3%;
     margin-top: 5%;
     float: left;
 }
 #img_analise{
     margin-left: 0%;
-    margin-right: 1%;
+    margin-right: 0%;
     margin-top: 5%;
     float: left;
 }
 #img_suporte{
-    margin-left: 1%;
+    margin-left: 0%;
     margin-right: 1%;
     margin-top: 5%;
     float: left;
@@ -193,8 +193,8 @@ header {
 
 .txt{
     float: left;
-    width: 20%;
-    margin: 6% 0% 0% 1%;
+    width: 19%;
+    margin: 6% 0% 0% 2%;
 }
 
 /*DIV SOBRE*/
@@ -242,6 +242,14 @@ header {
     position: absolute;
     margin-top: 5%;
     margin-left: 5%;
+}
+
+#spSV{
+    color:#ef441d;
+}
+
+#spDS{
+    color:#6c63ff;
 }
 
 /*DIV PRINCIPIOS DA EMPRESA*/
