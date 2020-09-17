@@ -175,6 +175,7 @@ header {
 
 #img_apoio{
     margin-left: 3%;
+    margin-right: 1%;
     margin-top: 5%;
     float: left;
 }
@@ -185,7 +186,7 @@ header {
     float: left;
 }
 #img_suporte{
-    margin-left: 0%;
+    margin-left: 2%;
     margin-right: 1%;
     margin-top: 5%;
     float: left;
@@ -194,7 +195,7 @@ header {
 .txt{
     float: left;
     width: 19%;
-    margin: 6% 0% 0% 2%;
+    margin: 6% 0% 0% 1%;
 }
 
 /*DIV SOBRE*/
