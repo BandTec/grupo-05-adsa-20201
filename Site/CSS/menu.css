@@ -52,6 +52,7 @@ header {
 .login_btn {
     padding: 7px;
     background: #ef441d;
+    text-align: center;
     text-decoration: none;
     float: right;
     margin-right: 55px;
@@ -129,3 +130,62 @@ header {
     }
 }
 
+/*RESPONSIVIDADE MOBILE largura igual 768px*/
+
+@media (width:768px){
+    
+    .login_btn{
+        margin-right: 130px;
+        font-size: 15px;
+    }
+}
+
+/*RESPONSIVIDADE 1024px*/
+
+@media (width:1024px){
+    
+    .login_btn{
+        margin-right: 15%;
+        font-size: 16px;
+        width: 6%;
+    }
+
+}
+
+/*RESPONSIVIDADE 1440px*/
+
+@media (width:1440px){
+    
+    .login_btn{
+        margin-right: 15%;
+        font-size: 16px;
+        width: 4%;
+    }
+
+}
+
+/*RESPONSIVIDADE PC mínimo de 2560px*/
+
+@media (min-width: 2560px){
+
+    .login_btn {
+        margin-right: 14%;
+        width: 4%;
+        margin-top: -45px;
+        font-size: 24px;
+    }
+    .cadastro_btn{
+        margin-top: -45px;
+        font-size: 24px;
+    }
+
+    header{
+        height: 4%;
+    }
+
+    .left_area h3 {
+        margin-top: 0.5%;
+        font-size: 39px;
+    }
+
+}
