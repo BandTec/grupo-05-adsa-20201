@@ -64,7 +64,8 @@ header {
     transition-property: background;
 }
 
-/********/
+
+/*RESPONSIVIDADE MOBILE largura máxima 600*/
 @media  (max-width: 600px){
 
     .cadastro_btn {
@@ -113,10 +114,18 @@ header {
         font-weight: 900;
     }
 
-    
 }
-
 
 .login_btn:hover {
     background: #2b3e5b;
 }
+
+/*RESPONSIVIDADE MOBILE largura igual 425px*/
+
+@media (width:425px){
+    
+    .login_btn{
+        margin-right: 85px;
+    }
+}
+

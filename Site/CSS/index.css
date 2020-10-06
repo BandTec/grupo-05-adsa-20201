@@ -367,7 +367,7 @@ body {
 
 
 
-/*RESPONSIVIDADE máximo de 600px*/
+/*RESPONSIVIDADE MOBILE máximo de 600px*/
 @media  (max-width: 600px){
 
     #divPreta {
@@ -379,6 +379,7 @@ body {
         height: 60%;
         z-index: 2;
     }
+
 
     #divPreta img {
         z-index: 3;
@@ -620,7 +621,98 @@ body {
 
 }
 
-/*RESPONSIVIDADE mínimo de 1024px*/
+/*RESPONSIVIDADE MOBILE largura igual 375px*/
+
+@media (width:375px) {
+    .div_principios{
+        margin-top: 230%;
+    }
+    #footer{
+        margin-top: 99%;
+    }
+    .pDivs {
+        width: 85vw;
+        margin: 53% 0% 0% 7%;
+    }
+}
+
+
+/*RESPONSIVIDADE MOBILE largura igual 425px*/
+
+@media (width:425px){
+
+    .pDivs {
+        float: left;
+        width: 78vw;
+        font-size: 15px;
+        text-align: center;
+        margin: 44% 0% 0% 9%;
+    }
+
+    #divPreta img {
+        z-index: 3;
+        width: 60%;
+        margin-left: 19%;
+        margin-top: 5%;
+    }
+
+    #divBranca .bloco1 p {
+        margin-top: 10%;
+    }
+
+    .div_teto h2 {
+        padding-top: 5% 0% 0% 0%;
+    }
+
+    .bloco1{
+        width: 60%;
+        height: 50%;
+        margin-left: 20%;
+    }
+
+    #divBranca .bloco1 p {
+        width: 86%;
+        font-size: 12px;
+        margin-left: 7%;
+        margin-top: 7%;
+    }
+
+    .divPassos{
+        margin-top: 21%;
+    }
+
+    .div_sobre p{
+        margin-top: 10%;
+        margin-left: 5.5%;
+        margin-top: 0%;
+        width: 88%;
+    }
+
+    .div_principios{
+        margin-top: 205%;
+        height: 100%;
+    }
+
+    .bloco1{
+        margin-left: 21%;
+    }
+
+    #footer{
+        margin-top: 100%;
+    }
+
+    #footer h5{
+        padding-top: 18.5%;
+    }
+
+    .txt{
+        padding-left: 59px;
+    }
+
+}
+
+
+/*RESPONSIVIDADE PC mínimo de 1024px*/
 
 @media (min-width: 1024px){
 
