@@ -98,7 +98,7 @@ public class ProcessPanel extends OshiJPanel { // NOSONAR squid:S110
             perProc.setSelected(true);
         }
 
-        JLabel sortChoice = new JLabel("          Filtrar por:");
+        JLabel sortChoice = new JLabel("          Organizar por:");
         settings.add(sortChoice);
         sortOption.add(cpuButton);
         settings.add(cpuButton);
