@@ -115,38 +115,39 @@ public class SystemInfoTest {
         logger.info("Checking Services...");
         printServices(os);
 
-        logger.info("Checking Sensors...");
-        printSensors(hal.getSensors());
-
-        logger.info("Checking Power sources...");
-        printPowerSources(hal.getPowerSources());
-
         logger.info("Checking Disks...");
         printDisks(hal.getDiskStores());
-
-        logger.info("Checking File System...");
-        printFileSystem(os.getFileSystem());
-
-        logger.info("Checking Network interfaces...");
-        printNetworkInterfaces(hal.getNetworkIFs());
-
-        logger.info("Checking Network parameters...");
-        printNetworkParameters(os.getNetworkParams());
-
-        logger.info("Checking IP statistics...");
-        printInternetProtocolStats(os.getInternetProtocolStats());
-
-        logger.info("Checking Displays...");
-        printDisplays(hal.getDisplays());
-
-        logger.info("Checking USB Devices...");
-        printUsbDevices(hal.getUsbDevices(true));
-
-        logger.info("Checking Sound Cards...");
-        printSoundCards(hal.getSoundCards());
-
-        logger.info("Checking Graphics Cards...");
-        printGraphicsCards(hal.getGraphicsCards());
+        
+//        logger.info("Checking Sensors...");
+//        printSensors(hal.getSensors());
+//
+//        logger.info("Checking Power sources...");
+//        printPowerSources(hal.getPowerSources());
+//
+//
+//        logger.info("Checking File System...");
+//        printFileSystem(os.getFileSystem());
+//
+//        logger.info("Checking Network interfaces...");
+//        printNetworkInterfaces(hal.getNetworkIFs());
+//
+//        logger.info("Checking Network parameters...");
+//        printNetworkParameters(os.getNetworkParams());
+//
+//        logger.info("Checking IP statistics...");
+//        printInternetProtocolStats(os.getInternetProtocolStats());
+//
+//        logger.info("Checking Displays...");
+//        printDisplays(hal.getDisplays());
+//        
+//        logger.info("Checking USB Devices...");
+//        printUsbDevices(hal.getUsbDevices(true));
+//
+//        logger.info("Checking Sound Cards...");
+//        printSoundCards(hal.getSoundCards());
+//
+//        logger.info("Checking Graphics Cards...");
+//        printGraphicsCards(hal.getGraphicsCards());
 
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < oshi.size(); i++) {
@@ -283,22 +284,7 @@ public class SystemInfoTest {
             }
         }
     }
-
-    private static void printSensors(Sensors sensors) {
-        oshi.add("Sensors: " + sensors.toString());
-    }
-
-    private static void printPowerSources(List<PowerSource> list) {
-        StringBuilder sb = new StringBuilder("Power Sources: ");
-        if (list.isEmpty()) {
-            sb.append("Unknown");
-        }
-        for (PowerSource powerSource : list) {
-            sb.append("\n ").append(powerSource.toString());
-        }
-        oshi.add(sb.toString());
-    }
-
+    
     private static void printDisks(List<HWDiskStore> list) {
         oshi.add("Disks:");
         for (HWDiskStore disk : list) {
@@ -311,84 +297,98 @@ public class SystemInfoTest {
         }
 
     }
-
-    private static void printFileSystem(FileSystem fileSystem) {
-        oshi.add("File System:");
-
-        oshi.add(String.format(" File Descriptors: %d/%d", fileSystem.getOpenFileDescriptors(),
-                fileSystem.getMaxFileDescriptors()));
-
-        for (OSFileStore fs : fileSystem.getFileStores()) {
-            long usable = fs.getUsableSpace();
-            long total = fs.getTotalSpace();
-            oshi.add(String.format(
-                    " %s (%s) [%s] %s of %s free (%.1f%%), %s of %s files free (%.1f%%) is %s "
-                            + (fs.getLogicalVolume() != null && fs.getLogicalVolume().length() > 0 ? "[%s]" : "%s")
-                            + " and is mounted at %s",
-                    fs.getName(), fs.getDescription().isEmpty() ? "file system" : fs.getDescription(), fs.getType(),
-                    FormatUtil.formatBytes(usable), FormatUtil.formatBytes(fs.getTotalSpace()), 100d * usable / total,
-                    FormatUtil.formatValue(fs.getFreeInodes(), ""), FormatUtil.formatValue(fs.getTotalInodes(), ""),
-                    100d * fs.getFreeInodes() / fs.getTotalInodes(), fs.getVolume(), fs.getLogicalVolume(),
-                    fs.getMount()));
-        }
-    }
-
-    private static void printNetworkInterfaces(List<NetworkIF> list) {
-        StringBuilder sb = new StringBuilder("Network Interfaces:");
-        if (list.isEmpty()) {
-            sb.append(" Unknown");
-        } else {
-            for (NetworkIF net : list) {
-                sb.append("\n ").append(net.toString());
-            }
-        }
-        oshi.add(sb.toString());
-    }
-
-    private static void printNetworkParameters(NetworkParams networkParams) {
-        oshi.add("Network parameters:\n " + networkParams.toString());
-    }
-
-    private static void printInternetProtocolStats(InternetProtocolStats ip) {
-        oshi.add("Internet Protocol statistics:");
-        oshi.add(" TCPv4: " + ip.getTCPv4Stats());
-        oshi.add(" TCPv6: " + ip.getTCPv6Stats());
-        oshi.add(" UDPv4: " + ip.getUDPv4Stats());
-        oshi.add(" UDPv6: " + ip.getUDPv6Stats());
-    }
-
-    private static void printDisplays(List<Display> list) {
-        oshi.add("Displays:");
-        int i = 0;
-        for (Display display : list) {
-            oshi.add(" Display " + i + ":");
-            oshi.add(String.valueOf(display));
-            i++;
-        }
-    }
-
-    private static void printUsbDevices(List<UsbDevice> list) {
-        oshi.add("USB Devices:");
-        for (UsbDevice usbDevice : list) {
-            oshi.add(String.valueOf(usbDevice));
-        }
-    }
-
-    private static void printSoundCards(List<SoundCard> list) {
-        oshi.add("Sound Cards:");
-        for (SoundCard card : list) {
-            oshi.add(" " + String.valueOf(card));
-        }
-    }
-
-    private static void printGraphicsCards(List<GraphicsCard> list) {
-        oshi.add("Graphics Cards:");
-        if (list.isEmpty()) {
-            oshi.add(" None detected.");
-        } else {
-            for (GraphicsCard card : list) {
-                oshi.add(" " + String.valueOf(card));
-            }
-        }
-    }
 }
+
+//   private static void printSensors(Sensors sensors) {
+//        oshi.add("Sensors: " + sensors.toString());
+//    }
+//
+//    private static void printPowerSources(List<PowerSource> list) {
+//        StringBuilder sb = new StringBuilder("Power Sources: ");
+//        if (list.isEmpty()) {
+//            sb.append("Unknown");
+//        }
+//        for (PowerSource powerSource : list) {
+//            sb.append("\n ").append(powerSource.toString());
+//        }
+//        oshi.add(sb.toString());
+//    }
+//    private static void printFileSystem(FileSystem fileSystem) {
+//        oshi.add("File System:");
+//
+//        oshi.add(String.format(" File Descriptors: %d/%d", fileSystem.getOpenFileDescriptors(),
+//                fileSystem.getMaxFileDescriptors()));
+//
+//        for (OSFileStore fs : fileSystem.getFileStores()) {
+//            long usable = fs.getUsableSpace();
+//            long total = fs.getTotalSpace();
+//            oshi.add(String.format(
+//                    " %s (%s) [%s] %s of %s free (%.1f%%), %s of %s files free (%.1f%%) is %s "
+//                            + (fs.getLogicalVolume() != null && fs.getLogicalVolume().length() > 0 ? "[%s]" : "%s")
+//                            + " and is mounted at %s",
+//                    fs.getName(), fs.getDescription().isEmpty() ? "file system" : fs.getDescription(), fs.getType(),
+//                    FormatUtil.formatBytes(usable), FormatUtil.formatBytes(fs.getTotalSpace()), 100d * usable / total,
+//                    FormatUtil.formatValue(fs.getFreeInodes(), ""), FormatUtil.formatValue(fs.getTotalInodes(), ""),
+//                    100d * fs.getFreeInodes() / fs.getTotalInodes(), fs.getVolume(), fs.getLogicalVolume(),
+//                    fs.getMount()));
+//        }
+//    }
+//
+//    private static void printNetworkInterfaces(List<NetworkIF> list) {
+//        StringBuilder sb = new StringBuilder("Network Interfaces:");
+//        if (list.isEmpty()) {
+//            sb.append(" Unknown");
+//        } else {
+//            for (NetworkIF net : list) {
+//                sb.append("\n ").append(net.toString());
+//            }
+//        }
+//        oshi.add(sb.toString());
+//    }
+//
+//    private static void printNetworkParameters(NetworkParams networkParams) {
+//        oshi.add("Network parameters:\n " + networkParams.toString());
+//    }
+//
+//    private static void printInternetProtocolStats(InternetProtocolStats ip) {
+//        oshi.add("Internet Protocol statistics:");
+//        oshi.add(" TCPv4: " + ip.getTCPv4Stats());
+//        oshi.add(" TCPv6: " + ip.getTCPv6Stats());
+//        oshi.add(" UDPv4: " + ip.getUDPv4Stats());
+//        oshi.add(" UDPv6: " + ip.getUDPv6Stats());
+//    }
+//
+//    private static void printDisplays(List<Display> list) {
+//        oshi.add("Displays:");
+//        int i = 0;
+//        for (Display display : list) {
+//            oshi.add(" Display " + i + ":");
+//            oshi.add(String.valueOf(display));
+//            i++;
+//        }
+//    }
+//
+//    private static void printUsbDevices(List<UsbDevice> list) {
+//        oshi.add("USB Devices:");
+//        for (UsbDevice usbDevice : list) {
+//            oshi.add(String.valueOf(usbDevice));
+//        }
+//    }
+//
+//    private static void printSoundCards(List<SoundCard> list) {
+//        oshi.add("Sound Cards:");
+//        for (SoundCard card : list) {
+//            oshi.add(" " + String.valueOf(card));
+//        }
+//    }
+//
+//    private static void printGraphicsCards(List<GraphicsCard> list) {
+//        oshi.add("Graphics Cards:");
+//        if (list.isEmpty()) {
+//            oshi.add(" None detected.");
+//        } else {
+//            for (GraphicsCard card : list) {
+//                oshi.add(" " + String.valueOf(card));
+//            }
+//        }
+  
