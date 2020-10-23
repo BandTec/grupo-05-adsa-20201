@@ -74,7 +74,6 @@ body {
     box-shadow: 6px 6px 10px 1px #29292946;
 }
 
-
 .bloco3 {
     background-color: white;
     width: 25%;
@@ -131,7 +130,7 @@ body {
 
 /*SEGUNDA DIVISORIA*/
 
-.divPassos{
+.divPassos {
     background-color: #dfe6e9;
     display: inline-flex;
     color: black;
@@ -365,11 +364,9 @@ body {
 }
 
 
-
-
 /*RESPONSIVIDADE MOBILE máximo de 600px*/
-@media  (max-width: 600px){
 
+@media (max-width: 600px) {
     #divPreta {
         background-color: #060E17;
         color: white;
@@ -379,15 +376,12 @@ body {
         height: 60%;
         z-index: 2;
     }
-
-
     #divPreta img {
         z-index: 3;
         width: 70%;
         margin-left: 15%;
         margin-top: 5%;
     }
-
     .pDivs {
         float: left;
         width: 100vw;
@@ -395,7 +389,6 @@ body {
         text-align: center;
         margin: 53% 8% 0% 0%
     }
-
     .left_area h3 {
         color: #fff;
         margin-top: 1px;
@@ -404,8 +397,6 @@ body {
         font-size: 19px;
         font-weight: 900;
     }
-
-    
     .bloco1 {
         background-color: white;
         width: 84%;
@@ -415,13 +406,11 @@ body {
         border-radius: 10px;
         box-shadow: 6px 6px 10px 1px #29292946;
     }
-
-    .div_bloco{
+    .div_bloco {
         float: left;
         width: 20%;
-        margin: 6% 8% 0% 7%;  
+        margin: 6% 8% 0% 7%;
     }
-
     #divBranca {
         background-color: #dfe6e9;
         display: block;
@@ -433,7 +422,6 @@ body {
         height: 60%;
         z-index: 2;
     }
-
     .divPassos {
         background-color: #060E17;
         display: inline-flex;
@@ -445,8 +433,7 @@ body {
         height: 173%;
         z-index: 2;
     }
-
-    .div_func {    
+    .div_func {
         background-color: white;
         width: 84%;
         height: 85%;
@@ -456,7 +443,6 @@ body {
         border-radius: 10px;
         box-shadow: 6px 6px 10px 1px #29292946;
     }
-
     .txt {
         float: left;
         padding-left: 43px;
@@ -464,7 +450,6 @@ body {
         text-align: justify;
         margin: 10% 0% 6% 0%;
     }
-
     #divBranca2 {
         background-color: #dfe6e9;
         display: inline-flex;
@@ -476,36 +461,30 @@ body {
         height: 60%;
         z-index: 2;
     }
-
     .img_icon {
         width: 23%;
     }
-
     #img_apoio {
         margin-left: 42%;
         margin-top: 17%;
         float: left;
     }
-
     #img_analise {
         margin-left: 37%;
         margin-top: 5%;
         float: left;
         width: 27%;
     }
-
     #img_suporte {
         margin-left: 38%;
         margin-top: 5%;
         float: left;
     }
-
-    #etapas{
+    #etapas {
         color: #060E17;
         background-color: white;
         height: 8%;
     }
-
     .div_sobre {
         background-color: white;
         width: 84%;
@@ -516,14 +495,12 @@ body {
         border-radius: 10px;
         box-shadow: 6px 6px 10px 1px #29292946;
     }
-
     #img_Computer {
         width: 83%;
         position: absolute;
         margin-top: 5%;
         margin-left: 0%;
     }
-
     .div_sobre h2 {
         float: right;
         color: #102842;
@@ -532,12 +509,10 @@ body {
         text-align: -webkit-right;
         font-size: 2rem;
     }
-
     .div_sobre h2 span {
         color: #ef441d;
         font-size: 2rem;
     }
-
     .div_sobre p {
         width: 70%;
         margin-top: 2%;
@@ -545,7 +520,6 @@ body {
         text-align: inherit;
         float: left;
     }
-    
     .div_principios {
         background-color: white;
         width: 100%;
@@ -555,7 +529,6 @@ body {
         margin-top: 270%;
         padding-top: 0%;
     }
-
     .bloco_um {
         background-color: white;
         width: 84%;
@@ -565,7 +538,6 @@ body {
         border-radius: 10px;
         box-shadow: 6px 6px 10px 1px #29292946;
     }
-
     .bloco_dois {
         background-color: white;
         width: 84%;
@@ -575,7 +547,6 @@ body {
         border-radius: 10px;
         box-shadow: 6px 6px 10px 1px #29292946;
     }
-
     .bloco_tres {
         background-color: white;
         width: 84%;
@@ -585,7 +556,6 @@ body {
         border-radius: 10px;
         box-shadow: 6px 6px 10px 1px #29292946;
     }
-
     #footer {
         background-color: #060E17;
         color: white;
@@ -597,7 +567,6 @@ body {
         padding-top: 4%;
         text-align: center;
     }
-
     .div_sobre p {
         width: 80%;
         margin-top: 0%;
@@ -605,30 +574,28 @@ body {
         text-align: inherit;
         float: left;
     }
-
     #footer h5 {
         font-weight: lighter;
         margin: 0;
         font-size: 11px;
         padding-top: 20.5%;
     }
-
     #footer img {
         width: 15%;
         margin-top: 6%;
         margin-bottom: -17%;
         margin-left: 2%;
     }
-
 }
+
 
 /*RESPONSIVIDADE MOBILE largura igual 375px*/
 
-@media (width:375px) {
-    .div_principios{
+@media Screen and (width:375px) {
+    .div_principios {
         margin-top: 230%;
     }
-    #footer{
+    #footer {
         margin-top: 99%;
     }
     .pDivs {
@@ -640,8 +607,7 @@ body {
 
 /*RESPONSIVIDADE MOBILE largura igual 425px*/
 
-@media (width:425px){
-
+@media (width:425px) {
     .pDivs {
         float: left;
         width: 78vw;
@@ -649,186 +615,151 @@ body {
         text-align: center;
         margin: 44% 0% 0% 9%;
     }
-
     #divPreta img {
         z-index: 3;
         width: 60%;
         margin-left: 19%;
         margin-top: 5%;
     }
-
     #divBranca .bloco1 p {
         margin-top: 10%;
     }
-
     .div_teto h2 {
         padding-top: 5% 0% 0% 0%;
     }
-
-    .bloco1{
+    .bloco1 {
         width: 60%;
         height: 50%;
         margin-left: 20%;
     }
-
     #divBranca .bloco1 p {
         width: 86%;
         font-size: 12px;
         margin-left: 7%;
         margin-top: 7%;
     }
-
-    .divPassos{
+    .divPassos {
         margin-top: 21%;
     }
-
-    .div_sobre p{
+    .div_sobre p {
         margin-top: 10%;
         margin-left: 5.5%;
         margin-top: 0%;
         width: 88%;
     }
-
-    .div_principios{
+    .div_principios {
         margin-top: 205%;
         height: 100%;
     }
-
-    .bloco1{
+    .bloco1 {
         margin-left: 21%;
     }
-
-    #footer{
+    #footer {
         margin-top: 100%;
     }
-
-    #footer h5{
+    #footer h5 {
         padding-top: 18.5%;
     }
-
-    .txt{
+    .txt {
         padding-left: 59px;
     }
-
 }
+
 
 /*RESPONSIVIDADE PC mínimo de 768px*/
 
-@media (width: 768px){
-
-    #divPreta{
+@media (width: 768px) {
+    #divPreta {
         margin-top: -2%;
     }
-
-    #divPreta img{
+    #divPreta img {
         width: 35%;
         margin-left: 27%;
         margin-top: 1%;
     }
-
-    .pDivs{
+    .pDivs {
         text-align: center;
         font-size: 14px;
         width: 56%;
         margin: 27% 9% 0% 17%
     }
-
     .card p span {
         color: #ef441d;
         font-size: 25px;
     }
-
-    .bloco1{
+    .bloco1 {
         margin-left: 6%;
         height: 75%;
     }
-
-    #divBranca{
+    #divBranca {
         width: 90%;
         padding-top: 12px;
         font-size: 20px;
     }
-
     .div_teto h2 {
         padding: 3% 7% 7% 7%;
         font-size: 20px;
     }
-
     #divBranca .bloco1 p {
         width: 75%;
         margin-left: 12%;
         font-size: 12px;
         text-align: center;
     }
-
-    .divPassos{
+    .divPassos {
         margin-left: -5.8%;
         margin-top: -3%;
         height: 110%;
     }
-
-    .div_teto{
+    .div_teto {
         height: 16%;
     }
-
     .txt {
         float: left;
         width: 27%;
         margin: 18% 2% 0% -9%;
     }
-
-    .div_sobre{
+    .div_sobre {
         margin-left: 2%;
         margin-top: -22%;
     }
-
-    .div_sobre h2{
+    .div_sobre h2 {
         margin-top: 26%;
     }
-
     #img_Computer {
         margin-top: 3%;
         margin-left: 1%;
     }
-
     .div_sobre p {
         width: 83%;
         font-size: 14px;
     }
-
-    .div_teto2{
+    .div_teto2 {
         width: 0;
     }
-
-    #footer{
+    #footer {
         margin-top: 38%;
     }
-
     .bloco_um {
         width: 28%;
         height: 52%;
         margin-left: 3%;
     }
-
-    .bloco_dois{
+    .bloco_dois {
         width: 28%;
         height: 52%;
     }
-
-    .bloco_tres{
+    .bloco_tres {
         width: 28%;
         height: 52%;
     }
-
     #footer img {
         width: 7%;
         margin-left: -8%;
     }
-
-    #footer h5{
+    #footer h5 {
         margin-left: -9%;
     }
-
     .div_func {
         width: 84%;
         height: 63%;
@@ -836,15 +767,12 @@ body {
         margin-left: 9.5%;
         margin-right: 6%;
     }
-
 }
-
 
 
 /*RESPONSIVIDADE PC mínimo de 1024px*/
 
-@media (min-width: 1024px){
-
+@media (min-width: 1024px) {
     #divPreta {
         background-color: #060E17;
         color: white;
@@ -854,160 +782,129 @@ body {
         height: 60%;
         z-index: 2;
     }
-
     #divPreta img {
         z-index: 3;
         width: 30%;
         margin-top: 3%;
         position: absolute;
     }
-
     .pDivs {
         float: left;
         width: 20%;
         margin: 6% 8% 0% 9%;
     }
-
     #divPreta {
         height: 52%;
     }
-
     #divPreta img {
         width: 32%;
         margin-left: 29%;
         margin-top: 1%;
     }
-
     .pDivs {
         width: 40%;
         margin: 20% 0% 0% 5%;
         font-size: 18px;
     }
-
-    .bloco1{
-        width: 22%;  
+    .bloco1 {
+        width: 22%;
         height: 64%;
     }
-
     #divBranca {
         margin-left: -5%;
         margin-top: 3%;
         margin-bottom: -3%;
     }
-    
-    #h2{
+    #h2 {
         padding-top: 3%;
     }
-
     #divBranca .bloco1 p {
         margin-left: 7%;
     }
-
     .div_func {
         margin-left: 2.4%;
     }
-
     .div_teto h2 {
         margin: 0;
         padding: 12%;
         text-align: center;
     }
-    
-    .div_sobre{
+    .div_sobre {
         margin-left: 2.3%;
         margin-top: -4%;
     }
-
     .div_sobre h2 {
         margin-top: 30%;
     }
-
     .div_sobre p {
         width: 85%;
         font-size: 18px;
     }
-
     .div_teto2 {
         width: 0;
     }
-
-    #explicacao{
+    #explicacao {
         width: 72%;
         font-size: 20px;
     }
-
-    #footer{
+    #footer {
         margin-top: 36%;
     }
-
     #footer img {
         width: 7%;
         margin-left: -8%;
     }
-
     #footer h5 {
         margin-left: -9%;
         font-size: 15px;
         padding-top: 1.5%;
     }
-
 }
+
 
 /*RESPONSIVIDADE PC mínimo de 2560px*/
 
-@media (min-width: 2560px){
-
+@media (min-width: 2560px) {
     .pDivs {
         font-size: 36px;
     }
-
     .card p span {
         color: #ef441d;
         font-size: 61px;
     }
-    
     #divBranca .bloco1 p {
         margin-left: 11%;
         font-size: 35px;
         width: 79%;
     }
-
     .div_teto h2 {
         font-size: 45px;
     }
-
     .txt {
         width: 17%;
         font-size: 32px;
         margin: 5% 4% 0% 0%;
     }
-
     .div_sobre h2 {
         margin-top: 18%;
         font-size: 90px;
     }
-
     .div_sobre h2 span {
         color: #ef441d;
         font-size: 7rem;
     }
-
     #explicacao {
         font-size: 43px;
     }
-
     .div_principios h6 {
         font-size: 3rem;
     }
-
     .div_sobre p {
         font-size: 34px;
     }
-
     #footer {
         margin-top: 33%;
     }
-
     #footer h5 {
         font-size: 30px;
         padding-top: 3.5%;
