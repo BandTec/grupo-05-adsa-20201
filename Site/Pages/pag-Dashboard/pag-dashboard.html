@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERVISOR - DASHBOARD</title>
+    <link rel="stylesheet" href="./style-pag-dashboard.css">
+
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+</head>
+<body>
+   
+    
+    
+   
+    <!-- Inicio nave da página -->
+
+    <div class="divNav"> <!-- Nave da página -->
+       <div class="divImg"> </div> <!-- Logo Supervisor -->
+
+       <button class="btnSair"> <!-- Botão Sair -->
+           <p class="pSair">SAIR</p> <!-- Texto do botão sair -->
+       </button>
+
+    </div>
+
+    <!-- Final nave da página -->
+
+
+
+    <!-- Inicio corpo da página -->
+
+
+    <!-- inicio visão geral -->
+    <div class="divVisaoGeral">
+    <p class="pVisaoGeral"> VISÃO GERAL </p>
+    </div>
+
+
+
+    <!-- menu lateral -->
+    <div class="divMenuLateral">
+
+        <!-- Nome e foto -->
+        <div class="divPersona">
+            <div class="divFoto"><img src="./Imagens/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
+            
+            <p class="pNome">Karina Wakassuqui</p>
+        </div>
+        <!-- Final nome e foto -->
+
+<hr class="hrTopo">
+
+        <!-- Começo informações de hardware -->
+       <div class="divInformacoesHard"></div>
+        <!-- Final informações de hardware -->
+
+<hr class="hrFinal">
+
+    </div>
+    <!-- final menu lateral -->
+
+
+
+
+    <!-- Div Status Máquinas -->
+    <div class="divMaquinas">
+        <button class="divMaquinaUm"> <span class="spanCritico"> 3 </span></button>
+
+        <button class="divMaquinaDois"> 12 </button>
+
+        <button class="divMaquinaTres"> 20 </button>
+    </div>
+    <!-- Fechamento Status Máquinas -->
+
+
+
+    <!-- div Gráficos -->
+    <div class="divGraficos">
+        <canvas id="canvasGrafSemanal" height="90"></canvas>
+    </div>
+    <!-- Final Gráficos -->
+
+
+
+
+</body>
+</html>
+<script src="./dash.js"></script>
+
+
+
+
+
