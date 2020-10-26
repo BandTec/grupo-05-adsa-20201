@@ -19,6 +19,8 @@ let chart = new Chart(canvasGrafSemanal, {
 
 
 
+
+
 function exibirGraficos(){
     document.getElementById('canvasGrafSemanal').style.display = "none";
     document.getElementsByClassName('divGraficos').innerHTML = '';
@@ -43,6 +45,11 @@ function exibirGraficos(){
     }
 });
 
+
+
+
+
+
 let grafStatusDisco = document.getElementById('canvasStatusDisco').getContext('2d');
 let canvasStatusDisco = new Chart(grafStatusDisco, {
 type: 'pie',
@@ -59,6 +66,11 @@ data: {
     ]
 }
 });
+
+
+
+
+
 
 
 let grafStatusMemoria = document.getElementById('canvasStatusMemoria').getContext('2d');
@@ -85,24 +97,14 @@ data: {
 
 
 
-{/* <p class="pFiltrarComputadores"> Filtrar computadores </p>
-<p class="pStatusMaquina"> Status: <span class="spanStatus" style="yellow"> Instavel </span> </p>
-<center>
-<button class="idMaquina" id="idGraficos" onclick="exibirGraficos()" >ID 001</button>
-<button class="idMaquina">ID 003</button>
-<button class="idMaquina">ID 012</button>
-<button class="idMaquina">ID 003</button>
-<button class="idMaquina">ID 012</button>
-<button class="idMaquina">ID 003</button>
-<button class="idMaquina">ID 012</button>
-<button class="idMaquina">ID 003</button>
-<button class="idMaquina">ID 012</button>
-<button class="idMaquina">ID 003</button>
-<button class="idMaquina">ID 012</button>
-<button class="idMaquina">ID 012</button>
-</center>  */}
 
 
+function exibirBotoes(){
+
+    document.getElementsByClassName('pFiltrarComputadores').style.display = "none";
+    
+    // document.getElementsByClassName('pFiltrarComputadores').innerHTML = "";
+    }
 
 }
 
