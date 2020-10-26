@@ -34,7 +34,7 @@ function exibirGraficos() {
                 label: 'Status da CPU (%)',
                 data: [80, 100, 100, 95, 90, 100],
                 backgroundColor: "#10284200",
-                borderColor: "#102842"
+                borderColor: "#2f3640"
             }]
         }
     });
@@ -49,7 +49,7 @@ function exibirGraficos() {
             datasets: [{
                 label: 'Status da CPU (%)',
                 data: [20, 80],
-                backgroundColor: ['green', '#F45B47'],
+                backgroundColor: ['#43B581', '#eb4d4b'],
             }]
         }
     });
@@ -65,14 +65,12 @@ function exibirGraficos() {
             datasets: [{
                 label: 'Status memória',
                 data: [80],
-                backgroundColor: ['#F45B47'],
+                backgroundColor: ['#eb4d4b'],
                 borderWidth: 1,
                 innerWidth: 70,
                 bodyFontSize: 12
             }]
         }
     });
-
-
 
 }

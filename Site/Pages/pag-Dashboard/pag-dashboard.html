@@ -59,20 +59,15 @@
         <!-- Começo informações de hardware -->
         <div class="divInformacoesHard" id="idInformacoesHard">
             <p class="pFiltrarComputadores"> Filtrar computadores </p>
-            <p class="pStatusMaquina"> Status: <span id="idSpanStatus" class="spanStatus"> Crítico </span> </p>
-            <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;">
-                <center>
+            <p class="pStatusMaquina"> Status: <span id="idSpanStatus" class="spanStatus"> </span> </p>
+            <div id="computadoresOk" style=" display: none; width: 100%; height: 90%;">
 
-
-
-                </center>
             </div>
-            <div id="computadoresCrits">
-                <center>
-                    <button class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID 001</button>
-                    <button class="idMaquina">ID 003</button>
-                    <button class="idMaquina">ID 012</button>
-                </center>
+            <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;">
+
+            </div>
+            <div id="computadoresCrits" style=" display: none; width: 100%; height: 90%;">
+
             </div>
         </div>
         <!-- Final informações de hardware -->
@@ -115,7 +110,7 @@
                 </div>
             </div>
 
-            <canvas id="canvasStatusCPU" height="50"></canvas>
+            <canvas id="canvasStatusCPU" height="55"></canvas>
         </div>
     </div>
     <!-- Final Gráficos -->
@@ -134,6 +129,11 @@
     let qtdComputadorAlerta = 0;
     let qtdComputadorCrit = 0;
 
+
+    let idComputadorOk = [];
+    let idComputadorAlerta = [];
+    let idComputadorCrit = [];
+
     function carregarDados() {
 
         for (let i = 0; i < qtdComputador; i++) {
@@ -143,10 +143,13 @@
             let dadoGpu = parseInt(Math.random() * 100 + 1);
 
             if ((dadoCpu < 60 && dadoMemoria < 60) || (dadoGpu < 60 && dadoDisco < 60)) {
+                idComputadorOk.push("00" + (i + 1));
                 qtdComputadorOk++;
             } else if ((dadoCpu <= 70 && dadoMemoria <= 70) || (dadoGpu <= 70 && dadoDisco <= 70)) {
+                idComputadorAlerta.push("00" + (i + 1));
                 qtdComputadorAlerta++;
             } else {
+                idComputadorCrit.push("00" + (i + 1));
                 qtdComputadorCrit++;
             }
         }
@@ -158,22 +161,58 @@
 
     }
 
+    function exibirInfoCrit() {
 
+        document.getElementById('computadoresOk').style.display = "none";
+        document.getElementById('computadoresAlerta').style.display = "none";
+        document.getElementById('computadoresCrits').style.display = "block";
+
+        computadoresCrits.innerHTML = '';
+
+        document.getElementById('idSpanStatus').style.color = "#eb4d4b"
+        document.getElementById('idSpanStatus').innerHTML = "Crítico"
+
+        for (let i = 0; i < qtdComputadorCrit; i++) {
+
+            computadoresCrits.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorCrit[i]}</button> <br>`;
+        }
+
+    }
 
     function exibirInfoAlerta() {
 
+        document.getElementById('computadoresOk').style.display = "none";
         document.getElementById('computadoresCrits').style.display = "none";
         document.getElementById('computadoresAlerta').style.display = "block";
+
+        computadoresAlerta.innerHTML = '';
 
         document.getElementById('idSpanStatus').style.color = "#f9ca24"
         document.getElementById('idSpanStatus').innerHTML = "Em Alerta"
 
-        computadoresAlerta.style.background = 'blue';
+        for (let i = 0; i < qtdComputadorAlerta; i++) {
 
-        // for (let i = 0; i < 5; i++) {
+            computadoresAlerta.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorAlerta[i]}</button> <br>`;
+        }
+
+    }
+
+    function exibirInfoOk() {
+
+        document.getElementById('computadoresOk').style.display = "block";
+        document.getElementById('computadoresCrits').style.display = "none";
+        document.getElementById('computadoresAlerta').style.display = "none";
+
+        computadoresOk.innerHTML = '';
+
+        document.getElementById('idSpanStatus').style.color = "#43B581"
+        document.getElementById('idSpanStatus').innerHTML = "Estável"
 
 
-        // }
+        for (let i = 0; i < qtdComputadorOk; i++) {
+
+            computadoresOk.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorOk[i]}</button> <br>`;
+        }
 
     }
 </script>

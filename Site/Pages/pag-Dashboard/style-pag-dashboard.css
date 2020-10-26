@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .divNav {
@@ -161,34 +162,36 @@ body {
 }
 
 .divFarolCrit {
-    background-color: red;
-    border: solid black 2px;
-    color: white;
+    background-color: #eb4d4b;
+    box-shadow: 4.5px 4.5px 6px -2px #222;
+    color: #f9f9f9;
     font-size: 62px;
 }
 
 .divFarolCrit:hover {
-    background-color: #F45B47;
+    cursor: pointer;
 }
 
 .divFarolAlerta {
-    color: white;
+    color: #f9f9f9;
+    box-shadow: 4.5px 4.5px 6px -2px #222;
     font-size: 62px;
-    background-color: rgba(255, 255, 0, 0.775);
-}
-
-.divFarolAlerta:hover {
     background-color: #F7DD69;
 }
 
+.divFarolAlerta:hover {
+    cursor: pointer;
+}
+
 .divFarolOk {
+    color: #f9f9f9;
     background-color: #43B581;
-    color: white;
+    box-shadow: 4.5px 4.5px 6px -2px #222;
     font-size: 62px;
 }
 
 .divFarolOk:hover {
-    background-color: #43B581;
+    cursor: pointer;
 }
 
 .idMaquina {
@@ -219,7 +222,7 @@ body {
     width: 250px;
     height: 100px;
     margin-left: 60px;
-    border: solid black 1px;
+    border: none;
 }
 
 .divGraficos {
