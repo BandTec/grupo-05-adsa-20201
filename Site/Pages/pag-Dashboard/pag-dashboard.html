@@ -53,10 +53,20 @@
 <hr class="hrTopo">
 
         <!-- Começo informações de hardware -->
-       <div class="divInformacoesHard"></div>
+       <div class="divInformacoesHard" id="idInformacoesHard">
+           <p class="pFiltrarComputadores"> Filtrar computadores </p>
+           <p class="pStatusMaquina"> Status: <span class="spanStatus"> Crítico </span> </p>
+<center>
+           <button class="idMaquina" id="idGraficos" onclick="exibirGraficos()" >ID 001</button>
+           <button class="idMaquina">ID 003</button>
+           <button class="idMaquina">ID 012</button>
+</center>           
+       </div>
         <!-- Final informações de hardware -->
 
 <hr class="hrFinal">
+
+<button class="btnDiscord"><img src="./Imagens/discord (1).png" alt="" width="35" height="35" ></button>
 
     </div>
     <!-- final menu lateral -->
@@ -68,7 +78,7 @@
     <div class="divMaquinas">
         <button class="divMaquinaUm"> <span class="spanCritico"> 3 </span></button>
 
-        <button class="divMaquinaDois"> 12 </button>
+        <button class="divMaquinaDois" onclick="teste123()" id="idInstavel"> 12 </button>
 
         <button class="divMaquinaTres"> 20 </button>
     </div>
@@ -78,7 +88,22 @@
 
     <!-- div Gráficos -->
     <div class="divGraficos">
+
         <canvas id="canvasGrafSemanal" height="90"></canvas>
+
+        <div class="divStatusPC">
+            
+            <div class="divDiscoMemoria">
+                <div class="divStatusDisco">
+                    <canvas id="canvasStatusDisco"  height="150" class="classStatusDisco"></canvas>
+                </div>  
+                    <div class="divStatusMemoria">
+                    <canvas id="canvasStatusMemoria" class="divStatusDisco" height="0.50" ></canvas>
+                    </div>
+            </div>
+    
+            <canvas id="canvasStatusCPU" height="50"></canvas>
+        </div>
     </div>
     <!-- Final Gráficos -->
 
@@ -88,6 +113,16 @@
 </body>
 </html>
 <script src="./dash.js"></script>
+<script>
+    function teste123(){
+
+console.log("Foi!!!");
+// document.getElementById('idInformacoesHard').style.display = "none";
+
+// document.getElementById('idInformacoesHard').innerHTML = "";
+}
+
+</script>
 
 
 

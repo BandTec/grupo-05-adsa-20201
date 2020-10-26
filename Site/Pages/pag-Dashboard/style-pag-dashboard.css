@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 .divNav{
     position: absolute;
 width: 100vw;
@@ -62,6 +66,7 @@ background: #EF441D;
   border: #102842 solid 1px;
   background-color: #EFEAEA;
 
+
   margin-top: 60px;
   margin-left: 2.5vw;
   width: 200px;  
@@ -103,15 +108,35 @@ background: #EF441D;
 }
 
 .hrFinal{
-margin-top: -0.5px;
+    margin-top: -0.5px;
     width: 150px;
 }
+
+
+
+/* Inicio botoes computadores */
+.pFiltrarComputadores{
+    text-align: center;
+
+}
+
+.pStatusMaquina{
+    text-align: center;
+}
+
+.spanStatus{
+    color: red;
+}
+/* Final botões computadores */
+
+
 
 /* Começo informações de hardware */
 .divInformacoesHard{
     margin-left: 1px;
     background-color: white;
     margin-top: -7px;
+    overflow: scroll;
 
     width: 197px;
     height: 340px;
@@ -121,7 +146,7 @@ margin-top: -0.5px;
 
 
 
-/* final menu lateral */
+
 
 
 .pVisaoGeral{
@@ -181,6 +206,27 @@ margin-top: -0.5px;
     background-color:  #43B581;
 }
 
+.idMaquina{
+    background-color: transparent;
+    margin-top: 25px;
+    display: block;
+    width: 150px;
+    height: 25px;
+    border: solid black 1px;
+
+}
+
+.idMaquina:hover{
+    background-color: #FB8864;
+}
+
+.btnDiscord{
+    float: right;
+    border: transparent;
+    background-color: transparent;
+}
+/* Final barra lateral */
+
 
 
 .divMaquinaUm, .divMaquinaDois, .divMaquinaTres{
@@ -202,11 +248,28 @@ margin-top: -0.5px;
     height: 330px;
 }
 
-/* #primeiroGrafico{
-    width: 400px;
-    height: 400px;
+.divDiscoMemoria{
+    margin-left: 150px;
+    display: flex;
+    width: 600px;
+}
 
-} */
+.divStatusMemoria{
+    /* border: solid black 2px; */
+    padding-left: 60px;
+    margin-left: 50px;
+}
+
+.divStatusDisco{
+
+    /* border: solid black 1px; */
+    width: 300px;
+    height: 150px;
+}
+
+
+
+
 
 
 
