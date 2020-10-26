@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUPERVISOR - DASHBOARD</title>
     <link rel="stylesheet" href="./style-pag-dashboard.css">
 
-   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 </head>
+
 <body>
-   
-    
-    
-   
+
+
+
+
     <!-- Inicio nave da página -->
 
+<<<<<<< HEAD
     <div class="divNav"> <!-- Nave da página -->
 
        <div class="divImg"> </div> <!-- Logo Supervisor -->
 
         <button class="btnSair"> <!-- Botão Sair -->
 
+=======
+    <div class="divNav">
+        <!-- Nave da página -->
+        <div class="divImg"> </div>
+        <!-- Logo Supervisor -->
+
+        <button class="btnSair"> <!-- Botão Sair -->
+>>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
            <p class="pSair">SAIR</p> <!-- Texto do botão sair -->
 
         </button>
@@ -42,9 +53,13 @@
 
     <!-- inicio visão geral -->
     <div class="divVisaoGeral">
+<<<<<<< HEAD
 
     <p class="pVisaoGeral"> VISÃO GERAL </p>
 
+=======
+        <p class="pVisaoGeral"> VISÃO GERAL </p>
+>>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
     </div>
     <!-- Final visão geral -->
 
@@ -65,12 +80,13 @@
         <div class="divPersona">
 
             <div class="divFoto"><img src="./Imagens/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
-            
+
             <p class="pNome">Karina Wakassuqui</p>
 
         </div>
         <!-- Final nome e foto -->
 
+<<<<<<< HEAD
 
 
 
@@ -112,6 +128,25 @@
     <button class="btnDiscord">
         <img src="./Imagens/discord (1).png" alt="" width="35" height="35" >
     </button>
+=======
+        <hr class="hrTopo">
+
+        <!-- Começo informações de hardware -->
+        <div class="divInformacoesHard" id="idInformacoesHard">
+            <p class="pFiltrarComputadores"> Filtrar computadores </p>
+            <p class="pStatusMaquina"> Status: <span class="spanStatus"> Crítico </span> </p>
+            <center>
+                <button class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID 001</button>
+                <button class="idMaquina">ID 003</button>
+                <button class="idMaquina">ID 012</button>
+            </center>
+        </div>
+        <!-- Final informações de hardware -->
+
+        <hr class="hrFinal">
+
+        <button class="btnDiscord"><img src="./Imagens/discord (1).png" alt="" width="35" height="35" ></button>
+>>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
 
     </div>
     <!-- final menu lateral -->
@@ -126,13 +161,21 @@
 
     <!-- Div Status Máquinas -->
     <div class="divMaquinas">
+<<<<<<< HEAD
 
         <button class="divMaquinaUm"> <span class="spanCritico"> 3 </span></button>
+=======
+        <button class="divMaquinaUm" onclick="exibirInfoCrit()"> <span class="spanCritico"> 3 </span></button>
+>>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
 
         <button class="divMaquinaDois" onclick="exibirBotoes()" id="idInstavel"> 12 </button>
 
+<<<<<<< HEAD
         <button class="divMaquinaTres"> 20 </button>
 
+=======
+        <button class="divMaquinaTres" onclick="exibirInfoOk()"> 20 </button>
+>>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
     </div>
     <!-- Fechamento Status Máquinas -->
 
@@ -149,10 +192,11 @@
         <canvas id="canvasGrafSemanal" height="90"></canvas>
 
         <div class="divStatusPC">
-            
+
             <div class="divDiscoMemoria">
 
                 <div class="divStatusDisco">
+<<<<<<< HEAD
 
                     <canvas id="canvasStatusDisco"  height="150" class="classStatusDisco"></canvas>
                 </div>  
@@ -162,8 +206,15 @@
                     <canvas id="canvasStatusMemoria" class="divStatusDisco" height="0.50" ></canvas>
                     </div>
 
+=======
+                    <canvas id="canvasStatusDisco" height="150" class="classStatusDisco"></canvas>
+                </div>
+                <div class="divStatusMemoria">
+                    <canvas id="canvasStatusMemoria" class="divStatusDisco" height="0.50"></canvas>
+                </div>
+>>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
             </div>
-    
+
             <canvas id="canvasStatusCPU" height="50"></canvas>
 
         </div>
@@ -179,11 +230,22 @@
 
 
 </body>
+
 </html>
 <script src="./dash.js"></script>
+<<<<<<< HEAD
 
 
 
 
+=======
+<script>
+    function teste123() {
+>>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
 
+        console.log("Foi!!!");
+        // document.getElementById('idInformacoesHard').style.display = "none";
 
+        // document.getElementById('idInformacoesHard').innerHTML = "";
+    }
+</script>
