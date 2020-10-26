@@ -5,8 +5,26 @@
  */
 package br.com.listinha1.apicorreta;
 
+import static br.com.listinha1.apicorreta.ApiOshi.mostrarCpu;
+import static br.com.listinha1.apicorreta.ApiOshi.mostrarDisco;
+import static br.com.listinha1.apicorreta.ApiOshi.mostrarMemoria;
+import static br.com.listinha1.apicorreta.ApiOshi.mostrarPlacaGrafica;
+import static br.com.listinha1.apicorreta.ApiOshi.mostrarProcessos;
+import static br.com.listinha1.apicorreta.ApiOshi.mostrarSistemaOperacional;
 import br.com.listinha1.apicorreta.GeradorValor;
+import com.sun.glass.ui.Size;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.List;
+import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
+import oshi.hardware.GlobalMemory;
+import oshi.hardware.GraphicsCard;
+import oshi.hardware.HWDiskStore;
+import oshi.hardware.HardwareAbstractionLayer;
+import oshi.software.os.OSProcess;
+import oshi.software.os.OperatingSystem;
+import oshi.software.os.OperatingSystem.ProcessSort;
+import oshi.util.FormatUtil;
 
 /**
  *
@@ -16,8 +34,21 @@ public class Tela extends javax.swing.JFrame {
     
     GeradorValor gerarRandom = new GeradorValor();
     
+    ApiOshi api = new ApiOshi();
+    SystemInfo si = new SystemInfo(); // Instanciando objeto SystemInfo
+    HardwareAbstractionLayer hal = si.getHardware(); //Criando o objeto hal para adquirir mais facilmente os dados do hardware
+    CentralProcessor processor = hal.getProcessor(); //Instânciando objeto CentralProcessor
+    GlobalMemory memory = hal.getMemory();//MEMÓRIA
+    OperatingSystem os = si.getOperatingSystem();//SO
+    List<GraphicsCard> gpu = hal.getGraphicsCards();//GPU
+    List<HWDiskStore> disco = hal.getDiskStores(); //DISCO
+    List<OSProcess> procs = os.getProcesses(5,ProcessSort.CPU);
+    
+ 
+    
     public Tela() {
         initComponents();
+ 
     }
     
     @SuppressWarnings("unchecked")
@@ -38,9 +69,11 @@ public class Tela extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnCPU = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        lblCPU = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        lblNome3 = new javax.swing.JLabel();
+        lblValor3 = new javax.swing.JLabel();
+        lblValor1 = new javax.swing.JLabel();
+        lblValor2 = new javax.swing.JLabel();
         btnMemoria = new javax.swing.JButton();
         btnGPU = new javax.swing.JButton();
         btnDisco = new javax.swing.JButton();
@@ -69,7 +102,7 @@ public class Tela extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 721, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,52 +212,87 @@ public class Tela extends javax.swing.JFrame {
         jLabel6.setText("DASHBOARD");
 
         btnCPU.setText("CPU");
+        btnCPU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCPUActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
-        lblCPU.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        lblCPU.setForeground(new java.awt.Color(0, 0, 0));
-        lblCPU.setText("CPU");
+        lblTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(0, 0, 0));
+        lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Processador:");
+        lblNome3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblNome3.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Processador:");
+        lblValor3.setBackground(new java.awt.Color(255, 0, 255));
+        lblValor3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblValor3.setForeground(new java.awt.Color(0, 0, 0));
+
+        lblValor1.setBackground(new java.awt.Color(255, 0, 255));
+        lblValor1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblValor1.setForeground(new java.awt.Color(0, 0, 0));
+
+        lblValor2.setBackground(new java.awt.Color(255, 0, 255));
+        lblValor2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblValor2.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel4)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(276, 276, 276)
-                        .addComponent(lblCPU)))
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(lblNome3)
+                .addGap(62, 62, 62)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblValor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblValor2, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(244, 244, 244))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(83, 83, 83)
+                    .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(72, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lblCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addContainerGap(178, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99)
+                .addComponent(lblValor2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblValor3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(lblNome3)
+                .addContainerGap(99, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(85, 85, 85)
+                    .addComponent(lblValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(247, Short.MAX_VALUE)))
         );
 
         btnMemoria.setText("MEMÓRIA");
+        btnMemoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMemoriaActionPerformed(evt);
+            }
+        });
 
         btnGPU.setText("GPU");
+        btnGPU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGPUActionPerformed(evt);
+            }
+        });
 
         btnDisco.setText("DISCO");
         btnDisco.addActionListener(new java.awt.event.ActionListener() {
@@ -234,8 +302,18 @@ public class Tela extends javax.swing.JFrame {
         });
 
         bntSO.setText("S.O");
+        bntSO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntSOActionPerformed(evt);
+            }
+        });
 
-        btnInfo.setText("INFO");
+        btnInfo.setText("PROCESSOS");
+        btnInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfoActionPerformed(evt);
+            }
+        });
 
         btnAtualizar.setText("Atualizar");
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -250,14 +328,13 @@ public class Tela extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAtualizar))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -269,20 +346,21 @@ public class Tela extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bntSO, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jpEstavel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jpAtencao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jpRisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33))
+                        .addComponent(jpRisco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAtualizar, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -301,14 +379,17 @@ public class Tela extends javax.swing.JFrame {
                     .addComponent(btnInfo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDiscoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscoActionPerformed
-
+        lblTitulo.setText("DISCO");//Renomeando título
+        lblValor1.setText(disco.toString());
+        lblValor3.setText("");
+        lblValor2.setText("");
     }//GEN-LAST:event_btnDiscoActionPerformed
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
@@ -316,14 +397,51 @@ public class Tela extends javax.swing.JFrame {
         gerarRandom.alterarValor(30);
         lblEstavel.setText(gerarRandom.getNumRandom().toString());
         //em atenção
-        gerarRandom.alterarValor(30);
+        gerarRandom.alterarValor(20);
         lblAtencao.setText(gerarRandom.getNumRandom().toString());
         //em risco
         gerarRandom.alterarValor(10);
         lblRisco.setText(gerarRandom.getNumRandom().toString());
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
-    
+    private void btnCPUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPUActionPerformed
+        lblTitulo.setText("CPU");//Renomeando título
+        lblValor1.setText(String.format("Detalhes do processador: \n %s\n", processor.toString()));//detalhesCPU
+        lblValor2.setText(String.format("\nFrequência máxima: %s", FormatUtil.formatHertz(processor.getMaxFreq())));//frequência máx
+        long[] freqns = processor.getCurrentFreq();//frequência atual
+        for (Integer i = 0; i < freqns.length; i++){
+            lblValor3.setText(String.format("%dº - %s,",i, FormatUtil.formatHertz(freqns[i])));      
+        }     
+    }//GEN-LAST:event_btnCPUActionPerformed
+
+    private void btnMemoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMemoriaActionPerformed
+        lblTitulo.setText("MEMÓRIA");//Renomeando título   
+        lblValor1.setText(String.format("\nEspaço disposnível/utilizado: \n%s\n", memory.toString()));//MEMÓRIA        
+        lblValor2.setText(String.format("Memórias físicas: %s", memory.getPhysicalMemory()));//detalhes memorias físicas
+        lblValor3.setText(String.format("Memórias virtuais: %s", memory.getVirtualMemory()));//detalhes memorias virtuais
+    }//GEN-LAST:event_btnMemoriaActionPerformed
+
+    private void bntSOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSOActionPerformed
+        lblTitulo.setText("SISTEMA OPERACIONAL");
+        lblValor1.setText(String.format("Sistema Operacional: \n %s\n", os.toString()));
+        lblValor3.setText("");
+        lblValor2.setText("");
+    }//GEN-LAST:event_bntSOActionPerformed
+
+    private void btnGPUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGPUActionPerformed
+        lblTitulo.setText("PLACA GRÁFICA");//Renomeando título
+        lblValor1.setText(gpu.toString());
+        lblValor3.setText("");
+        lblValor2.setText("");
+    }//GEN-LAST:event_btnGPUActionPerformed
+
+    private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
+        lblTitulo.setText("PROCESSOS");//Renomeando título
+        lblValor1.setText(procs.toString());
+        lblValor3.setText("");
+        lblValor2.setText("");
+    }//GEN-LAST:event_btnInfoActionPerformed
+
     public static void main(String args[]) {
 
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -366,18 +484,20 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jpAtencao;
     private javax.swing.JPanel jpEstavel;
     private javax.swing.JPanel jpRisco;
     private javax.swing.JLabel lblAtencao;
-    private javax.swing.JLabel lblCPU;
     private javax.swing.JLabel lblEstavel;
+    private javax.swing.JLabel lblNome3;
     private javax.swing.JLabel lblRisco;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblValor1;
+    private javax.swing.JLabel lblValor2;
+    private javax.swing.JLabel lblValor3;
     // End of variables declaration//GEN-END:variables
 }
