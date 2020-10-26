@@ -17,13 +17,7 @@ let chart = new Chart(canvasGrafSemanal, {
 
 
 
-<<<<<<< HEAD
-
-
-function exibirGraficos(){
-=======
 function exibirGraficos() {
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
     document.getElementById('canvasGrafSemanal').style.display = "none";
     document.getElementsByClassName('divGraficos').innerHTML = '';
 
@@ -41,65 +35,9 @@ function exibirGraficos() {
                 data: [80, 100, 100, 95, 90, 100],
                 backgroundColor: "#10284200",
                 borderColor: "#102842"
-<<<<<<< HEAD
-            }
-        ]
-    }
-});
-
-
-
-
-
-
-let grafStatusDisco = document.getElementById('canvasStatusDisco').getContext('2d');
-let canvasStatusDisco = new Chart(grafStatusDisco, {
-type: 'pie',
-                    
-data: {
-    labels: ['Livre', 'Em uso'],
-                
-    datasets: [
-        {
-            label: 'Status da CPU (%)',
-            data: [20, 80],
-            backgroundColor: ['#F45B47', 'green'],
-        }
-    ]
-}
-});
-
-
-
-
-
-
-
-let grafStatusMemoria = document.getElementById('canvasStatusMemoria').getContext('2d');
-let canvasStatusMemoria = new Chart(grafStatusMemoria, {
-type: 'bar',
-                    
-data: {
-    labels: ['Em uso'],
-                
-    datasets: [
-        {
-            label: 'Status memória',
-            data: [80],
-            backgroundColor: ['#F45B47'],
-            borderWidth: 1,
-            innerWidth: 70,
-            bodyFontSize: 12
-        }
-    ]
-}
-});
-
-=======
             }]
         }
     });
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
 
     let grafStatusDisco = document.getElementById('canvasStatusDisco').getContext('2d');
     let canvasStatusDisco = new Chart(grafStatusDisco, {
@@ -108,25 +46,14 @@ data: {
         data: {
             labels: ['Livre', 'Em uso'],
 
-<<<<<<< HEAD
-
-
-=======
             datasets: [{
                 label: 'Status da CPU (%)',
                 data: [20, 80],
-                backgroundColor: ['#F45B47', 'green'],
+                backgroundColor: ['green', '#F45B47'],
             }]
         }
     });
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
 
-function exibirBotoes(){
-
-    document.getElementsByClassName('pFiltrarComputadores').style.display = "none";
-    
-    // document.getElementsByClassName('pFiltrarComputadores').innerHTML = "";
-    }
 
     let grafStatusMemoria = document.getElementById('canvasStatusMemoria').getContext('2d');
     let canvasStatusMemoria = new Chart(grafStatusMemoria, {
@@ -145,29 +72,6 @@ function exibirBotoes(){
             }]
         }
     });
-
-
-
-
-
-    {
-        /* <p class="pFiltrarComputadores"> Filtrar computadores </p>
-        <p class="pStatusMaquina"> Status: <span class="spanStatus" style="yellow"> Instavel </span> </p>
-        <center>
-        <button class="idMaquina" id="idGraficos" onclick="exibirGraficos()" >ID 001</button>
-        <button class="idMaquina">ID 003</button>
-        <button class="idMaquina">ID 012</button>
-        <button class="idMaquina">ID 003</button>
-        <button class="idMaquina">ID 012</button>
-        <button class="idMaquina">ID 003</button>
-        <button class="idMaquina">ID 012</button>
-        <button class="idMaquina">ID 003</button>
-        <button class="idMaquina">ID 012</button>
-        <button class="idMaquina">ID 003</button>
-        <button class="idMaquina">ID 012</button>
-        <button class="idMaquina">ID 012</button>
-        </center>  */
-    }
 
 
 

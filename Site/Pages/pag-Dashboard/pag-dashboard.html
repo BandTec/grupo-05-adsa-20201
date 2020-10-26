@@ -11,40 +11,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 </head>
 
-<body>
+<body onload="carregarDados()">
 
 
 
 
     <!-- Inicio nave da página -->
 
-<<<<<<< HEAD
-    <div class="divNav"> <!-- Nave da página -->
-
-       <div class="divImg"> </div> <!-- Logo Supervisor -->
-
-        <button class="btnSair"> <!-- Botão Sair -->
-
-=======
     <div class="divNav">
         <!-- Nave da página -->
         <div class="divImg"> </div>
         <!-- Logo Supervisor -->
 
         <button class="btnSair"> <!-- Botão Sair -->
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
            <p class="pSair">SAIR</p> <!-- Texto do botão sair -->
-
-        </button>
+       </button>
 
     </div>
 
     <!-- Final nave da página -->
-
-
-
-
-
 
 
 
@@ -53,100 +38,48 @@
 
     <!-- inicio visão geral -->
     <div class="divVisaoGeral">
-<<<<<<< HEAD
-
-    <p class="pVisaoGeral"> VISÃO GERAL </p>
-
-=======
         <p class="pVisaoGeral"> VISÃO GERAL </p>
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
     </div>
-    <!-- Final visão geral -->
-
-
-
-
-
-
 
 
 
     <!-- menu lateral -->
     <div class="divMenuLateral">
 
-
-
         <!-- Nome e foto -->
         <div class="divPersona">
-
             <div class="divFoto"><img src="./Imagens/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
 
             <p class="pNome">Karina Wakassuqui</p>
-
         </div>
         <!-- Final nome e foto -->
 
-<<<<<<< HEAD
-
-
-
-    <hr class="hrTopo"> <!-- Linha entre o nome e os status das máquinas (linha 1)-->
-
-
-
-
-
-        <!-- Começo informações de hardware -->
-       <div class="divInformacoesHard" id="idInformacoesHard">
-
-           <p class="pFiltrarComputadores"> Filtrar computadores </p>
-
-           <p class="pStatusMaquina"> Status: <span class="spanStatus"> Crítico </span> </p>
-
-                <center>
-                        <button class="idMaquina" id="idGraficos" onclick="exibirGraficos()" >ID 001</button>
-                        <button class="idMaquina">ID 003</button>
-                        <button class="idMaquina">ID 012</button>
-                </center>         
-
-       </div>
-        <!-- Final informações de hardware -->
-
-
-
-
-
-
-    <hr class="hrFinal"> <!-- Linha de baixo dos botões (linha dois)-->
-
-
-
-
-
-
-
-    <button class="btnDiscord">
-        <img src="./Imagens/discord (1).png" alt="" width="35" height="35" >
-    </button>
-=======
         <hr class="hrTopo">
 
         <!-- Começo informações de hardware -->
         <div class="divInformacoesHard" id="idInformacoesHard">
             <p class="pFiltrarComputadores"> Filtrar computadores </p>
-            <p class="pStatusMaquina"> Status: <span class="spanStatus"> Crítico </span> </p>
-            <center>
-                <button class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID 001</button>
-                <button class="idMaquina">ID 003</button>
-                <button class="idMaquina">ID 012</button>
-            </center>
+            <p class="pStatusMaquina"> Status: <span id="idSpanStatus" class="spanStatus"> Crítico </span> </p>
+            <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;">
+                <center>
+
+
+
+                </center>
+            </div>
+            <div id="computadoresCrits">
+                <center>
+                    <button class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID 001</button>
+                    <button class="idMaquina">ID 003</button>
+                    <button class="idMaquina">ID 012</button>
+                </center>
+            </div>
         </div>
         <!-- Final informações de hardware -->
 
         <hr class="hrFinal">
 
         <button class="btnDiscord"><img src="./Imagens/discord (1).png" alt="" width="35" height="35" ></button>
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
 
     </div>
     <!-- final menu lateral -->
@@ -154,35 +87,15 @@
 
 
 
-
-
-
-
-
     <!-- Div Status Máquinas -->
-    <div class="divMaquinas">
-<<<<<<< HEAD
+    <div class="divFarois">
+        <button class="divFarolCrit" onclick="exibirInfoCrit()" id="idQtdCrit"> - </button>
 
-        <button class="divMaquinaUm"> <span class="spanCritico"> 3 </span></button>
-=======
-        <button class="divMaquinaUm" onclick="exibirInfoCrit()"> <span class="spanCritico"> 3 </span></button>
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
+        <button class="divFarolAlerta" onclick="exibirInfoAlerta()" id="idQtdAlerta"> - </button>
 
-        <button class="divMaquinaDois" onclick="exibirBotoes()" id="idInstavel"> 12 </button>
-
-<<<<<<< HEAD
-        <button class="divMaquinaTres"> 20 </button>
-
-=======
-        <button class="divMaquinaTres" onclick="exibirInfoOk()"> 20 </button>
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
+        <button class="divFarolOk" onclick="exibirInfoOk()" id="idQtdOk"> - </button>
     </div>
     <!-- Fechamento Status Máquinas -->
-
-
-
-
-
 
 
 
@@ -194,37 +107,18 @@
         <div class="divStatusPC">
 
             <div class="divDiscoMemoria">
-
                 <div class="divStatusDisco">
-<<<<<<< HEAD
-
-                    <canvas id="canvasStatusDisco"  height="150" class="classStatusDisco"></canvas>
-                </div>  
-
-                    <div class="divStatusMemoria">
-
-                    <canvas id="canvasStatusMemoria" class="divStatusDisco" height="0.50" ></canvas>
-                    </div>
-
-=======
                     <canvas id="canvasStatusDisco" height="150" class="classStatusDisco"></canvas>
                 </div>
                 <div class="divStatusMemoria">
                     <canvas id="canvasStatusMemoria" class="divStatusDisco" height="0.50"></canvas>
                 </div>
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
             </div>
 
             <canvas id="canvasStatusCPU" height="50"></canvas>
-
         </div>
-
     </div>
     <!-- Final Gráficos -->
-
-
-
-
 
 
 
@@ -233,19 +127,53 @@
 
 </html>
 <script src="./dash.js"></script>
-<<<<<<< HEAD
-
-
-
-
-=======
 <script>
-    function teste123() {
->>>>>>> 1d156216f87597aef0fe27b94c65588d51920e03
+    let qtdComputador = parseInt(Math.random() * 30 + 1);
 
-        console.log("Foi!!!");
-        // document.getElementById('idInformacoesHard').style.display = "none";
+    let qtdComputadorOk = 0;
+    let qtdComputadorAlerta = 0;
+    let qtdComputadorCrit = 0;
 
-        // document.getElementById('idInformacoesHard').innerHTML = "";
+    function carregarDados() {
+
+        for (let i = 0; i < qtdComputador; i++) {
+            let dadoCpu = parseInt(Math.random() * 100 + 1);
+            let dadoMemoria = parseInt(Math.random() * 100 + 1);
+            let dadoDisco = parseInt(Math.random() * 100 + 1);
+            let dadoGpu = parseInt(Math.random() * 100 + 1);
+
+            if ((dadoCpu < 60 && dadoMemoria < 60) || (dadoGpu < 60 && dadoDisco < 60)) {
+                qtdComputadorOk++;
+            } else if ((dadoCpu <= 70 && dadoMemoria <= 70) || (dadoGpu <= 70 && dadoDisco <= 70)) {
+                qtdComputadorAlerta++;
+            } else {
+                qtdComputadorCrit++;
+            }
+        }
+
+        idQtdOk.innerHTML = qtdComputadorOk;
+        idQtdAlerta.innerHTML = qtdComputadorAlerta;
+        idQtdCrit.innerHTML = qtdComputadorCrit;
+
+
+    }
+
+
+
+    function exibirInfoAlerta() {
+
+        document.getElementById('computadoresCrits').style.display = "none";
+        document.getElementById('computadoresAlerta').style.display = "block";
+
+        document.getElementById('idSpanStatus').style.color = "#f9ca24"
+        document.getElementById('idSpanStatus').innerHTML = "Em Alerta"
+
+        computadoresAlerta.style.background = 'blue';
+
+        // for (let i = 0; i < 5; i++) {
+
+
+        // }
+
     }
 </script>

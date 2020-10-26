@@ -1,48 +1,43 @@
-body{
+body {
     overflow: hidden;
 }
 
-.divNav{
+.divNav {
     position: absolute;
-width: 100vw;
-height: 60px;
-left: 0px;
-top: 0px;
-
-background: #102842;
+    width: 100vw;
+    height: 60px;
+    left: 0px;
+    top: 0px;
+    background: #102842;
 }
 
-.divImg{
-    
+.divImg {
     position: absolute;
     width: 300px;
     height: 100px;
     left: 22px;
     top: 9px;
-
-background: url(./Imagens/LogoSpervisor.png);
-background-repeat: no-repeat;
+    background: url(./Imagens/LogoSpervisor.png);
+    background-repeat: no-repeat;
 }
 
-.btnSair{
+.btnSair {
     border: none;
     outline: none;
-
     position: absolute;
     width: 116px;
     height: 25px;
     left: 85vw;
     top: 3vh;
-
-background: #EF441D;
-/* transform: matrix(1, 0, 0, -1, 0, 0); */
+    background: #EF441D;
+    /* transform: matrix(1, 0, 0, -1, 0, 0); */
 }
 
-.btnSair:hover{
+.btnSair:hover {
     background-color: rgba(137, 43, 226, 0.241);
 }
 
-.pSair{
+.pSair {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-style: normal;
@@ -51,10 +46,7 @@ background: #EF441D;
     letter-spacing: 0em;
     text-align: center;
     color: white;
-
     margin-top: -2px;
-
-
 }
 
 
@@ -62,25 +54,25 @@ background: #EF441D;
 
 
 /* menu lateral */
-.divMenuLateral{
-  border: #102842 solid 1px;
-  background-color: #EFEAEA;
 
-
-  margin-top: 60px;
-  margin-left: 2.5vw;
-  width: 200px;  
-  height: 493px;
-  float: left;
+.divMenuLateral {
+    border: #102842 solid 1px;
+    background-color: #EFEAEA;
+    margin-top: 60px;
+    margin-left: 2.5vw;
+    width: 200px;
+    height: 493px;
+    float: left;
 }
 
 
 /* Começo persona */
-.divPersona{
+
+.divPersona {
     display: flex;
 }
 
-.divFoto{
+.divFoto {
     background-color: #C4C4C4;
     margin-left: 10px;
     margin-top: 20px;
@@ -90,69 +82,65 @@ background: #EF441D;
     border: solid black 1px;
 }
 
-.imgFoto{
+.imgFoto {
     margin-left: 5px;
     margin-top: 5px;
 }
 
-.pNome{
+.pNome {
     margin-top: 33px;
     margin-left: 10px;
 }
+
+
 /* Final persona */
 
-.hrTopo{
+.hrTopo {
     margin-top: 20px;
     width: 150px;
-
 }
 
-.hrFinal{
+.hrFinal {
     margin-top: -0.5px;
     width: 150px;
 }
 
 
-
 /* Inicio botoes computadores */
-.pFiltrarComputadores{
-    text-align: center;
 
-}
-
-.pStatusMaquina{
+.pFiltrarComputadores {
     text-align: center;
 }
 
-.spanStatus{
+.pStatusMaquina {
+    text-align: center;
+}
+
+.spanStatus {
     color: red;
 }
+
+
 /* Final botões computadores */
 
 
-
 /* Começo informações de hardware */
-.divInformacoesHard{
+
+.divInformacoesHard {
     margin-left: 1px;
     background-color: white;
     margin-top: -7px;
     overflow: scroll;
-
     width: 197px;
     height: 340px;
- 
-    }
+}
+
+
 /* Final informações de hardware */
 
-
-
-
-
-
-.pVisaoGeral{
+.pVisaoGeral {
     /* border: solid black 1px;
     background-color: bisque; */
-
     float: right;
     margin-top: 65px;
     width: 78vw;
@@ -160,10 +148,9 @@ background: #EF441D;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     text-align: center;
-
 }
 
-.divMaquinas{
+.divFarois {
     margin-top: -20px;
     margin-left: 30px;
     float: left;
@@ -173,193 +160,145 @@ background: #EF441D;
     /* border: solid black 1px; */
 }
 
-
-.divMaquinaUm{
+.divFarolCrit {
     background-color: red;
-    border:  solid black 2px;
-
+    border: solid black 2px;
     color: white;
     font-size: 62px;
 }
 
-.divMaquinaUm:hover{
+.divFarolCrit:hover {
     background-color: #F45B47;
 }
 
-.divMaquinaDois{
+.divFarolAlerta {
     color: white;
     font-size: 62px;
     background-color: rgba(255, 255, 0, 0.775);
 }
 
-.divMaquinaDois:hover{
+.divFarolAlerta:hover {
     background-color: #F7DD69;
 }
 
-.divMaquinaTres{
-    background-color: #717e78;
+.divFarolOk {
+    background-color: #43B581;
     color: white;
     font-size: 62px;
 }
 
-.divMaquinaTres:hover{
-    background-color:  #43B581;
+.divFarolOk:hover {
+    background-color: #43B581;
 }
 
-.idMaquina{
+.idMaquina {
     background-color: transparent;
     margin-top: 25px;
     display: block;
     width: 150px;
     height: 25px;
     border: solid black 1px;
-
 }
 
-.idMaquina:hover{
+.idMaquina:hover {
     background-color: #FB8864;
 }
 
-.btnDiscord{
+.btnDiscord {
     float: right;
     border: transparent;
     background-color: transparent;
 }
+
+
 /* Final barra lateral */
 
-
-
-.divMaquinaUm, .divMaquinaDois, .divMaquinaTres{
+.divFarolCrit,
+.divFarolAlerta,
+.divFarolOk {
     width: 250px;
     height: 100px;
     margin-left: 60px;
-
     border: solid black 1px;
-
 }
 
-.divGraficos{
+.divGraficos {
     margin-top: 20px;
     float: right;
     /* border: cornflowerblue solid 1px; */
-
-
     width: 1000px;
     height: 330px;
 }
 
-.divDiscoMemoria{
+.divDiscoMemoria {
     margin-left: 150px;
     display: flex;
     width: 600px;
 }
 
-.divStatusMemoria{
+.divStatusMemoria {
     /* border: solid black 2px; */
     padding-left: 60px;
     margin-left: 50px;
 }
 
-.divStatusDisco{
-
+.divStatusDisco {
     /* border: solid black 1px; */
     width: 300px;
     height: 150px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ajustes */
-@media screen and (max-width: 1250px){
-    .pVisaoGeral{
 
-
+@media screen and (max-width: 1250px) {
+    .pVisaoGeral {
         width: 70vw;
         margin-left: 25vw;
-    }  
-
-    .divMaquinas{
+    }
+    .divFarois {
         display: block;
         margin-top: 20px;
         margin-left: 25vw;
         width: 300px;
-
     }
-
-    .divGraficos{
+    .divGraficos {
         margin-left: 10vw;
         float: left;
         border: cornflowerblue solid 1px;
-    
         margin-top: 60vh;
         width: 500px;
         height: 390px;
     }
-
-    .divMaquinaUm, .divMaquinaDois, .divMaquinaTres{
+    .divFarolCrit,
+    .divFarolAlerta,
+    .divFarolOk {
         width: 250px;
         height: 100px;
         margin-left: 60px;
         margin-top: 40px;
-    
         border: solid black 1px;
-    
     }
-
-    .divMenuLateral{
+    .divMenuLateral {
         margin-top: -55px;
     }
-
-    .divGraficos{
+    .divGraficos {
         margin-left: 10vw;
         float: left;
         border: cornflowerblue solid 1px;
-    
         margin-top: 100vh;
         width: 500px;
         height: 390px;
     }
 }
 
-
-
-
-
-@media screen and (min-width: 810px) and (max-width: 1199px){
-    .pVisaoGeral{
-
- 
+@media screen and (min-width: 810px) and (max-width: 1199px) {
+    .pVisaoGeral {
         width: 60vw;
-    
-    } 
-
-    .divMaquinas{
+    }
+    .divFarois {
         margin-left: 15vw;
     }
-
     /* .divMaquinaUm, .divMaquinaDois, .divMaquinaTres{
         width: 250px;
         height: 100px;
@@ -369,51 +308,35 @@ background: #EF441D;
         border: solid black 1px;
     
     } */
-
-    .divNav{
+    .divNav {
         position: absolute;
-    width: 1199px;
-    height: 60px;
-    left: 0px;
-    top: 0px;
-    
-    background: #102842;
+        width: 1199px;
+        height: 60px;
+        left: 0px;
+        top: 0px;
+        background: #102842;
     }
-
-    .btnSair{
+    .btnSair {
         border: none;
         outline: none;
-    
         position: absolute;
         width: 116px;
         height: 25px;
         left: 85vw;
         top: 3vh;
-    
-    background: #EF441D;
-    /* transform: matrix(1, 0, 0, -1, 0, 0); */
+        background: #EF441D;
+        /* transform: matrix(1, 0, 0, -1, 0, 0); */
     }
 }
 
-
-
-
-
-
-
-@media screen and (min-width: 500px) and (max-width: 819px){
-    .pVisaoGeral{
-
-
+@media screen and (min-width: 500px) and (max-width: 819px) {
+    .pVisaoGeral {
         width: 55vw;
-    
-    } 
-
-    .divMenuLateral{
+    }
+    .divMenuLateral {
         margin-top: -10px;
         margin-left: 40vw;
     }
-
     /* .divMaquinaUm, .divMaquinaDois, .divMaquinaTres{
         width: 250px;
         height: 100px;
@@ -423,35 +346,23 @@ background: #EF441D;
         border: solid black 1px;
     
     } */
-
-    .btnSair{
+    .btnSair {
         border: none;
         outline: none;
-    
         position: absolute;
         width: 116px;
         height: 25px;
         left: 75vw;
         top: 3vh;
-    
-    background: #EF441D;
-    /* transform: matrix(1, 0, 0, -1, 0, 0); */
+        background: #EF441D;
+        /* transform: matrix(1, 0, 0, -1, 0, 0); */
     }
 }
 
-
-
-
-
-
-@media screen and (min-width: 0px) and (max-width: 499px){
-    .pVisaoGeral{
-
-
+@media screen and (min-width: 0px) and (max-width: 499px) {
+    .pVisaoGeral {
         width: 25vw;
-    
-    } 
-
+    }
     /* .divMaquinaUm, .divMaquinaDois, .divMaquinaTres{
         width: 250px;
         height: 100px;
@@ -461,25 +372,15 @@ background: #EF441D;
         border: solid black 1px;
     
     } */
-
-    .btnSair{
+    .btnSair {
         border: none;
         outline: none;
-    
         position: absolute;
         width: 116px;
         height: 25px;
         left: 60vw;
         top: 3vh;
-    
-    background: #EF441D;
-    /* transform: matrix(1, 0, 0, -1, 0, 0); */
+        background: #EF441D;
+        /* transform: matrix(1, 0, 0, -1, 0, 0); */
     }
 }
-
-
-
-
-
-
-
