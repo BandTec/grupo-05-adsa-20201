@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="imagem/png" href="../../Image/logo3.png" />
     <title>SUPERVISOR - DASHBOARD</title>
-    <link rel="stylesheet" href="./style-pag-dashboard.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../CSS/menu.css">
-
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 </head>
 
@@ -39,7 +38,7 @@
 
             <!-- Nome e foto -->
             <div class="divPersona">
-                <div class="divFoto"><img src="./Imagens/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
+                <div class="divFoto"><img src="../../Image/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
                 <p class="pNome">Karina Wakassuqui</p>
             </div>
             <!-- Final nome e foto -->
@@ -56,7 +55,7 @@
             <!-- Final informações de hardware -->
 
             <hr class="hrFinal">
-            <button class="btnDiscord"><img src="./Imagens/discord (1).png" alt="" width="35" height="35" ></button>
+            <button class="btnDiscord"><img src="../../Image/discord (1).png" alt="" width="35" height="35" ></button>
 
         </div>
         <!-- final menu lateral -->
@@ -112,7 +111,7 @@
 </body>
 
 </html>
-<script src="./dash.js"></script>
+<script src="../../JS/dash.js"></script>
 <script>
     let qtdComputador = parseInt(Math.random() * 30 + 1);
 
@@ -145,9 +144,9 @@
             }
         }
 
-        idQtdOk.innerHTML = qtdComputadorOk;
-        idQtdAlerta.innerHTML = qtdComputadorAlerta;
-        idQtdCrit.innerHTML = qtdComputadorCrit;
+        idQtdOk.innerHTML = `${qtdComputadorOk} <i class="fa fa-check-circle" aria-hidden="true"></i>`;
+        idQtdAlerta.innerHTML = `${qtdComputadorAlerta} <i class="fa fa-exclamation-circle" aria-hidden="true"></i>`;
+        idQtdCrit.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
     }
 
     function exibirInfoCrit() {
@@ -163,7 +162,7 @@
 
         for (let i = 0; i < qtdComputadorCrit; i++) {
 
-            computadoresCrits.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorCrit[i]}</button> <br>`;
+            computadoresCrits.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorCrit[i]} </button> <br>`;
         }
 
     }

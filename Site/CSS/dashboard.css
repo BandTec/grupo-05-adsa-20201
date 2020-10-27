@@ -131,6 +131,12 @@ body {
     outline: none;
 }
 
+.divFarolCrit i {
+    padding-left: 50px;
+    font-size: 50px;
+    color: rgba(34, 34, 34, 0.192);
+}
+
 .divFarolCrit:hover {
     cursor: pointer;
     box-shadow: 6px 6px 10px -2px #222;
@@ -145,6 +151,12 @@ body {
     outline: none;
 }
 
+.divFarolAlerta i {
+    padding-left: 50px;
+    font-size: 50px;
+    color: rgba(34, 34, 34, 0.192);
+}
+
 .divFarolAlerta:hover {
     cursor: pointer;
     box-shadow: 6px 6px 10px -2px #222;
@@ -157,6 +169,12 @@ body {
     font-size: 62px;
     border-radius: 10px;
     outline: none;
+}
+
+.divFarolOk i {
+    padding-left: 50px;
+    font-size: 50px;
+    color: rgba(34, 34, 34, 0.192);
 }
 
 .divFarolOk:hover {
@@ -180,7 +198,7 @@ body {
 
 .btnDiscord {
     outline: none;
-    margin: 25px 5px 0 0;
+    margin: 5px 5px 0 0;
     float: right;
     border: transparent;
     background-color: transparent;
