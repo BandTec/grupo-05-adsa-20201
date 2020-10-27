@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 
 
 public class TelaLoginFuncional extends javax.swing.JFrame {
+    
+//    dashboard.Dashboard teste = new dashboard.Dashboard();
 
 
     public TelaLoginFuncional() {
