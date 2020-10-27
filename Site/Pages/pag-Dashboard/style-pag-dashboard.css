@@ -1,66 +1,19 @@
 body {
+    background-color: #dfe6e9;
     /* overflow: hidden; */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.divNav {
-    position: absolute;
-    width: 100vw;
-    height: 60px;
-    left: 0px;
-    top: 0px;
-    background: #102842;
-}
-
-.divNav a {
-    text-decoration: none;
-}
-
-#title {
-    margin: 10px 0 0 20px;
-    font-size: 160%;
-    font-weight: bold;
-    cursor: pointer;
-    width: 13%;
-}
-
-#title:hover {
-    transform: scale(1.009);
-}
-
-.btnSair {
-    border: none;
-    outline: none;
-    position: absolute;
-    width: 60px;
-    height: 23px;
-    left: 91vw;
-    float: right;
-    top: 16px;
-    background: #EF441D;
-    border-radius: 3px;
-    /* transform: matrix(1, 0, 0, -1, 0, 0); */
-}
-
-.btnSair:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-}
-
-.pSair {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.8rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: white;
-    margin-top: -2px;
+    margin: 0;
+    padding: 0;
 }
 
 
 /* corpo */
+
+.content {
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+}
 
 
 /* menu lateral */
@@ -68,7 +21,6 @@ body {
 .divMenuLateral {
     border: #102842 solid 1px;
     background-color: #EFEAEA;
-    margin-top: 60px;
     margin-left: 2.5vw;
     width: 200px;
     height: 493px;
@@ -138,7 +90,7 @@ body {
 
 .divInformacoesHard {
     margin-left: 1px;
-    background-color: white;
+    background-color: #f9f9f9;
     margin-top: -7px;
     overflow: scroll;
     width: 197px;
@@ -227,9 +179,16 @@ body {
 }
 
 .btnDiscord {
+    outline: none;
+    margin: 25px 5px 0 0;
     float: right;
     border: transparent;
     background-color: transparent;
+}
+
+.btnDiscord:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 
@@ -238,49 +197,82 @@ body {
 .divFarolCrit,
 .divFarolAlerta,
 .divFarolOk {
-    width: 250px;
-    height: 100px;
-    margin-left: 60px;
+    min-width: 200px;
+    height: 80px;
+    margin-left: 130px;
     border: none;
 }
 
 .divGraficos {
-    margin-top: 20px;
-    float: right;
-    /* border: cornflowerblue solid 1px; */
+    border-radius: 5px;
+    margin: 100px 0 0 330px;
+    position: absolute;
+    float: left;
     width: 1000px;
     height: 330px;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 6px -2px #222;
+    border: 2px solid #102842;
+}
+
+#divStatusPC {
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    margin-top: -20px;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 6px -2px #222;
+    border: 2px solid #102842;
+}
+
+#divStatusPC span {
+    font-size: 110%;
+    font-weight: bold;
+    color: #222;
 }
 
 .divDiscoMemoria {
-    margin-left: 150px;
+    margin-left: 100px;
     display: flex;
     width: 600px;
+}
+
+.divDiscoMemoria span {
+    margin-left: 120px;
 }
 
 .divStatusMemoria {
     /* border: solid black 2px; */
     padding-left: 60px;
-    margin-left: 50px;
+    margin-left: 123px;
     height: 100px;
 }
 
-.pMemoria{
-    text-align: center;
-}
-
-.divStatusDisco {
-    /* border: solid black 1px; */
-    width: 300px;
+.divCPU {
     height: 150px;
+    margin-left: 25px;
+    /* border: solid black 1px; */
+    width: 450px;
 }
 
-.pDisco{
-    text-align: center;
+.divGPU {
+    width: 450px;
+    /* border: solid black 1px; */
+    margin-left: 35px;
+}
+
+.divCPUGPU {
+    margin-top: 15px;
+    display: flex;
+    border-top: 2px solid rgba(34, 34, 34, 0.274);
+}
+
+.divCPUGPU span {
+    margin-left: 200px
 }
 
 
-/* ajustes */
+/* RESPONSIVIDADE */
 
 @media screen and (max-width: 1250px) {
     .pVisaoGeral {
@@ -359,36 +351,6 @@ body {
         /* transform: matrix(1, 0, 0, -1, 0, 0); */
     }
 }
-
-.divCPU{
-    height: 150px;
-    margin-left: 25px;
-    /* border: solid black 1px; */
-    width: 450px;
-}
-
-.pCPU{
-    text-align: center;
-}
-
-.divCPUGPU{
-    margin-top: 5px;
-    display: flex;
-  
-}
-
-.divGPU{
-    width: 450px;
-    /* border: solid black 1px; */
-    margin-left: 35px;
-}
-
-.pGPU{
-    text-align: center;
-}
-
-
-
 
 @media screen and (min-width: 500px) and (max-width: 819px) {
     .pVisaoGeral {

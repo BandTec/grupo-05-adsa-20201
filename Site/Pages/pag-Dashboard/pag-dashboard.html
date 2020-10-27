@@ -7,6 +7,7 @@
     <link rel="icon" type="imagem/png" href="../../Image/logo3.png" />
     <title>SUPERVISOR - DASHBOARD</title>
     <link rel="stylesheet" href="./style-pag-dashboard.css">
+    <link rel="stylesheet" href="../../CSS/menu.css">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
@@ -14,141 +15,99 @@
 
 <body onload="carregarDados()">
 
-
-
-
     <!-- Inicio nave da página -->
 
-    <div class="divNav">
-        <!-- Nave da página -->
-        <a href="../../index.html">
-            <div id="title">
-                <span style="color: #f9f9f9;">SUPER</span><span style="color: #EF441D;">VISOR</span>
-            </div>
-        </a>
-        <!-- Logo Supervisor -->
-        <a href="../Login.html">
-            <button class="btnSair"> <!-- Botão Sair -->
-           <p class="pSair">SAIR</p> <!-- Texto do botão sair -->
-       </button>
-        </a>
-    </div>
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+        <div class="left_area">
+            <a href="../../index.html">
+                <h3>Super<span>visor</span></h3>
+            </a>
+        </div>
+        <div class="right_area">
+            <a href="../Login.html" class="login_btn">Sair</a>
+        </div>
+    </header>
 
     <!-- Final nave da página -->
 
 
-
-    <!-- Inicio corpo da página -->
-
-
-    <!-- inicio visão geral -->
-    <div class="divVisaoGeral">
-        <p class="pVisaoGeral"> VISÃO GERAL </p>
-    </div>
-
-
-
     <!-- menu lateral -->
-    <div class="divMenuLateral">
+    <div class="content">
+        <div class="divMenuLateral">
 
-        <!-- Nome e foto -->
-        <div class="divPersona">
+            <!-- Nome e foto -->
+            <div class="divPersona">
+                <div class="divFoto"><img src="./Imagens/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
+                <p class="pNome">Karina Wakassuqui</p>
+            </div>
+            <!-- Final nome e foto -->
+            <hr class="hrTopo">
 
-            <div class="divFoto"><img src="./Imagens/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
+            <!-- Começo informações de hardware -->
+            <div class="divInformacoesHard" id="idInformacoesHard">
+                <p class="pFiltrarComputadores"> Filtrar computadores </p>
+                <p class="pStatusMaquina"> Status: <span id="idSpanStatus" class="spanStatus"> </span> </p>
+                <div id="computadoresOk" style=" display: none; width: 100%; height: 90%;"> </div>
+                <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;"> </div>
+                <div id="computadoresCrits" style=" display: none; width: 100%; height: 90%;"> </div>
+            </div>
+            <!-- Final informações de hardware -->
 
-            <p class="pNome">Karina Wakassuqui</p>
-        </div>
-        <!-- Final nome e foto -->
-
-        <hr class="hrTopo">
-
-        <!-- Começo informações de hardware -->
-        <div class="divInformacoesHard" id="idInformacoesHard">
-
-            <p class="pFiltrarComputadores"> Filtrar computadores </p>
-
-            <p class="pStatusMaquina"> Status: <span id="idSpanStatus" class="spanStatus"> </span> </p>
-
-            <div id="computadoresOk" style=" display: none; width: 100%; height: 90%;"> </div>
-
-            <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;"> </div>
-
-            <div id="computadoresCrits" style=" display: none; width: 100%; height: 90%;"> </div>
+            <hr class="hrFinal">
+            <button class="btnDiscord"><img src="./Imagens/discord (1).png" alt="" width="35" height="35" ></button>
 
         </div>
-        <!-- Final informações de hardware -->
-
-        <hr class="hrFinal">
-
-        <button class="btnDiscord"><img src="./Imagens/discord (1).png" alt="" width="35" height="35" ></button>
-
-    </div>
-    <!-- final menu lateral -->
+        <!-- final menu lateral -->
 
 
 
 
-    <!-- Div Status Máquinas -->
-    <div class="divFarois">
-        <button class="divFarolCrit" onclick="exibirInfoCrit()" id="idQtdCrit"> - </button>
-
-        <button class="divFarolAlerta" onclick="exibirInfoAlerta()" id="idQtdAlerta"> - </button>
-
-        <button class="divFarolOk" onclick="exibirInfoOk()" id="idQtdOk"> - </button>
-    </div>
-    <!-- Fechamento Status Máquinas -->
+        <!-- Div Status Máquinas -->
+        <div class="divFarois">
+            <button class="divFarolCrit" onclick="exibirInfoCrit()" id="idQtdCrit"> - </button>
+            <button class="divFarolAlerta" onclick="exibirInfoAlerta()" id="idQtdAlerta"> - </button>
+            <button class="divFarolOk" onclick="exibirInfoOk()" id="idQtdOk"> - </button>
+        </div>
+        <!-- Fechamento Status Máquinas -->
 
 
 
-    <!-- div Gráficos -->
-    <div class="divGraficos">
+        <!-- div Gráficos -->
+        <div class="divGraficos">
+            <canvas id="canvasGrafSemanal" height="90"></canvas>
+            <div id="divStatusPC">
+                <div class="divDiscoMemoria">
 
-        <canvas id="canvasGrafSemanal" height="90"></canvas>
+                    <div class="divStatusDisco">
+                        <span class="pDisco">DISCO</span>
+                        <canvas id="canvasStatusDisco" height="150" class="classStatusDisco" style="top: -5px;"></canvas>
+                    </div>
 
-
-        <!-- Funcões após clicar -->
-        <div class="divStatusPC">
-
-            <div class="divDiscoMemoria">
-
-                <div class="divStatusDisco">
-                                <p class="pDisco">Disco</p>
-
-                    <canvas id="canvasStatusDisco" height="100" class="classStatusDisco"></canvas>
-
+                    <div class="divStatusMemoria">
+                        <span class="pMemoria">MEMÓRIA</span>
+                        <canvas id="canvasStatusMemoria" class="divStatusDisco" height="-2"></canvas>
+                    </div>
                 </div>
 
-                <div class="divStatusMemoria">
-                                <p class="pMemoria">Memória</p>
+                <div class="divCPUGPU">
 
-                    <canvas id="canvasStatusMemoria" class="divStatusDisco" height="0.50"></canvas>
+                    <div class="divCPU">
+                        <span class="pCPU">CPU</span>
+                        <canvas id="canvasStatusCPU" height="110"></canvas>
 
-                </div>
+                    </div>
 
-            </div>
-        
-            <div class="divCPUGPU">
-
-                <div class="divCPU">   
-                                <p class="pCPU">CPU</p>
-                    <canvas id="canvasStatusCPU" height="70"></canvas>
-
-                </div>
-
-                <div class="divGPU">
-                                <p class="pGPU">GPU</p>
-                    <canvas id="canvasStatusGPU" height="70"></canvas>
+                    <div class="divGPU">
+                        <span class="pGPU">GPU</span>
+                        <canvas id="canvasStatusGPU" height="110"></canvas>
+                    </div>
                 </div>
             </div>
-    
-
-    </div>
         </div>
     </div>
     <!-- Final Gráficos -->
-
-
-
 
 </body>
 
@@ -189,8 +148,6 @@
         idQtdOk.innerHTML = qtdComputadorOk;
         idQtdAlerta.innerHTML = qtdComputadorAlerta;
         idQtdCrit.innerHTML = qtdComputadorCrit;
-
-
     }
 
     function exibirInfoCrit() {
