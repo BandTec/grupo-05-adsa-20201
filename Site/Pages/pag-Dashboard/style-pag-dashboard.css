@@ -12,35 +12,44 @@ body {
     background: #102842;
 }
 
-.divImg {
-    position: absolute;
-    width: 300px;
-    height: 100px;
-    left: 22px;
-    top: 9px;
-    background: url(./Imagens/LogoSpervisor.png);
-    background-repeat: no-repeat;
+.divNav a {
+    text-decoration: none;
+}
+
+#title {
+    margin: 10px 0 0 20px;
+    font-size: 160%;
+    font-weight: bold;
+    cursor: pointer;
+    width: 13%;
+}
+
+#title:hover {
+    transform: scale(1.009);
 }
 
 .btnSair {
     border: none;
     outline: none;
     position: absolute;
-    width: 116px;
-    height: 25px;
-    left: 85vw;
-    top: 3vh;
+    width: 60px;
+    height: 23px;
+    left: 91vw;
+    float: right;
+    top: 16px;
     background: #EF441D;
+    border-radius: 3px;
     /* transform: matrix(1, 0, 0, -1, 0, 0); */
 }
 
 .btnSair:hover {
-    background-color: rgba(137, 43, 226, 0.241);
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .pSair {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 0.8rem;
     font-style: normal;
     font-weight: 500;
     line-height: 28px;
@@ -166,10 +175,13 @@ body {
     box-shadow: 4.5px 4.5px 6px -2px #222;
     color: #f9f9f9;
     font-size: 62px;
+    border-radius: 10px;
+    outline: none;
 }
 
 .divFarolCrit:hover {
     cursor: pointer;
+    box-shadow: 6px 6px 10px -2px #222;
 }
 
 .divFarolAlerta {
@@ -177,10 +189,13 @@ body {
     box-shadow: 4.5px 4.5px 6px -2px #222;
     font-size: 62px;
     background-color: #F7DD69;
+    border-radius: 10px;
+    outline: none;
 }
 
 .divFarolAlerta:hover {
     cursor: pointer;
+    box-shadow: 6px 6px 10px -2px #222;
 }
 
 .divFarolOk {
@@ -188,10 +203,13 @@ body {
     background-color: #43B581;
     box-shadow: 4.5px 4.5px 6px -2px #222;
     font-size: 62px;
+    border-radius: 10px;
+    outline: none;
 }
 
 .divFarolOk:hover {
     cursor: pointer;
+    box-shadow: 6px 6px 10px -2px #222;
 }
 
 .idMaquina {
@@ -205,6 +223,7 @@ body {
 
 .idMaquina:hover {
     background-color: #FB8864;
+    cursor: pointer;
 }
 
 .btnDiscord {

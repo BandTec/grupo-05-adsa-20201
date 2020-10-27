@@ -10,7 +10,7 @@ function fazer_login() {
     if (login && senha) {
         window.location.href = '../Pages/pagSuporte.html';
     } else if (login2 && senha2) {
-        window.location.href = '../Pages/dashboard/dashboard.html';
+        window.location.href = '../Pages/pag-Dashboard/pag-Dashboard.html';
     } else if ((!login && senha) || (!login2 && senha2)) {
         alerta_login_id.style.display = 'block';
         alerta_senha_id.style.display = 'none';
