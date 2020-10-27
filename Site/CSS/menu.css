@@ -1,0 +1,191 @@
+header {
+    z-index: 4;
+    position: fixed;
+    /* background: #22242A; */
+    background: #102842;
+    padding: 20px;
+    width: calc(100% - 0%);
+    top: 0;
+    height: 30px;
+}
+
+.left_area h3 {
+    color: #fff;
+    margin: 0;
+    margin-left: 2%;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.left_area a {
+    text-decoration: none;
+}
+
+.left_area span {
+    color: #ef441d;
+}
+
+
+/* Cadastro */
+
+.cadastro_btn {
+    padding: 7px;
+    background: #ef441d;
+    text-decoration: none;
+    float: right;
+    margin-right: 55px;
+    margin-top: -30px;
+    margin-right: 15px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+.cadastro_btn:hover {
+    background: #2b3e5b;
+}
+
+.login_btn {
+    padding: 7px;
+    background: #ef441d;
+    text-align: center;
+    text-decoration: none;
+    float: right;
+    margin-right: 55px;
+    margin-top: -30px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+
+/*RESPONSIVIDADE MOBILE largura máxima 600*/
+@media  (max-width: 600px){
+
+    .cadastro_btn {
+        padding: 7px;
+        background: #ef441d;
+        text-align: center;
+        text-decoration: none;
+        float: right;
+        margin-right: 70px;
+        margin-top: -27px;
+        margin-right: 10px;
+        border-radius: 2px;
+        font-size: 12px;
+        width: 14%;
+        font-weight: 600;
+        color: #fff;
+        transition: 0.5s;
+        transition-property: background;
+    }
+
+    .login_btn {
+        padding: 7px;
+        background: #ef441d;
+        text-decoration: none;
+        float: right;
+        text-align: center;
+        margin-right: 70px;
+        margin-top: -27px;
+        border-radius: 2px;
+        width: 18%;
+        font-size: 12px;
+        font-weight: 600;
+        color: #fff;
+        width: 14%;
+        transition: 0.5s;
+        transition-property: background;
+    }
+
+    .left_area h3 {
+        color: #fff;
+        margin: 0;
+        margin-top: 4px;
+        margin-left: 0%;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+}
+
+.login_btn:hover {
+    background: #2b3e5b;
+}
+
+/*RESPONSIVIDADE MOBILE largura igual 425px*/
+
+@media (width:425px){
+    
+    .login_btn{
+        margin-right: 85px;
+    }
+}
+
+/*RESPONSIVIDADE MOBILE largura igual 768px*/
+
+@media (width:768px){
+    
+    .login_btn{
+        margin-right: 130px;
+        font-size: 15px;
+    }
+}
+
+/*RESPONSIVIDADE 1024px*/
+
+@media (width:1024px){
+    
+    .login_btn{
+        margin-right: 15%;
+        font-size: 16px;
+        width: 6%;
+    }
+
+}
+
+/*RESPONSIVIDADE 1440px*/
+
+@media (width:1440px){
+    
+    .login_btn{
+        margin-right: 15%;
+        font-size: 16px;
+        width: 4%;
+    }
+
+}
+
+/*RESPONSIVIDADE PC mínimo de 2560px*/
+
+@media (min-width: 2560px){
+
+    .login_btn {
+        margin-right: 14%;
+        width: 4%;
+        margin-top: -45px;
+        font-size: 24px;
+    }
+    .cadastro_btn{
+        margin-top: -45px;
+        font-size: 24px;
+    }
+
+    header{
+        height: 4%;
+    }
+
+    .left_area h3 {
+        margin-top: 0.5%;
+        font-size: 39px;
+    }
+
+}
