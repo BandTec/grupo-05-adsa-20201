@@ -1,5 +1,5 @@
 body {
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -243,12 +243,21 @@ body {
     /* border: solid black 2px; */
     padding-left: 60px;
     margin-left: 50px;
+    height: 100px;
+}
+
+.pMemoria{
+    text-align: center;
 }
 
 .divStatusDisco {
     /* border: solid black 1px; */
     width: 300px;
     height: 150px;
+}
+
+.pDisco{
+    text-align: center;
 }
 
 
@@ -331,6 +340,36 @@ body {
         /* transform: matrix(1, 0, 0, -1, 0, 0); */
     }
 }
+
+.divCPU{
+    height: 150px;
+    margin-left: 25px;
+    /* border: solid black 1px; */
+    width: 450px;
+}
+
+.pCPU{
+    text-align: center;
+}
+
+.divCPUGPU{
+    margin-top: 5px;
+    display: flex;
+  
+}
+
+.divGPU{
+    width: 450px;
+    /* border: solid black 1px; */
+    margin-left: 35px;
+}
+
+.pGPU{
+    text-align: center;
+}
+
+
+
 
 @media screen and (min-width: 500px) and (max-width: 819px) {
     .pVisaoGeral {

@@ -48,6 +48,7 @@
 
         <!-- Nome e foto -->
         <div class="divPersona">
+
             <div class="divFoto"><img src="./Imagens/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
 
             <p class="pNome">Karina Wakassuqui</p>
@@ -58,17 +59,17 @@
 
         <!-- Começo informações de hardware -->
         <div class="divInformacoesHard" id="idInformacoesHard">
+
             <p class="pFiltrarComputadores"> Filtrar computadores </p>
+
             <p class="pStatusMaquina"> Status: <span id="idSpanStatus" class="spanStatus"> </span> </p>
-            <div id="computadoresOk" style=" display: none; width: 100%; height: 90%;">
 
-            </div>
-            <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;">
+            <div id="computadoresOk" style=" display: none; width: 100%; height: 90%;"> </div>
 
-            </div>
-            <div id="computadoresCrits" style=" display: none; width: 100%; height: 90%;">
+            <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;"> </div>
 
-            </div>
+            <div id="computadoresCrits" style=" display: none; width: 100%; height: 90%;"> </div>
+
         </div>
         <!-- Final informações de hardware -->
 
@@ -99,18 +100,44 @@
 
         <canvas id="canvasGrafSemanal" height="90"></canvas>
 
+
+        <!-- Funcões após clicar -->
         <div class="divStatusPC">
 
             <div class="divDiscoMemoria">
+
                 <div class="divStatusDisco">
-                    <canvas id="canvasStatusDisco" height="150" class="classStatusDisco"></canvas>
+                                <p class="pDisco">Disco</p>
+
+                    <canvas id="canvasStatusDisco" height="100" class="classStatusDisco"></canvas>
+
                 </div>
+
                 <div class="divStatusMemoria">
+                                <p class="pMemoria">Memória</p>
+
                     <canvas id="canvasStatusMemoria" class="divStatusDisco" height="0.50"></canvas>
+
+                </div>
+
+            </div>
+        
+            <div class="divCPUGPU">
+
+                <div class="divCPU">   
+                                <p class="pCPU">CPU</p>
+                    <canvas id="canvasStatusCPU" height="70"></canvas>
+
+                </div>
+
+                <div class="divGPU">
+                                <p class="pGPU">GPU</p>
+                    <canvas id="canvasStatusGPU" height="70"></canvas>
                 </div>
             </div>
+    
 
-            <canvas id="canvasStatusCPU" height="55"></canvas>
+    </div>
         </div>
     </div>
     <!-- Final Gráficos -->

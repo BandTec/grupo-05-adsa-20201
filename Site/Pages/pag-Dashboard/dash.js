@@ -73,4 +73,23 @@ function exibirGraficos() {
         }
     });
 
+    let grafStatusGPU = document.getElementById('canvasStatusGPU').getContext('2d');
+    let canvasStatusGPU = new Chart(grafStatusGPU, {
+        type: 'line',
+
+        data: {
+            labels: ['20:00', '20:05', '20:10', '20:15', '20:20', '20:25'],
+    
+            datasets: [{
+                label: 'Status GPU (%)',
+                data: [70, 60, 70, 80, 60, 50],
+                backgroundColor: "#10284200",
+                borderColor: "#102842"
+         
+            }]
+        }
+    });
+
+    
+
 }
