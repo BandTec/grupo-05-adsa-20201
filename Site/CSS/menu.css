@@ -93,7 +93,7 @@ header {
         text-decoration: none;
         float: right;
         text-align: center;
-        margin-right: 70px;
+        margin-right: 35px;
         margin-top: -27px;
         border-radius: 2px;
         width: 18%;
@@ -134,8 +134,8 @@ header {
 
 @media (width:768px){
     
-    .login_btn{
-        margin-right: 130px;
+    .login_btn {
+        margin-right: 43px;
         font-size: 15px;
     }
 }
