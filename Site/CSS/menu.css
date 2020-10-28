@@ -144,11 +144,11 @@ header {
 
 @media (width:1024px){
     
-    .login_btn{
-        margin-right: 15%;
-        font-size: 16px;
-        width: 6%;
-    }
+    .login_btn {
+    margin-right: 4%;
+    font-size: 16px;
+    width: 4%;
+}
 
 }
 
@@ -156,8 +156,8 @@ header {
 
 @media (width:1440px){
     
-    .login_btn{
-        margin-right: 15%;
+    .login_btn {
+        margin-right: 4%;
         font-size: 16px;
         width: 4%;
     }
