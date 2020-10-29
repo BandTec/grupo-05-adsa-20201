@@ -198,6 +198,11 @@ public class Cadastrar extends javax.swing.JFrame {
         lblConfiSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblConfiSenha.setForeground(new java.awt.Color(204, 204, 204));
         lblConfiSenha.setText("#minhasenha123");
+        lblConfiSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lblConfiSenhaActionPerformed(evt);
+            }
+        });
 
         lblConfiEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblConfiEmail.setForeground(new java.awt.Color(204, 204, 204));
@@ -368,37 +373,30 @@ public class Cadastrar extends javax.swing.JFrame {
 
     private void bntCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCadastrarActionPerformed
 
-        if(lblNome.getText().equals("") || lblSobrenome.getText().equals("")
-            || lblDataNasc.getText().equals("") || lblEmail.getText().equals("")
-            || lblConfiEmail.getText().equals("") || lblSenha.getText().equals(" ")){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos");
-        }
-
-        String email = lblEmail.getText().trim();
-
         Pattern criterios = Pattern.compile(".+@.+\\.[a-z]+");
-        Matcher achar = criterios.matcher(email);
+        Matcher achar = criterios.matcher(lblEmail.getText().trim());
 
         boolean matchFound = achar.matches();
-
-        if(matchFound){
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "E-mail inválido. Digite o formato correto!");
-        }
-
-        if(lblSenha.getText().length() < 8){
-            JOptionPane.showMessageDialog(null, "Sua senha deve possuir no mínimo 8 caracteres.");
-        }
-
+        
         String senha = lblSenha.getText();
-        String confiSenha = lblConfiSenha.getText();
-
-        if(!senha.equals(confiSenha)){
-            JOptionPane.showMessageDialog(null, "Suas senhas não são iguais.");
-        } else{
-            JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso!");
+        String email = lblEmail.getText();
+        
+        if((lblNome.getText().equals("") || lblSobrenome.getText().equals("")
+            || lblDataNasc.getText().equals("") || lblEmail.getText().equals("")
+            || lblConfiEmail.getText().equals("") || lblSenha.getText().equals(" "))) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos"); 
+        } else if (lblSenha.getText().length() < 8 || !email.equals(lblConfiEmail.getText())) {
+            JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de e-mail");
+        } else if (lblSenha.getText().length() < 8 || !senha.equals(lblConfiSenha.getText())) {
+            JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de senha");
+        } else {
+            JOptionPane.showMessageDialog(null, "Cadastro realizado");
         }
+        
+        
+        
+
+        
     }//GEN-LAST:event_bntCadastrarActionPerformed
 
     private void lblEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblEmailActionPerformed
@@ -412,6 +410,10 @@ public class Cadastrar extends javax.swing.JFrame {
     private void lblSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lblSenhaActionPerformed
+
+    private void lblConfiSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblConfiSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblConfiSenhaActionPerformed
 
     /**
      * @param args the command line arguments

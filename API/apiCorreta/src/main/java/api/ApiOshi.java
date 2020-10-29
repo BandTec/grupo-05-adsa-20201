@@ -1,6 +1,5 @@
 package api;
 
-import java.util.Arrays;
 import java.util.List;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -40,10 +39,9 @@ public class ApiOshi {
         long[] freqns = processor.getCurrentFreq();
         
         System.out.println(String.format("PROCESSADOR:\n %S\n", processor)); // Dados gerais
-        System.out.println("\nFrequência máxima: " + FormatUtil.formatHertz(processor.getMaxFreq()) + "\n"); // Frequência máxima
+        System.out.println("Frequência máxima: " + FormatUtil.formatHertz(processor.getMaxFreq()) + "\n"); // Frequência máxima
         System.out.println("Frequência atual por processador: "); // Frequência recente de cada processador
         System.out.println("| ID | Clock atual |");
-        
         for (Integer i = 0; i < freqns.length; i++) {
             System.out.printf(String.format("|%dº - %s,\n", (i + 1), FormatUtil.formatHertz(freqns[i])));
         }
