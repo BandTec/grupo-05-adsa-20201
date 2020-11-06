@@ -17,16 +17,24 @@
     <!-- Inicio nave da página -->
 
     <input type="checkbox" id="check">
+
     <!--header area start-->
     <header>
         <div class="left_area">
+
             <a href="../../index.html">
+
                 <h3>Super<span>visor</span></h3>
             </a>
         </div>
+
+
         <div class="right_area">
+
             <a href="../Login.html" class="login_btn">Sair</a>
+
         </div>
+
     </header>
 
     <!-- Final nave da página -->
@@ -34,40 +42,67 @@
 
     <!-- menu lateral -->
     <div class="content">
+
         <div class="divMenuLateral">
+
 
             <!-- Nome e foto -->
             <div class="divPersona">
+
                 <div class="divFoto"><img src="../../Image/pessoa.png" alt="" width="30" height="30" class="imgFoto"></div>
+                
                 <p class="pNome">Karina Wakassuqui</p>
+
             </div>
             <!-- Final nome e foto -->
+
+
             <hr class="hrTopo">
+
 
             <!-- Começo informações de hardware -->
             <div class="divInformacoesHard" id="idInformacoesHard">
+
                 <p class="pFiltrarComputadores"> Filtrar computadores </p>
+
+
                 <p class="pStatusMaquina"> Status: <span id="idSpanStatus" class="spanStatus"> </span> </p>
+
                 <div id="computadoresOk" style=" display: none; width: 100%; height: 90%;"> </div>
+
                 <div id="computadoresAlerta" style=" display: none; width: 100%; height: 90%;"> </div>
+
                 <div id="computadoresCrits" style=" display: none; width: 100%; height: 90%;"> </div>
+
             </div>
             <!-- Final informações de hardware -->
 
             <hr class="hrFinal">
+
             <button class="btnDiscord"><img src="../../Image/discord (1).png" alt="" width="35" height="35" ></button>
 
         </div>
         <!-- final menu lateral -->
 
 
+        <!-- Botão voltar -->
+
+
+
+        <!-- Final botão voltar -->
 
 
         <!-- Div Status Máquinas -->
         <div class="divFarois">
+
+            <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true" id="btnVoltar" onclick="funcVoltar()"></i>
+
             <button class="divFarolCrit" onclick="exibirInfoCrit()" id="idQtdCrit"> - </button>
+
             <button class="divFarolAlerta" onclick="exibirInfoAlerta()" id="idQtdAlerta"> - </button>
+
             <button class="divFarolOk" onclick="exibirInfoOk()" id="idQtdOk"> - </button>
+
         </div>
         <!-- Fechamento Status Máquinas -->
 
@@ -75,44 +110,70 @@
 
         <!-- div Gráficos -->
         <div class="divGraficos">
+
             <canvas id="canvasGrafSemanal" height="90"></canvas>
+
             <div id="divStatusPC">
+
                 <div class="divDiscoMemoria">
 
                     <div class="divStatusDisco">
+
                         <span class="pDisco">DISCO</span>
+
                         <canvas id="canvasStatusDisco" height="150" class="classStatusDisco" style="top: -5px;"></canvas>
+                    
                     </div>
 
+
+
                     <div class="divStatusMemoria">
+
                         <span class="pMemoria">MEMÓRIA</span>
+
                         <canvas id="canvasStatusMemoria" class="divStatusDisco" height="-2"></canvas>
+
                     </div>
+
                 </div>
 
                 <div class="divCPUGPU">
 
+
+
                     <div class="divCPU">
+
                         <span class="pCPU">CPU</span>
+
                         <canvas id="canvasStatusCPU" height="110"></canvas>
 
                     </div>
 
                     <div class="divGPU">
+
                         <span class="pGPU">GPU</span>
+
                         <canvas id="canvasStatusGPU" height="110"></canvas>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
     <!-- Final Gráficos -->
 
 </body>
 
 </html>
+
 <script src="../../JS/dash.js"></script>
+
 <script>
+
     let qtdComputador = parseInt(Math.random() * 30 + 1);
 
     let qtdComputadorOk = 0;
@@ -156,6 +217,7 @@
         document.getElementById('computadoresOk').style.display = "none";
         document.getElementById('computadoresAlerta').style.display = "none";
         document.getElementById('computadoresCrits').style.display = "block";
+        
 
         computadoresCrits.innerHTML = '';
 
@@ -174,6 +236,7 @@
         document.getElementById('computadoresOk').style.display = "none";
         document.getElementById('computadoresCrits').style.display = "none";
         document.getElementById('computadoresAlerta').style.display = "block";
+   
 
         computadoresAlerta.innerHTML = '';
 
@@ -204,5 +267,13 @@
             computadoresOk.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorOk[i]}</button> <br>`;
         }
 
+    }
+
+    function funcVoltar(){
+        document.getElementById('canvasGrafSemanal').style.display = "block";
+        document.getElementById('divStatusPC').style.display = 'none';
+        document.getElementById('btnVoltar').style.display = "none";
+        document.getElementsByClassName('divGraficos').style.animationname = "animacaoGraf";
+        document.getElementsByClassName('divGraficos').style.animationduration = "1s";
     }
 </script>
