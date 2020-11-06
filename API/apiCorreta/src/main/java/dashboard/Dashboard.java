@@ -391,7 +391,7 @@ public class Dashboard extends javax.swing.JFrame {
         limparLista();
         lblTitulo.setText("CPU");//Renomeando título
         listaExibicao.add(String.format("Detalhes do processador: \n %s\n", processor.toString())); //detalhesCPU
-        listaExibicao.add(String.format("\nFrequência máxima: %s", FormatUtil.formatHertz(processor.getMaxFreq()))); //frequência máx
+        listaExibicao.add(String.format("\nFrequência máxima: %s \n", FormatUtil.formatHertz(processor.getMaxFreq()))); //frequência máx
 
         long[] freqns = processor.getCurrentFreq();//frequência atual
         listaExibicao.add("Frequência atual por processador: \n"); // Frequência recente de cada processador
@@ -406,8 +406,8 @@ public class Dashboard extends javax.swing.JFrame {
         listaExibicao.clear();
         lblTitulo.setText("MEMÓRIA");//Renomeando título   
         listaExibicao.add(String.format("Espaço disposnível/utilizado: \n%s\n", memory.toString())); //MEMÓRIA    
-        listaExibicao.add(String.format("Memórias físicas: %s", memory.getPhysicalMemory())); //detalhes memorias físicas
-        listaExibicao.add(String.format("Memórias virtuais: %s", memory.getVirtualMemory())); //detalhes memorias virtuais
+        listaExibicao.add(String.format("\nMemórias físicas: %s \n", memory.getPhysicalMemory())); //detalhes memorias físicas
+        listaExibicao.add(String.format("\nMemórias virtuais: %s", memory.getVirtualMemory())); //detalhes memorias virtuais
         exibeInfo();
     }//GEN-LAST:event_btnMemoriaActionPerformed
 
@@ -415,7 +415,10 @@ public class Dashboard extends javax.swing.JFrame {
 
         listaExibicao.clear();
         lblTitulo.setText("SISTEMA OPERACIONAL");//Renomeando título
-        listaExibicao.add(String.format("Sistema Operacional: \n %s\n", os.toString()));
+        listaExibicao.add(String.format("Sistema Operacional: %s\n", os.toString()));
+        listaExibicao.add(String.format("\nVersão do sistema: %s\n", os.getVersionInfo()));
+        listaExibicao.add(String.format("\nSessões: %s\n", os.getSessions()));
+        listaExibicao.add(String.format("\nServiços: %s\n", os.getServices()));
         exibeInfo();
     }//GEN-LAST:event_bntSOActionPerformed
 
@@ -439,7 +442,7 @@ public class Dashboard extends javax.swing.JFrame {
                 listaExibicao.add(os.getProcesses(i, ProcessSort.CPU).toString());
                 exibeInfo();
             } else {
-                
+                 
                 listaExibicao.add(os.getProcesses(i, ProcessSort.CPU).toString() + "\n");
                 exibeInfo();
             }
