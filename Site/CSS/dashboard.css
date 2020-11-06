@@ -86,6 +86,8 @@ body {
 /* Final botões computadores */
 
 
+
+
 /* Começo informações de hardware */
 
 .divInformacoesHard {
@@ -114,12 +116,25 @@ body {
 
 .divFarois {
     margin-top: -20px;
-    margin-left: 30px;
+    margin-left: 120px;
     float: left;
     display: flex;
     width: 980px;
     height: 110px;
     /* border: solid black 1px; */
+}
+
+.divFarois i {
+    float: left;
+    display: none;
+    margin-top: 15px;
+    position: absolute;
+    cursor: pointer;
+    color: #1c4570;
+}
+
+.divFarois i:hover{
+    color: #4c7bad;
 }
 
 .divFarolCrit {
@@ -217,7 +232,7 @@ body {
 .divFarolOk {
     min-width: 200px;
     height: 80px;
-    margin-left: 130px;
+    margin-left: 80px;
     border: none;
 }
 
@@ -231,6 +246,18 @@ body {
     background: #f9f9f9;
     box-shadow: 2px 2px 6px -2px #222;
     border: 2px solid #102842;
+    animation-name: animacaoGraf;
+    animation-duration: 1s;
+}
+@keyframes animacaoGraf{
+    from{
+        opacity: 0;
+        transform: scale(0.90);  
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 #divStatusPC {
@@ -424,4 +451,5 @@ body {
         background: #EF441D;
         /* transform: matrix(1, 0, 0, -1, 0, 0); */
     }
+
 }

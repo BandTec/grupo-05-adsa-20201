@@ -23,6 +23,7 @@ let grafStatusGPU = document.getElementById('canvasStatusGPU').getContext('2d');
 function exibirGraficos() {
     document.getElementById('canvasGrafSemanal').style.display = "none";
     document.getElementById('divStatusPC').style.display = 'block';
+    document.getElementById('btnVoltar').style.display = "block";
 
 
     let canvasStatusCPU = new Chart(grafStatusCPU, {
