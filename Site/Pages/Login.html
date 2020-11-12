@@ -49,7 +49,7 @@
         <div class="box_login" id="box_login">
             <h2>Sign In:</h2>
 
-            <label class="label_cadastro" for="func_cadastrado">Funcionário:</label>
+            <label class="label_cadastro" for="func_login">Funcionário:</label>
             <select class="cbxfuncionario" id="funcionarios">
                 <option value="" selected disabled>Selecione uma opção</option>
                 <option value="1">Professor</option>
@@ -58,10 +58,10 @@
 
             <div id="form_user" method="post" class="form_cadastrado" onsubmit="return entrar()">
                 <label class="label_cadastro" for="user_cadastrado">Insira seu Usuário*:</label>
-                <input class="input_u" type="text" placeholder="User" id="user_cadastrado" name="user" required>
+                <input class="input_u" type="text" placeholder="User" id="user_login" name="user" required>
 
                 <label class="label_cadastro" for="senha_cadastrado">Insira sua Senha*:</label>
-                <input class="input_u" type="password" placeholder="*****" id="senha_cadastrado" name="senha" required>
+                <input class="input_u" type="password" placeholder="*****" id="senha_login" name="senha" required>
 
                 <button id="btn_entrar" onclick="fazer_login()" class="btn"> Login </button>
 
@@ -96,3 +96,6 @@
 </html>
 
 <script src="../JS/login.js"></script>
+<script src="returnDados.js"></script>
+<script src="open-div-login.js"></script>
+<script src="../index.js"></script>
