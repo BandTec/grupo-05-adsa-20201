@@ -8,15 +8,62 @@ import configBanco.Conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Cadastrar extends javax.swing.JFrame {
 
-        Conexao config = new Conexao();
+    Conexao config = new Conexao();
+
+    public void cadastrarUsuario() {
+        // Coloca o insert em uma String
+        String insertSql = String.format("INSERT INTO CadastroFuncionario VALUES ('%s', '%s', '%s', null, null)",
+                lblNome.getText(), lblEmail.getText(), lblSenha.getText());
+
+        // Conecta no banco e passa o insert como query SQL
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
+
+            // Executa o insert
+            prepsInsertProduct.execute();
+
+            // Confirma a execução
+            System.out.println("Inserção feita com sucesso!");
+
+        } // Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        JOptionPane.showMessageDialog(null, "Cadastro realizado");
+        
+        verificarCadastro();
+    }
+
+    public void verificarCadastro() {
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                Statement statement = connection.createStatement();) {
+
+            ResultSet resultSet;
+
+            // Cria e depois executa uma query feita por colunas, 
+            // mas * funciona da mesma forma e poupa tempo.
+            String selectSql = "SELECT * FROM CadastroFuncionario";
+            resultSet = statement.executeQuery(selectSql);
+
+            // Exibe o resultado do select
+            while (resultSet.next()) {
+                System.out.println(String.format("Nome: %s\nE-mail: %s\n",
+                        resultSet.getString(2), resultSet.getString(3)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Cadastrar() {
         initComponents();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -350,36 +397,17 @@ public class Cadastrar extends javax.swing.JFrame {
         String senha = lblSenha.getText();
         String email = lblEmail.getText();
 
-        if((lblNome.getText().equals("")
-            || lblDataNasc.getText().equals("") || lblEmail.getText().equals("")
-            || lblConfiEmail.getText().equals("") || lblSenha.getText().equals(" "))) {
-        JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+        if ((lblNome.getText().equals("")
+                || lblDataNasc.getText().equals("") || lblEmail.getText().equals("")
+                || lblConfiEmail.getText().equals("") || lblSenha.getText().equals(" "))) {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos");
         } else if (lblEmail.getText().length() < 8 || !email.equals(lblConfiEmail.getText())) {
             JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de e-mail");
         } else if (lblSenha.getText().length() < 8 || !senha.equals(lblConfiSenha.getText())) {
             JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de senha");
         } else {
 
-            // Coloca o insert em uma String
-
-            String insertSql = String.format("INSERT INTO CadastroFuncionario VALUES ('%s', '%s', '%s', null, null)",
-                lblNome.getText(), lblEmail.getText(), lblSenha.getText());
-
-            // Conecta no banco e passa o insert como query SQL
-            try (Connection connection = DriverManager.getConnection(config.connectionUrl);
-                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
-
-                // Executa o insert
-                prepsInsertProduct.execute();
-
-                // Confirma a execução
-                System.out.println("Inserção feita com sucesso!");
-
-            } // Handle any errors that may have occurred.
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            JOptionPane.showMessageDialog(null, "Cadastro realizado");
+            cadastrarUsuario();
         }
 
     }//GEN-LAST:event_bntCadastrarActionPerformed
