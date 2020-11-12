@@ -4,13 +4,19 @@ import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import configBanco.Conexao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 
 
 public class Cadastrar extends javax.swing.JFrame {
 
+        Conexao config = new Conexao();
 
     public Cadastrar() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -27,10 +33,8 @@ public class Cadastrar extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblNome = new javax.swing.JTextField();
-        lblSobrenome = new javax.swing.JTextField();
         lblDataNasc = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -109,29 +113,17 @@ public class Cadastrar extends javax.swing.JFrame {
         jLabel6.setText("Informações Pessoais");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Nome:");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Sobrenome:");
+        jLabel1.setText("Nome completo:");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Data de Nascimento:");
 
         lblNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(204, 204, 204));
-        lblNome.setText("Ex: João");
+        lblNome.setText("Ex: João da Silva");
         lblNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lblNomeActionPerformed(evt);
-            }
-        });
-
-        lblSobrenome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblSobrenome.setForeground(new java.awt.Color(204, 204, 204));
-        lblSobrenome.setText("Ex: da Silva");
-        lblSobrenome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblSobrenomeActionPerformed(evt);
             }
         });
 
@@ -242,16 +234,10 @@ public class Cadastrar extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(95, 95, 95)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(lblSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1)
                             .addComponent(jLabel8)
-                            .addComponent(lblDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(21, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -271,13 +257,9 @@ public class Cadastrar extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel7))
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -316,7 +298,7 @@ public class Cadastrar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 829, Short.MAX_VALUE)
+            .addGap(0, 837, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -342,19 +324,21 @@ public class Cadastrar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblNomeActionPerformed
+    private void lblSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblNomeActionPerformed
+    }//GEN-LAST:event_lblSenhaActionPerformed
 
-    private void lblSobrenomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblSobrenomeActionPerformed
+    private void lblConfiEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblConfiEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblSobrenomeActionPerformed
+    }//GEN-LAST:event_lblConfiEmailActionPerformed
 
-    private void lblDataNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblDataNascActionPerformed
-        bntCadastrar.setContentAreaFilled(false);
-        bntCadastrar.setOpaque(true);
-        bntCadastrar.setBackground(Color.RED);
-    }//GEN-LAST:event_lblDataNascActionPerformed
+    private void lblConfiSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblConfiSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblConfiSenhaActionPerformed
+
+    private void lblEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblEmailActionPerformed
 
     private void bntCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCadastrarActionPerformed
 
@@ -362,43 +346,53 @@ public class Cadastrar extends javax.swing.JFrame {
         Matcher achar = criterios.matcher(lblEmail.getText().trim());
 
         boolean matchFound = achar.matches();
-        
+
         String senha = lblSenha.getText();
         String email = lblEmail.getText();
-        
-        if((lblNome.getText().equals("") || lblSobrenome.getText().equals("")
+
+        if((lblNome.getText().equals("")
             || lblDataNasc.getText().equals("") || lblEmail.getText().equals("")
             || lblConfiEmail.getText().equals("") || lblSenha.getText().equals(" "))) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos"); 
-        } else if (lblSenha.getText().length() < 8 || !email.equals(lblConfiEmail.getText())) {
+        JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+        } else if (lblEmail.getText().length() < 8 || !email.equals(lblConfiEmail.getText())) {
             JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de e-mail");
         } else if (lblSenha.getText().length() < 8 || !senha.equals(lblConfiSenha.getText())) {
             JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de senha");
         } else {
+
+            // Coloca o insert em uma String
+
+            String insertSql = String.format("INSERT INTO CadastroFuncionario VALUES ('%s', '%s', '%s', null, null)",
+                lblNome.getText(), lblEmail.getText(), lblSenha.getText());
+
+            // Conecta no banco e passa o insert como query SQL
+            try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
+
+                // Executa o insert
+                prepsInsertProduct.execute();
+
+                // Confirma a execução
+                System.out.println("Inserção feita com sucesso!");
+
+            } // Handle any errors that may have occurred.
+            catch (Exception e) {
+                e.printStackTrace();
+            }
             JOptionPane.showMessageDialog(null, "Cadastro realizado");
         }
-        
-        
-        
 
-        
     }//GEN-LAST:event_bntCadastrarActionPerformed
 
-    private void lblEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblEmailActionPerformed
+    private void lblDataNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblDataNascActionPerformed
+        bntCadastrar.setContentAreaFilled(false);
+        bntCadastrar.setOpaque(true);
+        bntCadastrar.setBackground(Color.RED);
+    }//GEN-LAST:event_lblDataNascActionPerformed
 
-    private void lblConfiEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblConfiEmailActionPerformed
+    private void lblNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_lblConfiEmailActionPerformed
-
-    private void lblSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblSenhaActionPerformed
-
-    private void lblConfiSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblConfiSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblConfiSenhaActionPerformed
+    }//GEN-LAST:event_lblNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -448,7 +442,6 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
@@ -463,6 +456,5 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JLabel lblImagemNome;
     private javax.swing.JTextField lblNome;
     private javax.swing.JTextField lblSenha;
-    private javax.swing.JTextField lblSobrenome;
     // End of variables declaration//GEN-END:variables
 }
