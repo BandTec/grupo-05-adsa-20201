@@ -1,8 +1,8 @@
 package cadastrar;
 
 import java.awt.Color;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import configBanco.Conexao;
 import java.sql.Connection;
@@ -18,8 +18,8 @@ public class Cadastrar extends javax.swing.JFrame {
 
     public void cadastrarUsuario() {
         // Coloca o insert em uma String
-        String insertSql = String.format("INSERT INTO CadastroFuncionario VALUES ('%s', '%s', '%s', null, null)",
-                lblNome.getText(), lblEmail.getText(), lblSenha.getText());
+        String insertSql = String.format("INSERT INTO CadastroFuncionario VALUES (null, '%s', '%s', '%s', null)",
+                lblNome.getText(), lblSenha.getText(), lblEmail.getText());
 
         // Conecta no banco e passa o insert como query SQL
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
@@ -48,13 +48,17 @@ public class Cadastrar extends javax.swing.JFrame {
 
             // Cria e depois executa uma query feita por colunas, 
             // mas * funciona da mesma forma e poupa tempo.
-            String selectSql = "SELECT * FROM CadastroFuncionario";
+            String selectSql = String.format("SELECT * FROM CadastroFuncionario"
+                    + " WHERE email = '%s'", lblEmail.getText());
+            
             resultSet = statement.executeQuery(selectSql);
 
             // Exibe o resultado do select
             while (resultSet.next()) {
-                System.out.println(String.format("Nome: %s\nE-mail: %s\n",
-                        resultSet.getString(2), resultSet.getString(3)));
+                System.out.println(String.format("Nome: %s\nE-mail: %s\nSenha: %s\n",
+                        resultSet.getString(3), 
+                        resultSet.getString(5), 
+                        resultSet.getString(4)));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -389,10 +393,10 @@ public class Cadastrar extends javax.swing.JFrame {
 
     private void bntCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntCadastrarActionPerformed
 
-        Pattern criterios = Pattern.compile(".+@.+\\.[a-z]+");
-        Matcher achar = criterios.matcher(lblEmail.getText().trim());
+//        Pattern criterios = Pattern.compile(".+@.+\\.[a-z]+");
+//        Matcher achar = criterios.matcher(lblEmail.getText().trim());
 
-        boolean matchFound = achar.matches();
+//        boolean matchFound = achar.matches();
 
         String senha = lblSenha.getText();
         String email = lblEmail.getText();
