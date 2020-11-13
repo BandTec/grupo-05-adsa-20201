@@ -284,7 +284,7 @@ public class Dashboard extends javax.swing.JFrame {
         jTAContent.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTAContent.setLineWrap(true);
         jTAContent.setRows(5);
-        jTAContent.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray, java.awt.Color.gray));
+        jTAContent.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         jTAContent.setCaretColor(new java.awt.Color(204, 0, 0));
         jTAContent.setMargin(new java.awt.Insets(15, 15, 15, 15));
         jScrollPane2.setViewportView(jTAContent);
