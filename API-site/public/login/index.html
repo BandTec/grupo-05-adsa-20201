@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagem/png" href="../Image/logo3.png" />
+    <title>Supervisor - Login</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+</head>
+
+<body class="body_login">
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+
+        <div class="left_area">
+            <a href="../index.html">
+                <h3>Super<span>visor</span></h3>
+            </a>
+        </div>
+        <div class="right_area">
+            <a href="../Pages/Login.html" class="login_btn">Login</a>
+            <a href="../Pages/cadastro.html" class="cadastro_btn">Cadastrar</a>
+        </div>
+    </header>
+    <!--header area end-->
+
+    <div class="container">
+
+        <div id="alerta_login_id" class="alerta">
+            <span>Verifique seu login!</span><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        </div>
+
+        <div id="alerta_senha_id" class="alerta">
+            <span>Verifique sua senha!</span><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        </div>
+
+        <div id="alerta_login_senha_id" class="alerta">
+            <span>Verifique suas credenciais!</span><i class="fa fa-bell fa-3x" aria-hidden="true"></i>
+        </div>
+
+        <img src="../Image/logo3.png">
+        <div class="box_login" id="box_login">
+            <h2>Sign In:</h2>
+            <button onclick="pegarusuario()" >dsds</button>
+
+            <label class="label_cadastro" for="func_login">Funcionário:</label>
+            <select class="cbxfuncionario" id="funcionarios">
+                <option value="" selected disabled>Selecione uma opção</option>
+                <option value="1">Professor</option>
+                <option value="2">Suporte de T.I.</option>
+            </select>
+
+            <div id="form_user" method="post" class="form_cadastrado" onsubmit="return entrar()">
+                <label class="label_cadastro" for="user_cadastrado">Insira seu Usuário*:</label>
+                <input class="input_u" type="text" placeholder="User" id="user_login" name="user" required>
+
+                <label class="label_cadastro" for="senha_cadastrado">Insira sua Senha*:</label>
+                <input class="input_u" type="password" placeholder="*****" id="senha_login" name="senha" required>
+
+                <button id="btn_entrar" onclick="fazer_login()" class="btn"> Login </button>
+
+                <a href="" class="forgot_pass">Esqueceu a senha?</a>
+            </div>
+
+            <div id="gif_aqui">
+
+
+
+            </div>
+
+        </div>
+
+        <div class="register">
+            Não tem conta? <a href="cadastro.html">Faça seu cadastro AQUI</a>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.nav_btn').click(function() {
+                    $('.mobile_nav_items').toggleClass('active');
+                });
+            });
+        </script>
+
+
+</body>
+
+</html>
+
+<!-- <script src="../JS/login.js"></script> -->
+<script src="../js/returnDados.js"></script>
+<!-- <script src="open-div-login.js"></script> -->
+<!-- <script src="../index.js"></script> -->
