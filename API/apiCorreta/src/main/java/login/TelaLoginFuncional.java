@@ -1,6 +1,7 @@
 
 package login;
 
+import arquivosLog.Logs;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;   
@@ -11,6 +12,8 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
     
 //    dashboard.Dashboard teste = new dashboard.Dashboard();
 
+    
+    Logs log = new Logs();
 
     public TelaLoginFuncional() {
         initComponents();
@@ -265,11 +268,16 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
         String user = tfMail.getText();
         String senha = tfSenha.getText();
         
-        if (user.equals("joao@supervisor.com") && senha.equals("123")) {
+        try{
+            if (user.equals("joao@supervisor.com") && senha.equals("123")) {
             JOptionPane.showMessageDialog(rootPane, "Vamos analisar o dashboard");
         } else {
             JOptionPane.showMessageDialog(rootPane, "E-mail e/ou usuário incorreto(s)");
         }
+        } catch (Exception e){
+                log.gravarLog("Login ou senha invalidos", "Sistema de login");
+        }
+        
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void tfMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMailActionPerformed
