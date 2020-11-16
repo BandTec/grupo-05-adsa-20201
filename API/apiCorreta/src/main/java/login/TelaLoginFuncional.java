@@ -273,9 +273,10 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Vamos analisar o dashboard");
         } else {
             JOptionPane.showMessageDialog(rootPane, "E-mail e/ou usuário incorreto(s)");
+             log.gravarLog("Login ou senha invalidos", "Sistema de login");
         }
         } catch (Exception e){
-                log.gravarLog("Login ou senha invalidos", "Sistema de login");
+                log.gravarLog(e.toString(), "Sistema de login");
         }
         
     }//GEN-LAST:event_btnLoginActionPerformed

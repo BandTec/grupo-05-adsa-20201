@@ -26,7 +26,7 @@ public class Logs {
         try {
         //Criando o arquivo de log
         String home = System.getProperty("user.home");
-        File acesso = new File(home + File.separator + "Documentos" + File.separator + "Logs" + File.separator).getCanonicalFile();
+        File acesso = new File(home + File.separator + "Desktop" + File.separator + "Logs" + File.separator).getCanonicalFile();
         String caminho = acesso + File.separator + nomearArquivo.format(date)+"Logs_Supervisor.txt";
         acesso.mkdir();
         
