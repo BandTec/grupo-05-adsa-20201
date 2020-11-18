@@ -8,7 +8,8 @@ const config = {
     port: 1433,
     dialectOptions: {
         options: {
-            encrypt: true
+            encrypt: true,
+            "enableArithAbort": true 
         }
     }
 };

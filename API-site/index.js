@@ -14,14 +14,15 @@ app.use(express.static('public'));
 app.use(express.json)
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/',(req,res)=>{
-    request.query("SELECT email, senha FROM CadastroFuncionario",function(err,result){
-        if(err) throw err;
-        console.log("dsds");
+
+// app.get('/',(req,res)=>{
+//     request.query("SELECT email, senha FROM CadastroFuncionario",function(err,result){
+//         if(err) throw err;
+//         console.log("dsds");
         
-        res.send(result);
-    })    
-});
+//         res.send(result);
+//     })    
+// });
 
 
 //LOGIN
@@ -33,6 +34,7 @@ app.post('/user',(req,res)=>{
     })
 });
 
+
 //CADASTRO
 app.post('/addUser',(req,res)=>{
     let data=[req.nomeFuncionario, req.body.email, req.body.senha, req.body.cargo];
@@ -43,8 +45,8 @@ app.post('/addUser',(req,res)=>{
         if(err) throw err;
         res.send(result);
     });
-
 })
+
 
 app.listen(port, function(){
     console.log('Servidor rodando na porta '+port);
