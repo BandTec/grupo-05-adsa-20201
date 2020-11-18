@@ -2,7 +2,6 @@ package dashboard;
 
 import api.ApiOshi;
 
-import dashboard.GeradorValor;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,7 +19,7 @@ import oshi.util.FormatUtil;
 
 public class Dashboard extends javax.swing.JFrame {
 
-    GeradorValor gerarRandom = new GeradorValor();
+    Gerenciador gerenciadorDados = new Gerenciador();
     
 
     ApiOshi api = new ApiOshi();
@@ -378,12 +377,10 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
 
-        gerarRandom.alterarValor(30); //estável
-        lblEstavel.setText(gerarRandom.getNumRandom().toString());
-        gerarRandom.alterarValor(20); //em atenção
-        lblAtencao.setText(gerarRandom.getNumRandom().toString());
-        gerarRandom.alterarValor(10); //em risco
-        lblRisco.setText(gerarRandom.getNumRandom().toString());
+        gerenciadorDados.recuperarDados(1, lblEstavel);
+        gerenciadorDados.recuperarDados(2, lblAtencao);
+        gerenciadorDados.recuperarDados(3, lblRisco);
+        
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
     private void btnCPUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCPUActionPerformed
