@@ -11,7 +11,7 @@ const request = new mssql.Request();
 
 app.use(cors());
 app.use(express.static('public'));
-app.use(express.json)
+app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}));
 
 
@@ -24,11 +24,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 //     })    
 // });
 
-
 //LOGIN
-app.post('/user',(req,res)=>{
+app.post('/user', function (req,res){
     console.log(req.body)
-    request.query("SELECT email, senha FROM CadastroFuncionario",function(err,result){
+    
+    request.query(`SELECT nomeFuncionario, senha FROM CadastroFuncionario where nomeFuncionario='${req.body.usuario1}' and senha='${req.body.senha1}' `,function(err,result){
         if(err) throw err;        
         res.send(result);
     })
@@ -49,5 +49,5 @@ app.post('/addUser',(req,res)=>{
 
 
 app.listen(port, function(){
-    console.log('Servidor rodando na porta '+port);
+    console.log('Servidor rodando na porta '+ port);
 });
