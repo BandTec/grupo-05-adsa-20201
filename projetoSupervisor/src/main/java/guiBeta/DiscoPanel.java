@@ -30,8 +30,8 @@ public class DiscoPanel extends SuperVisorJpanel {
     
     private static final long serialVersionUID = 1L;
 
-    private static final String USED = "Utilizado";
-    private static final String AVAILABLE = "Disponível";
+    private static final String utilizando = "Utilizado";
+    private static final String disponivel = "Disponível";
 
     public DiscoPanel(SystemInfo si) {
         super();
@@ -93,8 +93,8 @@ public class DiscoPanel extends SuperVisorJpanel {
             subtitles.add(new TextTitle(
                     "Disponível: " + FormatUtil.formatBytes(usable) + "/" + FormatUtil.formatBytes(total)));
             fsCharts[i].setSubtitles(subtitles);
-            fsData[i].setValue(USED, (double) total - usable);
-            fsData[i].setValue(AVAILABLE, usable);
+            fsData[i].setValue(utilizando, (double) total - usable);
+            fsData[i].setValue(disponivel, usable);
             i++;
         }
         return true;
@@ -102,9 +102,9 @@ public class DiscoPanel extends SuperVisorJpanel {
 
     private static void configurePlot(JFreeChart chart) {
         PiePlot plot = (PiePlot) chart.getPlot();
-        plot.setSectionPaint(USED, Color.red);
-        plot.setSectionPaint(AVAILABLE, Color.green);
-        plot.setExplodePercent(USED, 0.10);
+        plot.setSectionPaint(utilizando, Color.decode("#eb4d4b"));
+        plot.setSectionPaint(disponivel, Color.decode("#44bd32"));
+        plot.setExplodePercent(utilizando, 0.10);
         plot.setSimpleLabels(true);
 
         PieSectionLabelGenerator labelGenerator = new StandardPieSectionLabelGenerator("{0}: {1} ({2})",

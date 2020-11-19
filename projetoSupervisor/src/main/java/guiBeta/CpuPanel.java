@@ -21,10 +21,6 @@ import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;
 
 public class CpuPanel extends SuperVisorJpanel {
-    
-    public static void main(String[] args) {
-        
-    }
 
     private static final long serialVersionUID = 1L;
 
@@ -49,13 +45,15 @@ public class CpuPanel extends SuperVisorJpanel {
         GridBagConstraints procConstraints = (GridBagConstraints) sysConstraints.clone();
         procConstraints.gridx = 1;
 
+        // Pegando valor do uso total do sistema
         Date date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
         DynamicTimeSeriesCollection sysData = new DynamicTimeSeriesCollection(1, 60, new Second());
         sysData.setTimeBase(new Second(date));
-        sysData.addSeries(floatArrayPercent(cpuData(processor)), 0, "Todas as CPUs");
+        sysData.addSeries(floatArrayPercent(cpuData(processor)), 0, "Uso total do sitema");
         JFreeChart systemCpu = ChartFactory.createTimeSeriesChart("Uso da CPU pelo sistema", "Tempo", "% CPU", sysData, true,
                 true, false);
-
+        
+        // Pegando valores por cpu
         double[] procUsage = procData(processor);
         DynamicTimeSeriesCollection procData = new DynamicTimeSeriesCollection(procUsage.length, 60, new Second());
         procData.setTimeBase(new Second(date));

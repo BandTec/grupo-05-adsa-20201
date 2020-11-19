@@ -32,28 +32,28 @@ public class MemoriaPanel extends SuperVisorJpanel{
     
     private static final long serialVersionUID = 1L;
 
-    private static final String PHYSICAL_MEMORY = "Memória física";
-    private static final String VIRTUAL_MEMORY = "Memória virtual (Swap)";
+    private static final String memoriaFisica = "Memória física";
+    private static final String memoriaVirtual = "Memória virtual (Swap)";
 
-    private static final String USED = "Utilizando";
-    private static final String AVAILABLE = "Disponível";
+    private static final String utilizando = "Utilizando";
+    private static final String disponivel = "Disponível";
 
     public MemoriaPanel(SystemInfo si) {
         super();
         init(si.getHardware().getMemory());
     }
 
-    private void init(GlobalMemory memory) {
-        DefaultPieDataset physMemData = new DefaultPieDataset();
-        DefaultPieDataset virtMemData = new DefaultPieDataset();
-        updateDatasets(memory, physMemData, virtMemData);
+    private void init(GlobalMemory memoria) {
+        DefaultPieDataset memFisDados = new DefaultPieDataset();
+        DefaultPieDataset memVirtDados = new DefaultPieDataset();
+        updateDatasets(memoria, memFisDados, memVirtDados);
 
-        JFreeChart physMem = ChartFactory.createPieChart(PHYSICAL_MEMORY, physMemData, true, true, false);
-        JFreeChart virtMem = ChartFactory.createPieChart(VIRTUAL_MEMORY, virtMemData, true, true, false);
-        configurePlot(physMem);
-        configurePlot(virtMem);
-        physMem.setSubtitles(Collections.singletonList(new TextTitle(updatePhysTitle(memory))));
-        virtMem.setSubtitles(Collections.singletonList(new TextTitle(updateVirtTitle(memory))));
+        JFreeChart memFis = ChartFactory.createPieChart(memoriaFisica, memFisDados, true, true, false);
+        JFreeChart memVirt = ChartFactory.createPieChart(memoriaVirtual, memVirtDados, true, true, false);
+        configurePlot(memFis);
+        configurePlot(memVirt);
+        memFis.setSubtitles(Collections.singletonList(new TextTitle(updatePhysTitle(memoria))));
+        memVirt.setSubtitles(Collections.singletonList(new TextTitle(updateVirtTitle(memoria))));
 
         GridBagConstraints pmConstraints = new GridBagConstraints();
         pmConstraints.weightx = 1d;
@@ -68,56 +68,56 @@ public class MemoriaPanel extends SuperVisorJpanel{
 
         JPanel MemoriaPanel = new JPanel();
         MemoriaPanel.setLayout(new GridBagLayout());
-        MemoriaPanel.add(new ChartPanel(physMem), pmConstraints);
-        MemoriaPanel.add(new ChartPanel(virtMem), vmConstraints);
+        MemoriaPanel.add(new ChartPanel(memFis), pmConstraints);
+        MemoriaPanel.add(new ChartPanel(memVirt), vmConstraints);
 
         JTextArea textArea = new JTextArea(60, 20);
-        textArea.setText(updateMemoryText(memory));
+        textArea.setText(updateMemoryText(memoria));
         MemoriaPanel.add(textArea, textConstraints);
 
         add(MemoriaPanel, BorderLayout.CENTER);
 
         Timer timer = new Timer(Config.REFRESH_SLOW, e -> {
-            updateDatasets(memory, physMemData, virtMemData);
-            physMem.setSubtitles(Collections.singletonList(new TextTitle(updatePhysTitle(memory))));
-            virtMem.setSubtitles(Collections.singletonList(new TextTitle(updateVirtTitle(memory))));
-            textArea.setText(updateMemoryText(memory));
+            updateDatasets(memoria, memFisDados, memVirtDados);
+            memFis.setSubtitles(Collections.singletonList(new TextTitle(updatePhysTitle(memoria))));
+            memVirt.setSubtitles(Collections.singletonList(new TextTitle(updateVirtTitle(memoria))));
+            textArea.setText(updateMemoryText(memoria));
         });
         timer.start();
     }
 
-    private static String updatePhysTitle(GlobalMemory memory) {
-        return memory.toString();
+    private static String updatePhysTitle(GlobalMemory memoria) {
+        return memoria.toString();
     }
 
-    private static String updateVirtTitle(GlobalMemory memory) {
-        return memory.getVirtualMemory().toString();
+    private static String updateVirtTitle(GlobalMemory memoria) {
+        return memoria.getVirtualMemory().toString();
     }
 
-    private static String updateMemoryText(GlobalMemory memory) {
+    private static String updateMemoryText(GlobalMemory memoria) {
         StringBuilder sb = new StringBuilder();
-        List<PhysicalMemory> pmList = memory.getPhysicalMemory();
+        List<PhysicalMemory> pmList = memoria.getPhysicalMemory();
         for (PhysicalMemory pm : pmList) {
             sb.append('\n').append(pm.toString());
         }
         return sb.toString();
     }
 
-    private static void updateDatasets(GlobalMemory memory, DefaultPieDataset physMemData,
+    private static void updateDatasets(GlobalMemory memoria, DefaultPieDataset physMemData,
             DefaultPieDataset virtMemData) {
-        physMemData.setValue(USED, (double) memory.getTotal() - memory.getAvailable());
-        physMemData.setValue(AVAILABLE, memory.getAvailable());
+        physMemData.setValue(utilizando, (double) memoria.getTotal() - memoria.getAvailable());
+        physMemData.setValue(disponivel, memoria.getAvailable());
 
-        VirtualMemory virtualMemory = memory.getVirtualMemory();
-        virtMemData.setValue(USED, virtualMemory.getSwapUsed());
-        virtMemData.setValue(AVAILABLE, (double) virtualMemory.getSwapTotal() - virtualMemory.getSwapUsed());
+        VirtualMemory memoriaVirtual = memoria.getVirtualMemory();
+        virtMemData.setValue(utilizando, memoriaVirtual.getSwapUsed());
+        virtMemData.setValue(disponivel, (double) memoriaVirtual.getSwapTotal() - memoriaVirtual.getSwapUsed());
     }
 
-    private static void configurePlot(JFreeChart chart) {
-        PiePlot plot = (PiePlot) chart.getPlot();
-        plot.setSectionPaint(USED, Color.red);
-        plot.setSectionPaint(AVAILABLE, Color.green);
-        plot.setExplodePercent(USED, 0.10);
+    private static void configurePlot(JFreeChart grafico) {
+        PiePlot plot = (PiePlot) grafico.getPlot();
+        plot.setSectionPaint(utilizando, Color.decode("#eb4d4b"));
+        plot.setSectionPaint(disponivel, Color.decode("#44bd32"));
+        plot.setExplodePercent(utilizando, 0.10);
         plot.setSimpleLabels(true);
 
         PieSectionLabelGenerator labelGenerator = new StandardPieSectionLabelGenerator("{0}: {1} ({2})",
