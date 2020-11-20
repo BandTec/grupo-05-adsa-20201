@@ -15,15 +15,6 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-// app.get('/',(req,res)=>{
-//     request.query("SELECT email, senha FROM CadastroFuncionario",function(err,result){
-//         if(err) throw err;
-//         console.log("dsds");
-        
-//         res.send(result);
-//     })    
-// });
-
 //LOGIN
 app.post('/user', function (req,res){
     console.log(req.body)

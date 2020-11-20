@@ -1,7 +1,7 @@
 function addUser(evento){
     // evento.preventDefault();
     let ajax =  new XMLHttpRequest();
-    let params = "nome=" + nome.value + "&email=" + email.value + "&senha=" + senha.value + "&cargo=" + cargo.value + "&foto=" + foto.value;
+    let params = "nome=" + nome.value + "&email=" + email.value + "&senha=" + senha.value + "&cargo=" + cargo.value; //+ "&foto=" + foto.value;
     ajax.open("POST","http://localhost:3000/addUser");
     ajax.setRequestHeader('Content-type','application/x-www-form-urlencoded');
     ajax.onreadystatechange=function(){
