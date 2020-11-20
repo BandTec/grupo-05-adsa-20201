@@ -1,6 +1,9 @@
 package guiBeta;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
+import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 
 import javax.swing.JButton;
@@ -8,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
+import javax.swing.border.EmptyBorder;
+import org.jfree.chart.plot.CenterTextMode;
 
 import oshi.SystemInfo;
 
@@ -44,6 +49,7 @@ public class SuperVisorAplication {
         mainFrame.setLayout(new BorderLayout());
         // Add a menu bar
         menuBar = new JMenuBar();
+        menuBar.setBackground(Color.decode("#2f3640"));
         mainFrame.setJMenuBar(menuBar);
         // Create the first menu option in this thread
         jMenu = getJMenu("OS & HW Info", 'O', "Hardware & OS índice", new OsHwTextPanel(si));
