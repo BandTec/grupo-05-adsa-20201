@@ -17,13 +17,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //LOGIN
 app.post('/user', function (req,res){
+    console.log("index.js está ok")
     console.log(req.body)
     
-    request.query(`SELECT nomeFuncionario, senha FROM CadastroFuncionario where nomeFuncionario='${req.body.usuario1}' and senha='${req.body.senha1}' `,function(err,result){
+    let hh = request.query(`SELECT nomeFuncionario, senha FROM CadastroFuncionario where nomeFuncionario='${req.body.usuario1}' and senha='${req.body.senha1}' `,function(err,result){
         if(err) throw err;        
         res.send(result);
+        console.log(hh);
     })
 });
+
 
 
 //CADASTRO
@@ -39,6 +42,7 @@ app.post('/addUser',(req,res)=>{
 })
 
 
+//PORTA
 app.listen(port, function(){
     console.log('Servidor rodando na porta '+ port);
 });
