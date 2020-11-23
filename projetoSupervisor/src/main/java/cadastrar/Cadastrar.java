@@ -18,8 +18,10 @@ public class Cadastrar extends javax.swing.JFrame {
 
     public void cadastrarUsuario() {
         // Coloca o insert em uma String
-        String insertSql = String.format("INSERT INTO CadastroFuncionario VALUES (null, '%s', '%s', '%s', null)",
-                lblNome.getText(), lblSenha.getText(), lblEmail.getText());
+        String insertSql = String.format("INSERT INTO CadastroFuncionario "
+                + "(nomeFuncionario, email, senha, fkFaculdade) "
+                + "VALUES ('%s', '%s', '%s', null)",
+                lblNome.getText(), lblEmail.getText(), lblSenha.getText());
 
         // Conecta no banco e passa o insert como query SQL
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
@@ -29,7 +31,7 @@ public class Cadastrar extends javax.swing.JFrame {
             prepsInsertProduct.execute();
 
             // Confirma a execução
-            System.out.println("Inserção feita com sucesso!");
+            System.out.println("Inserção feita com sucesso!\n");
 
         } // Handle any errors that may have occurred.
         catch (Exception e) {
@@ -56,8 +58,8 @@ public class Cadastrar extends javax.swing.JFrame {
             // Exibe o resultado do select
             while (resultSet.next()) {
                 System.out.println(String.format("Nome: %s\nE-mail: %s\nSenha: %s\n",
+                        resultSet.getString(2), 
                         resultSet.getString(3), 
-                        resultSet.getString(5), 
                         resultSet.getString(4)));
             }
         } catch (SQLException e) {

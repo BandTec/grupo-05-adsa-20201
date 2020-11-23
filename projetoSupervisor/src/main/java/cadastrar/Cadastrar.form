@@ -133,18 +133,8 @@
         <Component class="javax.swing.JLabel" name="jLabel4">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\API\apiCorreta\src\main\java\imagem\logo3.1.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\API\apiCorreta\src\main\java\imagem\LogoSpervisor.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -445,18 +435,8 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblImagem1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\API\apiCorreta\src\main\java\imagem\computador.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblImagem2">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\API\apiCorreta\src\main\java\imagem\dev-computer.png"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
