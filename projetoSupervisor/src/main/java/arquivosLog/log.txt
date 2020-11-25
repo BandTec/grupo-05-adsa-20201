@@ -1,0 +1,28 @@
+nov 19, 2020 11:37:20 AM br.com.bandtec.log.CriarArquivo main
+WARNING: aviso msg
+nov 19, 2020 11:37:20 AM br.com.bandtec.log.CriarArquivo main
+SEVERE: severe msg
+nov 19, 2020 11:42:21 AM br.com.bandtec.log.CriarArquivo main
+WARNING: aviso msg
+nov 19, 2020 11:42:21 AM br.com.bandtec.log.CriarArquivo main
+SEVERE: severe msg
+nov 19, 2020 1:21:55 PM br.com.bandtec.log.CriarArquivo main
+WARNING: aviso msg
+nov 19, 2020 1:21:56 PM br.com.bandtec.log.CriarArquivo main
+SEVERE: severe msg
+nov 19, 2020 9:26:21 PM br.com.bandtec.log.CriarArquivo main
+ADVERTÊNCIA: aviso msg
+nov 19, 2020 9:26:22 PM br.com.bandtec.log.CriarArquivo main
+GRAVE: severe msg
+nov 19, 2020 9:26:45 PM br.com.bandtec.log.CriarArquivo main
+ADVERTÊNCIA: aviso msg
+nov 19, 2020 9:26:45 PM br.com.bandtec.log.CriarArquivo main
+GRAVE: severe msg
+nov 19, 2020 9:28:37 PM br.com.bandtec.log.CriarArquivo main
+ADVERTÊNCIA: aviso msg
+nov 19, 2020 9:28:38 PM br.com.bandtec.log.CriarArquivo main
+GRAVE: severe msg
+nov 23, 2020 4:41:33 PM br.com.bandtec.log.CriarArquivo main
+ADVERTÊNCIA: aviso msg
+nov 23, 2020 4:41:33 PM br.com.bandtec.log.CriarArquivo main
+GRAVE: severe msg
