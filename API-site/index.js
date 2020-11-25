@@ -27,7 +27,7 @@ app.post('/user', function (req, res) {
             if (err) throw err;
             console.log(result);
             if (result.recordsets[0].length) {
-                res.json({
+                 res.json({
                     msg: result.recordsets[0]
                 });
             } else {
