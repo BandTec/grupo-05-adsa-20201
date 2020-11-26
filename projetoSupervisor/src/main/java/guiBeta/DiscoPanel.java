@@ -1,9 +1,13 @@
 package guiBeta;
 
+import static guiBeta.MemoriaPanel.config;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,12 +26,13 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import oshi.PlatformEnum;
 import oshi.SystemInfo;
+import oshi.hardware.GlobalMemory;
 import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.util.FormatUtil;
 
 public class DiscoPanel extends SuperVisorJpanel {
-    
+
     private static final long serialVersionUID = 1L;
 
     private static final String utilizando = "Utilizado";
@@ -94,6 +99,15 @@ public class DiscoPanel extends SuperVisorJpanel {
                     "Disponível: " + FormatUtil.formatBytes(usable) + "/" + FormatUtil.formatBytes(total)));
             fsCharts[i].setSubtitles(subtitles);
             fsData[i].setValue(utilizando, (double) total - usable);
+
+            if (i == 0) {
+                Timer timer = new Timer(Config.REFRESH_SLOW, e -> {
+                    inserirDadosDisco(store);
+
+                });
+                timer.start();
+            }
+
             fsData[i].setValue(disponivel, usable);
             i++;
         }
@@ -111,5 +125,29 @@ public class DiscoPanel extends SuperVisorJpanel {
                 new DecimalFormat("0"), new DecimalFormat("0%"));
         plot.setLabelGenerator(labelGenerator);
     }
-     
+
+    public static void inserirDadosDisco(OSFileStore store) {
+
+        long total = store.getTotalSpace();
+        long utilizando = store.getUsableSpace();
+        // Coloca o insert em uma String
+        String insertSql = String.format("INSERT INTO Registro VALUES "
+                + "('%.1f', '%%', 'Espaço disponível em disco', null, 1, 3)",
+                (double) Math.round((total - utilizando) * 100 / total));
+
+        // Conecta no banco e passa o insert como query SQL
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
+
+            // Executa o insert
+            prepsInsertProduct.execute();
+
+            // Confirma a execução
+//            System.out.println("Inserção feita DISCO!\n");
+        } // Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

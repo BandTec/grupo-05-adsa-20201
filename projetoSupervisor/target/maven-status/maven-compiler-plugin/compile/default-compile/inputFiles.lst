@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\Config.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\ProcessosJPanel.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\DiscoPanel.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\cadastrar\Cadastrar.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\SuperVisorAplication.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\configBanco\TesteConfig.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\OsHwTextPanel.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\MemoriaPanel.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\arquivosLog\Logs.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\CpuPanel.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\dashboard\Gerenciador.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\dashboard\Dashboard.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\login\TelaLoginFuncional.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\arquivosLog\Log.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\api\ApiOshi.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\SuperVisorJpanel.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\log\LogErros.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\configBanco\Conexao.java
+C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\arquivosLog\CriarArquivo.java
+=======
 C:\Users\vinic\OneDrive\Documents\Faculdade\Versões do git\25-11-2\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\Config.java
 C:\Users\vinic\OneDrive\Documents\Faculdade\Versões do git\25-11-2\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\MemoriaPanel.java
 C:\Users\vinic\OneDrive\Documents\Faculdade\Versões do git\25-11-2\grupo-05-adsa-20201\projetoSupervisor\src\main\java\log\LogErros.java
@@ -17,3 +38,4 @@ C:\Users\vinic\OneDrive\Documents\Faculdade\Versões do git\25-11-2\grupo-05-adsa
 C:\Users\vinic\OneDrive\Documents\Faculdade\Versões do git\25-11-2\grupo-05-adsa-20201\projetoSupervisor\src\main\java\dashboard\Gerenciador.java
 C:\Users\vinic\OneDrive\Documents\Faculdade\Versões do git\25-11-2\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\DiscoPanel.java
 C:\Users\vinic\OneDrive\Documents\Faculdade\Versões do git\25-11-2\grupo-05-adsa-20201\projetoSupervisor\src\main\java\ArquivosLogs\CriarArquivo.java
+>>>>>>> e40343ba0b5e73a4e8527c72fa45ea2ea7f920ee
