@@ -1,6 +1,7 @@
 package api;
 
 import java.util.List;
+import javax.swing.text.html.HTML;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
