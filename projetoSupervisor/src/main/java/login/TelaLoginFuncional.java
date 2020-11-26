@@ -1,7 +1,7 @@
 
 package login;
 
-import arquivosLog.Logs;
+import ArquivosLog.Logs;
 import configBanco.Conexao;
 import java.awt.Color;
 import java.sql.Connection;

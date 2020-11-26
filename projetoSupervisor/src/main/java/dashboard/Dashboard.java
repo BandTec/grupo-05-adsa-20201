@@ -1,6 +1,5 @@
 package dashboard;
 
-import arquivosLog.CriarArquivo;
 import api.ApiOshi;
 
 import java.util.ArrayList;

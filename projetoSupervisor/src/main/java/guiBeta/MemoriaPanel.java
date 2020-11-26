@@ -119,13 +119,6 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
         inserirDadosMemFisica(memoria, physMemData);
 //        inserirDadosMemVirtual(memoria, virtMemData);
-
-//        System.out.println("\n----- MEMÓRIA FÍSICA -----");
-//        System.out.println(String.format("Disponível: %.1f%%", (double) (physMemData.getValue(disponivel)) * 100 / memoria.getTotal()));
-//        System.out.println(String.format("Utilizado: %.1f%%", (double) (physMemData.getValue(utilizando)) * 100 / memoria.getTotal()));
-//        System.out.println("\n----- MEMÓRIA VIRTUAL -----");
-//        System.out.println(String.format("Disponível: %.1f%%", (double) (virtMemData.getValue(disponivel)) * 100 / memoriaVirtual.getSwapTotal()));
-//        System.out.println(String.format("Utilizado: %.1f%%", (double) (virtMemData.getValue(utilizando)) * 100 / memoriaVirtual.getSwapTotal()));
     }
 
     private static void configurePlot(JFreeChart grafico) {
@@ -154,13 +147,10 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
             // Executa o insert
             prepsInsertProduct.execute();
-
-            // Confirma a execução
+            
 //            System.out.println("Inserção feita com sucesso de memória!\n");
-
         } // Handle any errors that may have occurred.
         catch (Exception e) {
-            
             e.printStackTrace();
         }
     }
