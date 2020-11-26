@@ -1,7 +1,5 @@
 package guiBeta;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -11,15 +9,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-import javax.swing.border.EmptyBorder;
-import org.jfree.chart.plot.CenterTextMode;
 
 import oshi.SystemInfo;
 
-/**
- * Basic Swing class to demonstrate potential uses for OSHI in a monitoring GUI.
- * Not ready for production use and intended as inspiration/examples.
- */
 public class SuperVisorAplication {
 
     private JFrame mainFrame;

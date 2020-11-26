@@ -1,8 +1,12 @@
 package guiBeta;
 
+import static guiBeta.MemoriaPanel.config;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -13,12 +17,14 @@ import javax.swing.Timer;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.DynamicTimeSeriesCollection;
 import org.jfree.data.time.Second;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;
+import oshi.hardware.GlobalMemory;
 
 public class CpuPanel extends SuperVisorJpanel {
 
@@ -52,7 +58,7 @@ public class CpuPanel extends SuperVisorJpanel {
         sysData.addSeries(floatArrayPercent(cpuData(processor)), 0, "Uso total do sitema");
         JFreeChart systemCpu = ChartFactory.createTimeSeriesChart("Uso da CPU pelo sistema", "Tempo", "% CPU", sysData, true,
                 true, false);
-        
+
         // Pegando valores por cpu
         double[] procUsage = procData(processor);
         DynamicTimeSeriesCollection procData = new DynamicTimeSeriesCollection(procUsage.length, 60, new Second());
@@ -70,7 +76,7 @@ public class CpuPanel extends SuperVisorJpanel {
 
         add(cpuPanel, BorderLayout.CENTER);
 
-        Timer timer = new Timer(Config.REFRESH_FAST, e -> {
+        Timer timer = new Timer(700 ,e -> {
             sysData.advanceTime();
             sysData.appendData(floatArrayPercent(cpuData(processor)));
             procData.advanceTime();
@@ -81,11 +87,19 @@ public class CpuPanel extends SuperVisorJpanel {
             }
         });
         timer.start();
+        
+        Timer timer2 = new Timer(4700, e -> {
+            if (f[0] != 0) // VALOR PARA MANDAR NO BANCO
+                inserirDadosCpu(f);
+        });
+        timer2.start();
     }
 
+    static float[] f = new float[1];
+
     private static float[] floatArrayPercent(double d) {
-        float[] f = new float[1];
-        f[0] = (float) (100d * d);
+        f[0] = (float) Math.round(100d * d);
+
         return f;
     }
 
@@ -100,5 +114,26 @@ public class CpuPanel extends SuperVisorJpanel {
         oldProcTicks = proc.getProcessorCpuLoadTicks();
         return p;
     }
-    
+
+    public static void inserirDadosCpu(float[] f) {
+
+        // Coloca o insert em uma String
+        String insertSql = String.format("INSERT INTO Registro VALUES "
+                + "('%.1f', '%%', 'Uso da CPU', null, 1, 1)", f[0]);
+
+        // Conecta no banco e passa o insert como query SQL
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
+
+            // Executa o insert
+            prepsInsertProduct.execute();
+
+            // Confirma a execução
+//            System.out.println("Inserção feita com sucesso de cpu!\n");
+
+        } // Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

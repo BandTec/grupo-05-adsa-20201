@@ -1,13 +1,18 @@
 package guiBeta;
 
 import static com.sun.javafx.fxml.expression.Expression.add;
+import configBanco.Conexao;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -27,9 +32,10 @@ import oshi.hardware.GlobalMemory;
 import oshi.hardware.PhysicalMemory;
 import oshi.hardware.VirtualMemory;
 
+public class MemoriaPanel extends SuperVisorJpanel {
 
-public class MemoriaPanel extends SuperVisorJpanel{
-    
+    static Conexao config = new Conexao();
+
     private static final long serialVersionUID = 1L;
 
     private static final String memoriaFisica = "Memória física";
@@ -111,6 +117,16 @@ public class MemoriaPanel extends SuperVisorJpanel{
         VirtualMemory memoriaVirtual = memoria.getVirtualMemory();
         virtMemData.setValue(utilizando, memoriaVirtual.getSwapUsed());
         virtMemData.setValue(disponivel, (double) memoriaVirtual.getSwapTotal() - memoriaVirtual.getSwapUsed());
+
+        inserirDadosMemFisica(memoria, physMemData);
+//        inserirDadosMemVirtual(memoria, virtMemData);
+
+//        System.out.println("\n----- MEMÓRIA FÍSICA -----");
+//        System.out.println(String.format("Disponível: %.1f%%", (double) (physMemData.getValue(disponivel)) * 100 / memoria.getTotal()));
+//        System.out.println(String.format("Utilizado: %.1f%%", (double) (physMemData.getValue(utilizando)) * 100 / memoria.getTotal()));
+//        System.out.println("\n----- MEMÓRIA VIRTUAL -----");
+//        System.out.println(String.format("Disponível: %.1f%%", (double) (virtMemData.getValue(disponivel)) * 100 / memoriaVirtual.getSwapTotal()));
+//        System.out.println(String.format("Utilizado: %.1f%%", (double) (virtMemData.getValue(utilizando)) * 100 / memoriaVirtual.getSwapTotal()));
     }
 
     private static void configurePlot(JFreeChart grafico) {
@@ -124,5 +140,52 @@ public class MemoriaPanel extends SuperVisorJpanel{
                 new DecimalFormat("0"), new DecimalFormat("0%"));
         plot.setLabelGenerator(labelGenerator);
     }
-    
+
+    public static void inserirDadosMemFisica(GlobalMemory memoria, DefaultPieDataset physMemData) {
+
+        // Coloca o insert em uma String
+        String insertSql = String.format("INSERT INTO Registro VALUES "
+                + "('%.1f', '%%', 'Espaço disponível', null, 1, 4)",
+                (double) (physMemData.getValue(disponivel)) * 100
+                / memoria.getTotal());
+
+        // Conecta no banco e passa o insert como query SQL
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
+
+            // Executa o insert
+            prepsInsertProduct.execute();
+
+            // Confirma a execução
+//            System.out.println("Inserção feita com sucesso de memória!\n");
+
+        } // Handle any errors that may have occurred.
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+//    public static void inserirDadosMemVirtual(GlobalMemory memoria, DefaultPieDataset virtMemData) {
+//
+//        // Coloca o insert em uma String
+//        String insertSql = String.format("INSERT INTO Registro VALUES "
+//                + "('%.1f', '%%', null, 1, 4)",
+//                (double) (virtMemData.getValue(disponivel)) * 100
+//                / memoria.getVirtualMemory().getSwapTotal());
+//
+//        // Conecta no banco e passa o insert como query SQL
+//        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+//                PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
+//
+//            // Executa o insert
+//            prepsInsertProduct.execute();
+//
+//            // Confirma a execução
+//            System.out.println("Inserção feita com sucesso!\n");
+//
+//        } // Handle any errors that may have occurred.
+//        catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

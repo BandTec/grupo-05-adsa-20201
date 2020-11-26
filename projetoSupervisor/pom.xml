@@ -20,7 +20,7 @@
         
     </properties>
     
-       <build>
+    <build>
 
         <plugins>
 
@@ -42,11 +42,12 @@
 
                     <archive>
 
-                      <manifest>
+                        <manifest>
 
-                        <mainClass>pacote.subpacteSuaClasseComMetodoMain</mainClass>
+                            <mainClass>login.TelaLoginFuncional</mainClass>
+                            <mainClass>guiBeta.SuperVisorAplication</mainClass>
 
-                      </manifest>
+                        </manifest>
 
                     </archive>
 
@@ -54,19 +55,19 @@
 
                 <executions>
 
-                  <execution>
+                    <execution>
 
-                    <id>make-assembly</id>
+                        <id>make-assembly</id>
 
-                    <phase>package</phase>
+                        <phase>package</phase>
 
-                    <goals>
+                        <goals>
 
-                        <goal>single</goal>
+                            <goal>single</goal>
 
-                    </goals>
+                        </goals>
 
-                  </execution>
+                    </execution>
 
                 </executions>
 
@@ -75,8 +76,6 @@
         </plugins>
 
     </build>
-    
-    
     
     <dependencies>
         <dependency>
