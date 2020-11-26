@@ -1,25 +1,37 @@
-package ArquivosLogs;
+package arquivosLog;
 
 import java.io.IOException;
 import java.util.logging.Level;
 
 public class CriarArquivo {
-            
-            
-            public void logsWarning(){
+             
+            public void logBtnAtualizar(){
                 try {
-                Log supervisorErros = new Log("log.txt");
+                Log supervisorErros = new Log("superVisorErros.txt");
                 
-                supervisorErros.logger.setLevel(Level.WARNING);
+                supervisorErros.logger.setLevel(Level.INFO);
                 
-                supervisorErros.logger.info("info msg");
-                supervisorErros.logger.warning("aviso msg");
-                supervisorErros.logger.severe("severe msg");
-                
-            } catch (IOException | SecurityException e) {
+                supervisorErros.logger.info("Botão atualizar sem funcionamento esperado, procurar administrador.");
+                  
+            } catch (IOException e) {
                 
             }
             }
+            
+            public void logInserir(){
+                
+                try {
+                Log supervisorErrosMemoria = new Log("superVisorErros.txt");
+                
+                supervisorErrosMemoria.logger.setLevel(Level.SEVERE);
+                
+                supervisorErrosMemoria.logger.severe("Não foi possivel inserir os dados.");
+                  
+            } catch (IOException e) {
+                
+            }
+            }
+            
 }
             
             

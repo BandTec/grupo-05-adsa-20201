@@ -1,6 +1,5 @@
 package guiBeta;
 
-import static com.sun.javafx.fxml.expression.Expression.add;
 import configBanco.Conexao;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -161,6 +160,7 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
         } // Handle any errors that may have occurred.
         catch (Exception e) {
+            
             e.printStackTrace();
         }
     }

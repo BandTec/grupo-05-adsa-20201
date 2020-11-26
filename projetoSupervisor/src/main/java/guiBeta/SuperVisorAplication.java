@@ -1,5 +1,6 @@
 package guiBeta;
 
+import arquivosLog.CriarArquivo;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -19,6 +20,7 @@ public class SuperVisorAplication {
     private JMenuBar menuBar;
 
     private SystemInfo si = new SystemInfo();
+    public CriarArquivo arquivo = new CriarArquivo();
 
     public static void main(String[] args) {
         SuperVisorAplication superVisor = new SuperVisorAplication();

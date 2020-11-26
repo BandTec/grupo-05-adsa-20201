@@ -1,0 +1,16 @@
+nov 26, 2020 4:06:59 PM arquivosLog.CriarArquivo logBtnAtualizar
+ADVERTÊNCIA: aviso msg
+nov 26, 2020 4:06:59 PM arquivosLog.CriarArquivo logBtnAtualizar
+GRAVE: severe msg
+nov 26, 2020 4:07:08 PM arquivosLog.CriarArquivo logBtnAtualizar
+ADVERTÊNCIA: aviso msg
+nov 26, 2020 4:07:08 PM arquivosLog.CriarArquivo logBtnAtualizar
+GRAVE: severe msg
+nov 26, 2020 4:13:55 PM arquivosLog.CriarArquivo logBtnAtualizar
+INFORMAÇÕES: Botão atualizar sem funcionamento esperado, procurar administrador.
+nov 26, 2020 4:13:59 PM arquivosLog.CriarArquivo logBtnAtualizar
+INFORMAÇÕES: Botão atualizar sem funcionamento esperado, procurar administrador.
+nov 26, 2020 4:14:05 PM arquivosLog.CriarArquivo logBtnAtualizar
+INFORMAÇÕES: Botão atualizar sem funcionamento esperado, procurar administrador.
+nov 26, 2020 4:21:01 PM arquivosLog.CriarArquivo logBtnAtualizar
+INFORMAÇÕES: Botão atualizar sem funcionamento esperado, procurar administrador.

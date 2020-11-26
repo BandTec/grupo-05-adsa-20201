@@ -2,7 +2,7 @@
 
 package dashboard;
 
-import ArquivosLogs.CriarArquivo;
+import arquivosLog.CriarArquivo;
 import configBanco.Conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -53,13 +53,13 @@ public class Gerenciador {
     
     public void exibirLogsConexao(){
         if (conectado.equals(false)) {
-            LogsTxt.logsWarning();
-            System.out.println("Foiiiii com o If");
+            LogsTxt.logBtnAtualizar();
+            System.out.println("Botão atualizar sem funcionamento esperado, procurar administrador.");
         }
         
         else {
-             LogsTxt.logsWarning();
-             System.out.println("Foi com o else");
+             LogsTxt.logBtnAtualizar();
+             System.out.println("Deu certo");
         }
     }
     

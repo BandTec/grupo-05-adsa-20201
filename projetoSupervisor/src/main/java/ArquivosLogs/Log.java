@@ -1,5 +1,5 @@
 
-package ArquivosLogs;
+package arquivosLog;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +17,7 @@ class Log {
             arquivo.createNewFile();
         }
         criar = new FileHandler(nomeArq, true);
-        logger = logger.getLogger("test");
+        logger = logger.getLogger("supervisor");
         logger.addHandler(criar);
         SimpleFormatter formatter = new SimpleFormatter();
         criar.setFormatter(formatter);

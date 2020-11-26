@@ -1,6 +1,6 @@
 package dashboard;
 
-import ArquivosLogs.CriarArquivo;
+import arquivosLog.CriarArquivo;
 import api.ApiOshi;
 
 import java.util.ArrayList;
@@ -409,6 +409,10 @@ public class Dashboard extends javax.swing.JFrame {
         listaExibicao.add(String.format("\nMemórias físicas: %s \n", memory.getPhysicalMemory())); //detalhes memorias físicas
         listaExibicao.add(String.format("\nMemórias virtuais: %s", memory.getVirtualMemory())); //detalhes memorias virtuais
         exibeInfo();
+        
+        if(memory.getAvailable() > memory.getTotal()*0.8){
+           
+        }
     }//GEN-LAST:event_btnMemoriaActionPerformed
 
     private void bntSOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSOActionPerformed
