@@ -1,5 +1,5 @@
 
-package br.com.bandtec.log;
+package ArquivosLogs;
 
 import java.io.File;
 import java.io.IOException;

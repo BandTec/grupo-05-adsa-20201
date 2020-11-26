@@ -1,11 +1,12 @@
-package br.com.bandtec.log;
+package ArquivosLogs;
 
 import java.io.IOException;
 import java.util.logging.Level;
 
 public class CriarArquivo {
-        public static void main(String[] args) {
             
+            
+            public void logsWarning(){
                 try {
                 Log supervisorErros = new Log("log.txt");
                 
@@ -19,6 +20,8 @@ public class CriarArquivo {
                 
             }
             }
+}
             
-    }
+            
+
      

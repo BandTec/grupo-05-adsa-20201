@@ -2,6 +2,7 @@
 
 package dashboard;
 
+import ArquivosLogs.CriarArquivo;
 import configBanco.Conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +14,9 @@ import javax.swing.JLabel;
 
 
 public class Gerenciador {
+    
+    private Boolean conectado = true;
+    CriarArquivo LogsTxt = new CriarArquivo();
     
     configBanco.Conexao config = new Conexao();
     
@@ -35,6 +39,27 @@ public class Gerenciador {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            conectado = false;
+        }
+    }
+
+    public Boolean getConectado() {
+        return conectado;
+    }
+
+    public void setConectado(Boolean conectado) {
+        this.conectado = conectado;
+    }
+    
+    public void exibirLogsConexao(){
+        if (conectado.equals(false)) {
+            LogsTxt.logsWarning();
+            System.out.println("Foiiiii com o If");
+        }
+        
+        else {
+             LogsTxt.logsWarning();
+             System.out.println("Foi com o else");
         }
     }
     
