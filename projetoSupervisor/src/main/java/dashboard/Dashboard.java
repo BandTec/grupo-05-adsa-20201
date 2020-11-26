@@ -1,5 +1,6 @@
 package dashboard;
 
+import ArquivosLogs.CriarArquivo;
 import api.ApiOshi;
 
 import java.util.ArrayList;
@@ -33,6 +34,8 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
         jTAContent.setEditable(false);
     }
+    
+    
 
     public void exibeInfo() {
         jTAContent.setText(listaExibicao.toString());
@@ -378,6 +381,8 @@ public class Dashboard extends javax.swing.JFrame {
         gerenciadorDados.recuperarDados(1, lblEstavel);
         gerenciadorDados.recuperarDados(2, lblAtencao);
         gerenciadorDados.recuperarDados(3, lblRisco);
+        
+        gerenciadorDados.exibirLogsConexao();
 
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
