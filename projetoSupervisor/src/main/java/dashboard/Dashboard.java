@@ -380,8 +380,6 @@ public class Dashboard extends javax.swing.JFrame {
         gerenciadorDados.recuperarDados(1, lblEstavel);
         gerenciadorDados.recuperarDados(2, lblAtencao);
         gerenciadorDados.recuperarDados(3, lblRisco);
-        
-        gerenciadorDados.exibirLogsConexao();
 
     }//GEN-LAST:event_btnAtualizarActionPerformed
 

@@ -1,6 +1,5 @@
 package guiBeta;
 
-
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,7 +14,6 @@ import javax.swing.Timer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import static com.sun.javafx.fxml.expression.Expression.add;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;

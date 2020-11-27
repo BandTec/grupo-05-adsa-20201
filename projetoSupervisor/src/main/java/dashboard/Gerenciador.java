@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 public class Gerenciador {
     
     private Boolean conectado = true;
-    CriarArquivo LogsTxt = new CriarArquivo();
+//    CriarArquivo LogsTxt = new CriarArquivo();
     
     configBanco.Conexao config = new Conexao();
     
@@ -49,16 +49,16 @@ public class Gerenciador {
         this.conectado = conectado;
     }
     
-    public void exibirLogsConexao(){
-        if (conectado.equals(false)) {
-            LogsTxt.logBtnAtualizar();
-            System.out.println("Botão atualizar sem funcionamento esperado, procurar administrador.");
-        }
-        
-        else {
-             LogsTxt.logBtnAtualizar();
-             System.out.println("Deu certo");
-        }
-    }
+//    public void exibirLogsConexao(){
+//        if (conectado.equals(false)) {
+//            LogsTxt.logBtnAtualizar();
+//            System.out.println("Botão atualizar sem funcionamento esperado, procurar administrador.");
+//        }
+//        
+//        else {
+//             LogsTxt.logBtnAtualizar();
+//             System.out.println("Deu certo");
+//        }
+//    }
     
 }

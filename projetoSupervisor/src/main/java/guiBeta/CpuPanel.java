@@ -17,14 +17,12 @@ import javax.swing.Timer;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.DynamicTimeSeriesCollection;
 import org.jfree.data.time.Second;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;
-import oshi.hardware.GlobalMemory;
 
 public class CpuPanel extends SuperVisorJpanel {
 
@@ -133,6 +131,7 @@ public class CpuPanel extends SuperVisorJpanel {
 
         } // Handle any errors that may have occurred.
         catch (Exception e) {
+            
             e.printStackTrace();
         }
     }

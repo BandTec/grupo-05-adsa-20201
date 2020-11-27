@@ -26,7 +26,6 @@ import org.jfree.data.general.DefaultPieDataset;
 
 import oshi.PlatformEnum;
 import oshi.SystemInfo;
-import oshi.hardware.GlobalMemory;
 import oshi.software.os.FileSystem;
 import oshi.software.os.OSFileStore;
 import oshi.util.FormatUtil;
@@ -131,7 +130,7 @@ public class DiscoPanel extends SuperVisorJpanel {
         long total = store.getTotalSpace();
         long utilizando = store.getUsableSpace();
         // Coloca o insert em uma String
-        String insertSql = String.format("INSERT INTO Registro VALUES "
+        String insertSql = String.format("INSERT INTO  VALUES "
                 + "('%.1f', '%%', 'Espaço disponível em disco', null, 1, 3)",
                 (double) Math.round((total - utilizando) * 100 / total));
 
@@ -146,6 +145,7 @@ public class DiscoPanel extends SuperVisorJpanel {
 //            System.out.println("Inserção feita DISCO!\n");
         } // Handle any errors that may have occurred.
         catch (Exception e) {
+           
             e.printStackTrace();
         }
     }
