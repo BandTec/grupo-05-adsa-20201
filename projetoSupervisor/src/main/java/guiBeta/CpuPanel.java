@@ -130,6 +130,7 @@ public class CpuPanel extends SuperVisorJpanel {
 
         } // Handle any errors that may have occurred.
         catch (Exception e) {
+            
             e.printStackTrace();
         }
     }

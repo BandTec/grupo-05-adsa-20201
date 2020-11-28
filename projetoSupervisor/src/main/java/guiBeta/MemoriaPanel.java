@@ -11,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -147,10 +146,15 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
             // Executa o insert
             prepsInsertProduct.execute();
+<<<<<<< HEAD
 
+=======
+           
+>>>>>>> 79ac37c926d3de581abb4b0a9241ec596ceb3eeb
 //            System.out.println("Inserção feita com sucesso de memória!\n");
         } // Caso ocorra algum erro
         catch (Exception e) {
+            
             e.printStackTrace();
         }
     }

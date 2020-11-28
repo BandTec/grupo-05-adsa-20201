@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\Config.java
 C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\ProcessosJPanel.java
 C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\DiscoPanel.java
@@ -18,3 +19,24 @@ C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\mai
 C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\log\LogErros.java
 C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\configBanco\Conexao.java
 C:\Users\guilh\OneDrive\Documentos\grupo-05-adsa-20201\projetoSupervisor\src\main\java\ArquivosLog\CriarArquivo.java
+=======
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\log\LogErros.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\cadastrar\Cadastrar.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\configBanco\Conexao.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\DiscoPanel.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\login\TelaLoginFuncional.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\MemoriaPanel.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\ArquivosLog\CriarArquivo.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\dashboard\Dashboard.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\dashboard\Gerenciador.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\Config.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\configBanco\TesteConfig.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\api\ApiOshi.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\ArquivosLog\Log.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\ArquivosLog\Logs.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\CpuPanel.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\ProcessosJPanel.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\SuperVisorJpanel.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\OsHwTextPanel.java
+C:\Users\Aluno\Desktop\SUPERVISOR\26-11_18.10\grupo-05-adsa-20201\projetoSupervisor\src\main\java\guiBeta\SuperVisorAplication.java
+>>>>>>> 79ac37c926d3de581abb4b0a9241ec596ceb3eeb

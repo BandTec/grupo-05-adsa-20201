@@ -1,6 +1,6 @@
 package guiBeta;
 
-import ArquivosLog.CriarArquivo;
+import ArquivosLog.ArquivoLog;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -20,6 +20,8 @@ public class SuperVisorAplication {
     private JMenuBar menuBar;
 
     private SystemInfo si = new SystemInfo();
+    
+    protected ArquivoLog arqLog = new ArquivoLog();
 
     public static void main(String[] args) {
         SuperVisorAplication superVisor = new SuperVisorAplication();
