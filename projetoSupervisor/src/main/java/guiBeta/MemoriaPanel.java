@@ -137,8 +137,8 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
         // Coloca o insert em uma String
         String insertSql = String.format("INSERT INTO Registro VALUES "
-                + "('%.1f', '%%', 'Espaço disponível', null, 1, 4)",
-                (double) (physMemData.getValue(disponivel)) * 100
+                + "('%.1f', '%%', 'Uso de memória RAM', null, 1, 2)",
+                (double) (physMemData.getValue(utilizando)) * 100
                 / memoria.getTotal());
 
         // Conecta no banco e passa o insert como query SQL
@@ -147,9 +147,9 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
             // Executa o insert
             prepsInsertProduct.execute();
-            
+
 //            System.out.println("Inserção feita com sucesso de memória!\n");
-        } // Handle any errors that may have occurred.
+        } // Caso ocorra algum erro
         catch (Exception e) {
             e.printStackTrace();
         }

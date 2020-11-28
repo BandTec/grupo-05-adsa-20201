@@ -1,5 +1,6 @@
 package api;
 
+import com.sun.imageio.plugins.jpeg.JPEG;
 import java.util.List;
 import javax.swing.text.html.HTML;
 import oshi.SystemInfo;
@@ -21,11 +22,11 @@ public class ApiOshi {
 
         HardwareAbstractionLayer hal = si.getHardware(); //Criando o objeto hal para adquirir mais facilmente os dados do hardware
 
-        mostrarSistemaOperacional(si.getOperatingSystem(), hal.getMemory()); // Passando os dados de hardware e SO
-        mostrarCpu(hal.getProcessor()); // Passando os dados do processador
-        mostrarMemoria(hal.getMemory()); // Passando os dados da(s) memória(s)
-        mostrarDisco(hal.getDiskStores()); // Passando os dados do(s) disco(s)
-        mostrarProcessos(si.getOperatingSystem(), hal.getMemory()); // Passando os dados de SO e memória(s)
+//        mostrarSistemaOperacional(si.getOperatingSystem(), hal.getMemory()); // Passando os dados de hardware e SO
+//        mostrarCpu(hal.getProcessor()); // Passando os dados do processador
+//        mostrarMemoria(hal.getMemory()); // Passando os dados da(s) memória(s)
+//        mostrarDisco(hal.getDiskStores()); // Passando os dados do(s) disco(s)
+//        mostrarProcessos(si.getOperatingSystem(), hal.getMemory()); // Passando os dados de SO e memória(s)
         mostrarPlacaGrafica(hal.getGraphicsCards());
 
     }
@@ -69,7 +70,17 @@ public class ApiOshi {
     }
     
     public static void mostrarPlacaGrafica(List<GraphicsCard> GPU) { // Este método exibe os 5 processos que estão utilizando mais CPU
-        System.out.println(String.format("PLACA GRÁFICA:\n %S\n", GPU)); // 5 processos que estão utilizando mais CPU
+        
+        for (Integer i = 0; i < GPU.size(); i++) {
+            
+            System.out.println("É AQUIIIIIIIIIIIIIII " + GPU.get(i).getVRam());
+//            System.out.println("É AQUIIIIIIIIIIIIIII " + GPU.get(i).get);
+        }
+
+//        System.out.println(GPU.size());
+//
+//        System.out.println(String.format("TESTE :\n %S\n", GPU)); // 5 processos que estão utilizando mais CPU
+        
         System.out.println("-----------------\n"); // Espaçamento
     }
 

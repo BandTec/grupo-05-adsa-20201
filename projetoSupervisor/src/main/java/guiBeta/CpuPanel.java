@@ -17,14 +17,12 @@ import javax.swing.Timer;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.time.DynamicTimeSeriesCollection;
 import org.jfree.data.time.Second;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.TickType;
-import oshi.hardware.GlobalMemory;
 
 public class CpuPanel extends SuperVisorJpanel {
 
@@ -95,11 +93,10 @@ public class CpuPanel extends SuperVisorJpanel {
         timer2.start();
     }
 
-    static float[] f = new float[1];
+    private static float[] f = new float[1];
 
     private static float[] floatArrayPercent(double d) {
         f[0] = (float) Math.round(100d * d);
-
         return f;
     }
 
@@ -136,4 +133,10 @@ public class CpuPanel extends SuperVisorJpanel {
             e.printStackTrace();
         }
     }
+
+    public static float[] getF() {
+        return f;
+    }
+    
+    
 }

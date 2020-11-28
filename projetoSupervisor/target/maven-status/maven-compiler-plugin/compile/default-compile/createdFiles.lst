@@ -33,6 +33,7 @@ cadastrar\Cadastrar$1.class
 ArquivosLog\Log.class
 ArquivosLog\CriarArquivo.class
 login\TelaLoginFuncional.class
+testeDiscord\Teste.class
 guiBeta\MemoriaPanel.class
 login\TelaLoginFuncional$2.class
 dashboard\Dashboard$4.class

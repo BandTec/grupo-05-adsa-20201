@@ -129,11 +129,11 @@ public class DiscoPanel extends SuperVisorJpanel {
     public static void inserirDadosDisco(OSFileStore store) {
 
         long total = store.getTotalSpace();
-        long utilizando = store.getUsableSpace();
+        long disponivel = store.getUsableSpace();
         // Coloca o insert em uma String
         String insertSql = String.format("INSERT INTO Registro VALUES "
-                + "('%.1f', '%%', 'Espaço disponível em disco', null, 1, 3)",
-                (double) Math.round((total - utilizando) * 100 / total));
+                + "('%.1f', '%%', 'Uso de disco', null, 1, 3)",
+                (double) Math.round((total - disponivel) * 100 / total));
 
         // Conecta no banco e passa o insert como query SQL
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
