@@ -4,7 +4,6 @@ let nome = document.querySelector('#nome_cadastro');
 let email = document.querySelector('#email_cadastro');
 let senha = document.querySelector('#senha_cadastro');
 let foto = document.querySelector('#Input_fotoPerfil');
-
 // variáveis que regataram o corpo dos inputs na tela login
 let form1 = document.querySelector("#form_user");
 let usuario1 = document.querySelector('#user_login');
@@ -12,21 +11,19 @@ let senha1 = document.querySelector('#senha_login');
 let func = document.querySelector('#funcionarios');
 
 
-//----------------------------------------------------------------------//
 
-//VALIDAÇÃO CADASTRO
+// VALIDANDO SE OS CAMPOS DO CADASTRO FORAM PREENCHIDOS
 function validaCadastro(evento) {
     evento.preventDefault();
     let nome = document.querySelector('#user_login').value;
     let senha1 = document.querySelector('#senha_login').value;
     if (usuario1.indexOf('@') == -1 || usuario1.indexOf('.') == -1 || usuario1.length < 10 || senha1.length <= 5) {
-        alert('Email ou senha inválidos!')
+        alert('Dados inválidos!')
     } else {
         addUser();
     }
 }
 
-//----------------------------------------------------------------------//
 
 function UserLogin(evento) {
     let ajax = new XMLHttpRequest();
@@ -40,9 +37,9 @@ function UserLogin(evento) {
     ajax.send(params);
 }
 
-//----------------------------------------------------------------------//
 
-// VALIDAÇÃO LOGIN
+
+// VALIDANDO SE OS CAMPOS DO LOGIN FORAM PREENCHIDOS
 function validaLogin() {
     event.preventDefault();
     let usuario1 = document.querySelector('#user_login').value;
@@ -55,7 +52,6 @@ function validaLogin() {
     }
 }
 
-//----------------------------------------------------------------------//
 
 let teste = [];
 function pegarusuario() {
@@ -83,23 +79,6 @@ function pegarusuario() {
             } else {
                 alert("usuario/senha invalido")
             }
-            // if (res.status === 200) {
-            //     alert('Deu certo "loko" ')
-            // } else {
-            //     alert("Usuario/Senha 'invalido' ")
-            // }
         })
 
 }
-
-
-
-
-//----------------------------------------------------------------------//
-/* aqui estará adicionando eventos quando o input type submit for clicado
-no caso as funções disparadas serão addUser e UserLogin, cada uma com seu proprio evento. */
-
-////////////////////////////////////////////////////||
-// form.addEventListener("submit",validaCadastro);  ||
-// form1.addEventListener("submit",validaLogin);    ||
-////////////////////////////////////////////////////||

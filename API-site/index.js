@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-//LOGIN
+//LOGIN USER - é chamado após a validação de campos na returnDados;
 app.post('/user', function (req, res) {
     console.log("index.js está ok")
     console.log(req.body)
@@ -36,12 +36,67 @@ app.post('/user', function (req, res) {
         })
 });
 
+/////////////////////////////////////////////////////////////////////////////////
+//CPU (grafStatusCPU)
+app.get('/dash', function (req, res) {
+    console.log(req.body)
+
+    request.query(`SELECT * FROM [dbo].[Registro] WHERE DESCRICAO like '%CPU%'`,
+        function (err, result) {
+            if (err) throw err;
+            res.json(result.recordsets[1])
+
+            console.log(result);
+            res.json(result)
+        })
+});
+
+// //MEMÓRIA (grafStatusMemoria)
+// app.get('/dash', function (req, res) {
+//     console.log(req.body)
+
+//     request.query(`SELECT * FROM Registro`,
+//         function (err, result) {
+//             if (err) throw err;
+//             console.log(result);
+//             res.json(result)
+//         })
+// });
 
 
-//CADASTRO
+// //DISCO (grafStatusDisco)
+// app.get('/dash', function (req, res) {
+//     console.log(req.body)
+
+//     request.query(`SELECT * FROM Registro`,
+//         function (err, result) {
+//             if (err) throw err;
+//             console.log(result);
+//             res.json(result)
+//         })
+// });
+
+
+// //GPU (grafStatusGPU)
+// app.get('/dash', function (req, res) {
+//     console.log(req.body)
+
+//     request.query(`SELECT * FROM Registro`,
+//         function (err, result) {
+//             if (err) throw err;
+//             console.log(result);
+//             res.json(result)
+//         })
+// });
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+//CADASTRO ADDUSER - é chamado após a validação de campos na returnDados;
 app.post('/addUser', (req, res) => {
-    let data = [req.nomeFuncionario, req.body.email, req.body.senha, req.body.cargo];
 
+    let data = [req.nomeFuncionario, req.body.email, req.body.senha, req.body.cargo];
     let sql = "INSERT INTO dbo.CadastroFuncionario (nomeFuncionario, email, senha, cargo) values (?,?,?,?)";
 
     connection.query(sql, data, function (err, result) {
