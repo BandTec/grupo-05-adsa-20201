@@ -37,7 +37,7 @@ public class ArquivoLog {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy|HH:mm:ss | ");
             LocalDateTime now = LocalDateTime.now();
 
-            File arquivo = new File("LolSupervisor.txt");
+            File arquivo = new File("LogSupervisor.txt");
 
             String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
 
