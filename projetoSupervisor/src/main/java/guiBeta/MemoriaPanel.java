@@ -1,5 +1,6 @@
 package guiBeta;
 
+import ArquivosLog.ArquivoLog;
 import configBanco.Conexao;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -33,7 +34,7 @@ import oshi.hardware.VirtualMemory;
 public class MemoriaPanel extends SuperVisorJpanel {
 
     static Conexao config = new Conexao();
-
+    
     private static final long serialVersionUID = 1L;
 
     private static final String memoriaFisica = "Memória física";
@@ -148,9 +149,12 @@ public class MemoriaPanel extends SuperVisorJpanel {
             prepsInsertProduct.execute();
             
             System.out.println("Inserção feita com sucesso de memória!\n");
+            
+            
         } // Caso ocorra algum erro
         catch (Exception e) {
-            
+            SuperVisorAplication.arqLog.setMemoria(true);
+            SuperVisorAplication.arqLog.criar();
             e.printStackTrace();
         }
     }

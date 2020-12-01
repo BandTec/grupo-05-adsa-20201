@@ -1,5 +1,6 @@
 package guiBeta;
 
+import ArquivosLog.ArquivoLog;
 import static guiBeta.MemoriaPanel.config;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -31,7 +32,7 @@ import oshi.software.os.OSFileStore;
 import oshi.util.FormatUtil;
 
 public class DiscoPanel extends SuperVisorJpanel {
-
+    
     private static final long serialVersionUID = 1L;
 
     private static final String utilizando = "Utilizado";
@@ -145,7 +146,8 @@ public class DiscoPanel extends SuperVisorJpanel {
 //            System.out.println("Inserção feita DISCO!\n");
         } // Handle any errors that may have occurred.
         catch (Exception e) {
-           
+            SuperVisorAplication.arqLog.setDisco(true);
+            SuperVisorAplication.arqLog.criar();
             e.printStackTrace();
         }
     }

@@ -1,5 +1,6 @@
 package guiBeta;
 
+import ArquivosLog.ArquivoLog;
 import static guiBeta.MemoriaPanel.config;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
@@ -130,7 +131,8 @@ public class CpuPanel extends SuperVisorJpanel {
 
         } // Handle any errors that may have occurred.
         catch (Exception e) {
-            
+            SuperVisorAplication.arqLog.setCpu(Boolean.TRUE);
+            SuperVisorAplication.arqLog.criar();
             e.printStackTrace();
         }
     }

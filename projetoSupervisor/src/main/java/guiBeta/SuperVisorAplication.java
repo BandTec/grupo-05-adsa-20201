@@ -21,7 +21,7 @@ public class SuperVisorAplication {
 
     private SystemInfo si = new SystemInfo();
     
-    protected ArquivoLog arqLog = new ArquivoLog();
+    static protected ArquivoLog arqLog = new ArquivoLog();
 
     public static void main(String[] args) {
         SuperVisorAplication superVisor = new SuperVisorAplication();
