@@ -10,17 +10,14 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 public class ArquivoLog {
-    
 
-//    public static void main(String[] args) {
-    
-            private String erroCpu = "ERRO: Não foi possivel inserir os dados de CPU.";
-            private String erroMemoria = "ERRO: Não foi possivel inserir os dados de Memória.";
-            private String erroDisco = "ERRO: Não foi possivel inserir os dados de Disco.";
-           
-            private Boolean cpu = false;
-            private Boolean memoria = false;
-            private Boolean disco = false;
+    private Boolean cpu, memoria, disco;
+
+    public ArquivoLog() {
+        this.cpu = false;
+        this.memoria = false;
+        this.disco = false;
+    }
 
     public void setCpu(Boolean cpu) {
         this.cpu = cpu;
@@ -33,45 +30,42 @@ public class ArquivoLog {
     public void setDisco(Boolean disco) {
         this.disco = disco;
     }
-            
-            
-    
-        public static void criar(){
+
+    public void criar() {
         try {
-            
-            File arquivo = new File("log.txt");
-            
+
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy|HH:mm:ss | ");
+            LocalDateTime now = LocalDateTime.now();
+
+            File arquivo = new File("LolSupervisor.txt");
+
+            String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+
             if (!arquivo.exists()) {
                 arquivo.createNewFile();
             }
-            
+
             FileWriter escrita = new FileWriter(arquivo, true);
             BufferedWriter write = new BufferedWriter(escrita);
-            
-//            if(this.cpu.equals(true)){
-//                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-//                write.write(String.format("[%s] %s \r\n", dataFormatada, erroCpu));
-//            } else if(this.memoria.equals(true)){
-//                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-//                write.write(String.format("[%s] %s \r\n", dataFormatada, erroMemoria));
-//            } else if(this.disco.equals(true)){
-//                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-//                write.write(String.format("[%s] %s \r\n", dataFormatada, erroDisco));
-//            }
-            
+
+            if (cpu) {
+                write.write(String.format("[%s] ERRO: Não foi possivel inserir os dados de CPU. \r\n", dataFormatada));
+            } else if (memoria) {
+                write.write(String.format("[%s] ERRO: Não foi possivel inserir os dados de Memória. \r\n", dataFormatada));
+            } else if (disco) {
+                write.write(String.format("[%s] ERRO: Não foi possivel inserir os dados de Disco. \r\n", dataFormatada));
+            }
+
             write.close();
-            
-            FileReader ler = new FileReader("log.txt");
+
+            FileReader ler = new FileReader(arquivo.getName());
             BufferedReader reader = new BufferedReader(ler);
-            
+
 //            String leitura;
-            
 //            while((leitura = reader.readLine()) != null){
 //                System.out.println(leitura);
 //            }
-            
-        } catch (Exception e) {        
+        } catch (Exception e) {
         }
-//    }
-    }   
+    }
 }
