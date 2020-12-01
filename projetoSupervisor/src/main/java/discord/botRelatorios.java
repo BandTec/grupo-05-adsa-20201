@@ -19,7 +19,7 @@ public class botRelatorios {
     static Conexao config = new Conexao();
 
     public static void main(final String[] args) {
-        final String token = "NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.dD1coud_dVuOlBFYkofJSVLRePY";
+        final String token = "NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.mRBGFSJCusPxa_85qIHiHgx8oQA";
         final DiscordClient client = DiscordClient.create(token);
         final GatewayDiscordClient gateway = client.login().block();
         final List<String> relatorio = new ArrayList<>();

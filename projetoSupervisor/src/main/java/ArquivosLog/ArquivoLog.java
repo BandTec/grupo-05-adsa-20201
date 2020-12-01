@@ -48,16 +48,16 @@ public class ArquivoLog {
             FileWriter escrita = new FileWriter(arquivo, true);
             BufferedWriter write = new BufferedWriter(escrita);
             
-            if(this.cpu.equals(true)){
-                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-                write.write(String.format("[%s] %s \r\n", dataFormatada, erroCpu));
-            } else if(this.memoria.equals(true)){
-                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-                write.write(String.format("[%s] %s \r\n", dataFormatada, erroMemoria));
-            } else if(this.disco.equals(true)){
-                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-                write.write(String.format("[%s] %s \r\n", dataFormatada, erroDisco));
-            }
+//            if(this.cpu.equals(true)){
+//                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+//                write.write(String.format("[%s] %s \r\n", dataFormatada, erroCpu));
+//            } else if(this.memoria.equals(true)){
+//                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+//                write.write(String.format("[%s] %s \r\n", dataFormatada, erroMemoria));
+//            } else if(this.disco.equals(true)){
+//                String dataFormatada = LocalDateTime.now().format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
+//                write.write(String.format("[%s] %s \r\n", dataFormatada, erroDisco));
+//            }
             
             write.close();
             
