@@ -136,7 +136,7 @@ public class MemoriaPanel extends SuperVisorJpanel {
     public static void inserirDadosMemFisica(GlobalMemory memoria, DefaultPieDataset physMemData) {
 
         // Coloca o insert em uma String
-        String insertSql = String.format("INSERT INTO Registro VALUES "
+        String insertSql = String.format("INSERT INTO  VALUES "
                 + "('%.1f', '%%', 'Uso de memória RAM', null, 1, 2)",
                 (double) (physMemData.getValue(utilizando)) * 100
                 / memoria.getTotal());
@@ -148,7 +148,7 @@ public class MemoriaPanel extends SuperVisorJpanel {
             // Executa o insert
             prepsInsertProduct.execute();
             
-            System.out.println("Inserção feita com sucesso de memória!\n");
+//            System.out.println("Inserção feita com sucesso de memória!\n");
             
             
         } // Caso ocorra algum erro
