@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagem/png" href="../Image/logo3.png" />
+    <title>Supervisor - Cadastro de Máquinas</title>
+    <link rel="stylesheet" href="../CSS/cadastrar.css">
+    <link rel="stylesheet" href="../CSS/cadastrarMaquina.css">
+    <link rel="stylesheet" href="../CSS/index.css">
+    <link rel="stylesheet" href="../CSS/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    
+</head>
+
+<body class="body_cadastro">
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+
+        <div class="left_area">
+            <a href="../index.html">
+                <h3>Super<span>visor</span></h3>
+            </a>
+        </div>
+        <div class="right_area">
+            <a href="../index.html" class="login_btn">Sair</a>
+        </div>
+
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <img src="../Image/logo3.png">
+            <div class="box_cadastro" id="box_cadastrar">
+
+                <h2>Cadastro de máquina:</h2>
+
+                <form onsubmit="validaCadastroMaq()" class="form_cadastrado" id="form_cadastro" method="post" class="form">
+
+                    <label class="label_cadastro" for="nome">Host name:</label><br>
+                    <input class="input1" placeholder="Ex: REM41QCF12" type="nome" id="nomeMaq_cadastro" minlength="8"
+                        required><br>
+   
+                
+            
+
+            <div class="componentes">
+                <!-- <form onsubmit="validaComponente()" class="form_componente" id="form_componente" method="post" class="form"> -->
+                    <h3>Componentes da máquina:</h3>
+                    <label for="cpu_check" class="componentes" >
+                        <input id="cpu_check" class="checkbox" type="checkbox" name="comp" value="cpu">CPU 
+                    </label>
+            
+                    <label for="memoria_check" class="componentes">
+                        <input id="memoria_check" class="checkbox" type="checkbox" name="comp" value="memoria">Memória
+                    </label>
+            
+                    
+                    <label for="disco_check" class="componentes">
+                        <input id="disco_check" class="checkbox" type="checkbox" name="comp" value="disco">Disco 
+                    </label>
+                   
+                    <label for="gpu_check" class="componentes">
+                        <input id="gpu_check" class="checkbox" type="checkbox" name="comp" value="video"> Placa de Vídeo 
+                    </label>
+
+                    <button id="btn_cadastrar" class="btn"> Cadastrar máquina </button>
+                </form>
+            
+                </div>
+            </div>
+            <div class="footer">
+                      </div>
+        </div>
+        </body>
+      </html>
+    </body>
+    
+    <script src="./../js/returnDados.js"></script>
+
+ </html>
