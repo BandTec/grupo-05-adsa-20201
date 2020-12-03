@@ -1,6 +1,5 @@
 package dashboard;
 
-import ArquivosLog.CriarArquivo;
 import configBanco.Conexao;
 import java.sql.Connection;
 import java.sql.DriverManager;

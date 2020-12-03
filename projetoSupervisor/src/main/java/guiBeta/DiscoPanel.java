@@ -1,5 +1,6 @@
 package guiBeta;
 
+import ArquivosLog.ArquivoLog;
 import static guiBeta.MemoriaPanel.config;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,8 +10,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -32,6 +36,9 @@ import oshi.util.FormatUtil;
 
 public class DiscoPanel extends SuperVisorJpanel {
 
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+    static LocalDateTime now = LocalDateTime.now();
+    
     private static final long serialVersionUID = 1L;
 
     private static final String utilizando = "Utilizado";
@@ -48,6 +55,9 @@ public class DiscoPanel extends SuperVisorJpanel {
         JFreeChart[] fsCharts = new JFreeChart[fsData.length];
 
         JPanel fsPanel = new JPanel();
+        fsPanel.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#353b48")),
+                "USO DE DISCO - SUPERVISOR"));
         fsPanel.setLayout(new GridBagLayout());
         GridBagConstraints fsConstraints = new GridBagConstraints();
         fsConstraints.weightx = 1d;
@@ -130,15 +140,9 @@ public class DiscoPanel extends SuperVisorJpanel {
         long total = store.getTotalSpace();
         long disponivel = store.getUsableSpace();
         // Coloca o insert em uma String
-<<<<<<< HEAD
         String insertSql = String.format("INSERT INTO Registro VALUES "
-                + "('%.1f', '%%', 'Uso de disco', null, 1, 3)",
-                (double) Math.round((total - disponivel) * 100 / total));
-=======
-        String insertSql = String.format("INSERT INTO  VALUES "
-                + "('%.1f', '%%', 'Espaço disponível em disco', null, 1, 3)",
-                (double) Math.round((total - utilizando) * 100 / total));
->>>>>>> 79ac37c926d3de581abb4b0a9241ec596ceb3eeb
+                + "('%.1f', '%%', 'Uso de disco', '%s', 1, 3)",
+                (double) Math.round((total - disponivel) * 100 / total), dtf.format(now));
 
         // Conecta no banco e passa o insert como query SQL
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
@@ -151,7 +155,8 @@ public class DiscoPanel extends SuperVisorJpanel {
 //            System.out.println("Inserção feita DISCO!\n");
         } // Handle any errors that may have occurred.
         catch (Exception e) {
-           
+            SuperVisorAplication.arqLog.setDisco(true);
+            SuperVisorAplication.arqLog.criar();
             e.printStackTrace();
         }
     }
