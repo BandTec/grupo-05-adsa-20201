@@ -11,6 +11,13 @@ let usuario1 = document.querySelector('#user_login');
 let senha1 = document.querySelector('#senha_login');
 let func = document.querySelector('#funcionarios');
 
+// variáveis que regataram o corpo dos inputs na tela cadastro de máquina
+let form2 = document.querySelector("#form_cadastro");
+let maquina = document.querySelector("#nomeMaq_cadastro");
+let cpu = document.querySelector("#cpu_check");
+let memoria = document.querySelector("#memoria_check");
+let disco = document.querySelector("#disco_check");
+let gpu = document.querySelector("#gpu_check");
 
 //----------------------------------------------------------------------//
 
@@ -129,6 +136,37 @@ function pegarusuario() {
 // }
 
 
+//----------------------------------------------------------------------//
+
+  //VALIDAÇÃO CADASTRO DE MÁQUINA
+  function validaCadastroMaq(){
+
+    let nome2 = document.querySelector('#nomeMaq_cadastro').value;
+   
+    if(!nome2.value){
+        alert("Não esqueça de preencher o hostname!")
+    } else {
+        addMaquina();
+    }
+       
+  }
+
+   //----------------------------------------------------------------------//
+
+
+   function addMaquina(){
+    let ajax1 =  new XMLHttpRequest();
+    let params1 = "nomeMaq_cadastro=" + maquina.value + "cpu_check= 1" + cpu.value + "memoria_check= 4" + memoria.value + 
+    "disco_check= 3" + disco.value + "gpu_check= 2" + gpu.value;
+    console.log('OK');
+    ajax1.open("POST","http://localhost:3000/user");
+    ajax1.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+    ajax1.onreadystatechange=function(){
+        
+    }
+    ajax1.send(params1);
+};
+  
 
 
 //----------------------------------------------------------------------//
