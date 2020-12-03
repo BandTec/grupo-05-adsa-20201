@@ -42,7 +42,7 @@ public class ArquivoLog {
 
             String razao = null;
             
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy|HH:mm:ss");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy | HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
 
             File arquivo = new File("LogSupervisor.txt");

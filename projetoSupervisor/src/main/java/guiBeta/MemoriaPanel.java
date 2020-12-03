@@ -10,8 +10,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.BorderFactory;
 
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -33,8 +36,11 @@ import oshi.hardware.VirtualMemory;
 
 public class MemoriaPanel extends SuperVisorJpanel {
 
-    static Conexao config = new Conexao();
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+    static LocalDateTime now = LocalDateTime.now();
     
+    static Conexao config = new Conexao();
+
     private static final long serialVersionUID = 1L;
 
     private static final String memoriaFisica = "Memória física";
@@ -72,6 +78,9 @@ public class MemoriaPanel extends SuperVisorJpanel {
         textConstraints.fill = GridBagConstraints.BOTH;
 
         JPanel MemoriaPanel = new JPanel();
+        MemoriaPanel.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#353b48")),
+                "USO DE MEMÓRIA RAM - SUPERVISOR"));
         MemoriaPanel.setLayout(new GridBagLayout());
         MemoriaPanel.add(new ChartPanel(memFis), pmConstraints);
         MemoriaPanel.add(new ChartPanel(memVirt), vmConstraints);
@@ -136,10 +145,10 @@ public class MemoriaPanel extends SuperVisorJpanel {
     public static void inserirDadosMemFisica(GlobalMemory memoria, DefaultPieDataset physMemData) {
 
         // Coloca o insert em uma String
-        String insertSql = String.format("INSERT INTO  VALUES "
-                + "('%.1f', '%%', 'Uso de memória RAM', null, 1, 2)",
+        String insertSql = String.format("INSERT INTO Registro VALUES "
+                + "('%.1f', '%%', 'Uso de memória RAM', '%s', 1, 2)",
                 (double) (physMemData.getValue(utilizando)) * 100
-                / memoria.getTotal());
+                / memoria.getTotal(), dtf.format(now));
 
         // Conecta no banco e passa o insert como query SQL
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
@@ -147,10 +156,8 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
             // Executa o insert
             prepsInsertProduct.execute();
-            
+
 //            System.out.println("Inserção feita com sucesso de memória!\n");
-            
-            
         } // Caso ocorra algum erro
         catch (Exception e) {
             SuperVisorAplication.arqLog.setMemoria(true);

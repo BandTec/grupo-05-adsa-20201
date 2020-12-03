@@ -10,8 +10,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -32,6 +35,9 @@ import oshi.software.os.OSFileStore;
 import oshi.util.FormatUtil;
 
 public class DiscoPanel extends SuperVisorJpanel {
+
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
+    static LocalDateTime now = LocalDateTime.now();
     
     private static final long serialVersionUID = 1L;
 
@@ -49,6 +55,9 @@ public class DiscoPanel extends SuperVisorJpanel {
         JFreeChart[] fsCharts = new JFreeChart[fsData.length];
 
         JPanel fsPanel = new JPanel();
+        fsPanel.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#353b48")),
+                "USO DE DISCO - SUPERVISOR"));
         fsPanel.setLayout(new GridBagLayout());
         GridBagConstraints fsConstraints = new GridBagConstraints();
         fsConstraints.weightx = 1d;
@@ -132,8 +141,8 @@ public class DiscoPanel extends SuperVisorJpanel {
         long disponivel = store.getUsableSpace();
         // Coloca o insert em uma String
         String insertSql = String.format("INSERT INTO Registro VALUES "
-                + "('%.1f', '%%', 'Uso de disco', null, 1, 3)",
-                (double) Math.round((total - disponivel) * 100 / total));
+                + "('%.1f', '%%', 'Uso de disco', '%s', 1, 3)",
+                (double) Math.round((total - disponivel) * 100 / total), dtf.format(now));
 
         // Conecta no banco e passa o insert como query SQL
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);

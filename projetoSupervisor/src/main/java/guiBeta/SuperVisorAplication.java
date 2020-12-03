@@ -4,6 +4,7 @@ import ArquivosLog.ArquivoLog;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import javax.swing.BorderFactory;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -44,16 +45,20 @@ public class SuperVisorAplication {
         mainFrame.setLayout(new BorderLayout());
         // Add a menu bar
         menuBar = new JMenuBar();
-        menuBar.setBackground(Color.decode("#2f3640"));
+        menuBar.setBackground(Color.decode("#102842")); // Cor da barra do menu
+        menuBar.setBorder(BorderFactory.createMatteBorder(10, 180, 10, 5, Color.decode("#102842")));
         mainFrame.setJMenuBar(menuBar);
         // Create the first menu option in this thread
         jMenu = getJMenu("OS & HW Info", 'O', "Hardware & OS índice", new OsHwTextPanel(si));
-        menuBar.add(jMenu);
+        menuBar.add(jMenu); 
+        
         // Add later menu items in their own threads
         new Thread(new AddMenuBarTask("Memória", 'M', "Índice de memória", new MemoriaPanel(si))).start();
         new Thread(new AddMenuBarTask("CPU", 'C', "Uso da CPU", new CpuPanel(si))).start();
         new Thread(new AddMenuBarTask("Disco", 'F', "Uso de disco", new DiscoPanel(si))).start();
         new Thread(new AddMenuBarTask("Processos", 'P', "Processos", new ProcessosJPanel(si))).start();
+        
+//        jMenu.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
     }
 
     private JButton getJMenu(String title, char mnemonic, String toolTip, SuperVisorJpanel panel) {

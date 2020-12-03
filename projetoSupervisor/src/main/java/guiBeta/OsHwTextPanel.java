@@ -14,6 +14,8 @@ import javax.swing.Timer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.awt.Color;
+import javax.swing.BorderFactory;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -70,24 +72,35 @@ public class OsHwTextPanel extends SuperVisorJpanel { // NOSONAR squid:S110
         csConstraints.fill = GridBagConstraints.BOTH;
 
         JPanel oshwPanel = new JPanel();
+        oshwPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        
+        oshwPanel.setBackground(Color.decode("#102842"));
         oshwPanel.setLayout(new GridBagLayout());
 
         JTextArea osArea = new JTextArea(0, 0);
+        osArea.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        
         osArea.setText(updateOsData(si));
         oshwPanel.add(new JLabel(OPERATING_SYSTEM), osLabel);
         oshwPanel.add(osArea, osConstraints);
 
         JTextArea procArea = new JTextArea(0, 0);
+        procArea.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        
         procArea.setText(getProc(si));
         oshwPanel.add(new JLabel(PROCESSOR), procLabel);
         oshwPanel.add(procArea, procConstraints);
 
         JTextArea displayArea = new JTextArea(0, 0);
+        displayArea.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        
         displayArea.setText(getDisplay(si));
         oshwPanel.add(new JLabel(DISPLAYS), displayLabel);
         oshwPanel.add(displayArea, displayConstraints);
 
         JTextArea csArea = new JTextArea(0, 0);
+        csArea.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        
         csArea.setText(getHw(si));
         oshwPanel.add(new JLabel(HARDWARE_INFORMATION), csLabel);
         oshwPanel.add(csArea, csConstraints);
