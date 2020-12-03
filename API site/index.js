@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //LOGIN USER - é chamado após a validação de campos na returnDados;
 app.post('/user', function (req, res) {
     console.log("index.js está ok")
+
     console.log(req.body)
 
     request.query(`SELECT * FROM 
@@ -38,17 +39,31 @@ app.post('/user', function (req, res) {
 
 /////////////////////////////////////////////////////////////////////////////////
 //CPU (grafStatusCPU)
-app.get('/dash', function (req, res) {
-    console.log(req.body)
+// app.get('/dash', function (req, res) {
+//     console.log(req.body)
 
-    request.query(`SELECT * FROM [dbo].[Registro] WHERE DESCRICAO like '%CPU%'`,
-        function (err, result) {
-            if (err) throw err;
-            res.json(result.recordsets[1])
+//     request.query(`select top 5 * from Registro '`,
+    
+//         function (err, result) {
+//             if (err) throw err;
+//             res.json(result);
+//         })
+// });
 
-            console.log(result);
-            res.json(result)
-        })
+app.get('/dash', function (req, res, next) {
+
+    const instrucaoSql = `select top 200 * from Registro order by idRegistro asc`;
+
+
+    request.query(instrucaoSql)
+        .then(resultado => {
+            console.log(`Encontrados: ${resultado.length}`);
+
+            res.json(resultado);
+        }).catch(erro => {
+            console.error(erro);
+            res.status(500).send(erro.message);
+        });
 });
 
 // //MEMÓRIA (grafStatusMemoria)
