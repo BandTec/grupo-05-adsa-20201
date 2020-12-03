@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Api",
+  "main": "API-site/index.js",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mssql": "^6.2.3",
+    "mysqli": "^3.0.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node API-site/index.js",
+    "dev": "nodemon API-site/index.js"
+  },
+  "author": "isabella",
+  "license": "ISC"
+}

@@ -4,16 +4,16 @@ const app = express();
 // const connection = require('./connection');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3000;
+const port = 3333;
 const mssql = require('mssql');
 const request = new mssql.Request();
 
 
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-
+console.log(__dirname);
 
 //LOGIN
 app.post('/user', function (req, res) {
