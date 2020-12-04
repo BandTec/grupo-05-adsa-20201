@@ -56,14 +56,14 @@
                 <option value="2">Suporte de T.I.</option>
             </select>
 
-            <form onsubmit="validaLogin()"  id="form_user" method="post" class="form_cadastrado">
+            <form id="form_user" method="post" class="form_cadastrado">
                 <label class="label_cadastro" for="user_cadastrado">Insira seu Usuário*:</label>
-                <input class="input_u" type="text" placeholder="User" id="user_login" name="user" >
+                <input class="input_u" type="text" placeholder="User" id="user_login" name="user">
 
                 <label class="label_cadastro" for="senha_cadastrado">Insira sua Senha*:</label>
-                <input class="input_u" type="password" placeholder="*****" id="senha_login" name="senha" >
+                <input class="input_u" type="password" placeholder="*****" id="senha_login" name="senha">
 
-                <button id="btn_entrar" class="btn"> Login </button>
+                <button onclick="validaLogin()" id="btn_entrar" class="btn" type="button"> Login </button>
 
                 <a href="" class="forgot_pass">Esqueceu a senha?</a>
             </form>
@@ -74,8 +74,8 @@
             Não tem conta? <a href="cadastro.html">Faça seu cadastro AQUI</a>
         </div>
         <script type="text/javascript">
-            $(document).ready(function () {
-                $('.nav_btn').click(function () {
+            $(document).ready(function() {
+                $('.nav_btn').click(function() {
                     $('.mobile_nav_items').toggleClass('active');
                 });
             });

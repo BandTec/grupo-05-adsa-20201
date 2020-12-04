@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../CSS/menu.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="./../../../index.js"></script>
+    <script src="../../../index.js"></script>
 </head>
 
 <body onload="carregarDados()">
@@ -124,8 +124,7 @@
 
                         <span class="pDisco">DISCO</span>
 
-                        <canvas id="canvasStatusDisco" height="150" class="classStatusDisco"
-                            style="top: -5px;"></canvas>
+                        <canvas id="canvasStatusDisco" height="150" class="classStatusDisco" style="top: -5px;"></canvas>
 
                     </div>
 
@@ -177,7 +176,6 @@
 <script src="../../js/dash.js"></script>
 
 <script>
-
     let qtdComputador = 1;
 
     let qtdComputadorOk = 0;
@@ -191,9 +189,9 @@
 
     function carregarDados() {
 
-  
 
-    
+
+
         for (let i = 0; i < qtdComputador; i++) {
             let dadoCpu = parseInt(Math.random() * 100 + 1);
             let dadoMemoria = parseInt(Math.random() * 100 + 1);

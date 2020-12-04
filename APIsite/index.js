@@ -15,31 +15,35 @@ app.use(bodyParser.urlencoded({ extended: true }));
 console.log(__dirname);
 
 //LOGIN USER - é chamado após a validação de campos na returnDados;
-app.post('/user', function (req, res) {
+app.post('/user', function(req, res) {
     console.log("index.js está ok")
 
     console.log(req.body)
 
     request.query(`SELECT * FROM 
-                    CadastroFuncionario where usuario='${req.body.usuario}' 
-                    and senha='${req.body.senha}' and cargo= '${req.body.cargo}'`,
-        function (err, result) {
+                    CadastroFuncionario where usuario='${req.body.usuario1}' 
+                    and senha='${req.body.senha1}' and cargo= ${req.body.cargo}`,
+        function(err, result) {
             if (err) throw err;
-            console.log(result);
+            console.log("teste", result);
             if (result.recordsets[0].length) {
-                 res.json({
+                res.json({
                     msg: result.recordsets[0]
                 });
             } else {
-                res.send(401)// não autorizado, QUANDO NAO ENCONTRAR USUARIO NO SELECT ACIMA 
+                res.send(401) // não autorizado, QUANDO NAO ENCONTRAR USUARIO NO SELECT ACIMA 
             }
         })
 });
 
-app.get('/dash', function (req, res, next) {
+app.get('/dash', function(req, res, next) {
+
+    // for (var i = 1; i <= 3; i++) {
+
+    //     const instrucaoSql = `select top 200 VALOR, DATA_HORA from Registro where fkComponentes=${i} order by idRegistro asc`;
+    // }
 
     const instrucaoSql = `select top 200 * from Registro order by idRegistro asc`;
-
 
     request.query(instrucaoSql)
         .then(resultado => {
@@ -56,10 +60,13 @@ app.get('/dash', function (req, res, next) {
 //CADASTRO ADDUSER - é chamado após a validação de campos na returnDados;
 app.post('/addUser', (req, res) => {
 
-    let data = [req.nomeFuncionario, req.body.email, req.body.senha, req.body.cargo];
-    let sql = "INSERT INTO dbo.CadastroFuncionario (nomeFuncionario, email, senha, cargo) values (?,?,?,?)";
+    let data = [req.body.nome, req.body.email1, req.body.senha1, req.body.cargo1];
+    console.log("TESTE", data);
+    console.log(req.body);
+    // let sql = "INSERT INTO CadastroFuncionario (nomeFuncionario, email, senha, cargo) values (?,?,?,?)";
+    let sql = `INSERT INTO CadastroFuncionario VALUES ('${data[0]}', '${data[1]}', '${data[2]}', 1, ${data[3]}, 'Lu')`;
 
-    connection.query(sql, data, function (err, result) {
+    request.query(sql, data, function(err, result) {
         if (err) throw err;
         res.send(result);
     });
@@ -67,6 +74,6 @@ app.post('/addUser', (req, res) => {
 
 
 //PORTA
-app.listen(process.env.PORT || port, function () {
+app.listen(process.env.PORT || port, function() {
     console.log('Servidor rodando na porta ' + port);
 });

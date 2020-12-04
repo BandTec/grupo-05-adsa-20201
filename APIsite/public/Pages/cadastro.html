@@ -39,19 +39,16 @@
 
                 <h2>Cadastro:</h2>
 
-                <form onsubmit="validaCadastro()" class="form_cadastrado" id="form_cadastro" method="post" class="form">
+                <form class="form_cadastrado" id="form_cadastro" method="post" class="form">
 
                     <label class="label_cadastro" for="nome">Nome:</label><br>
-                    <input class="input1" placeholder="Ex: Supervisor" type="nome" id="nome_cadastro" minlength="4"
-                        required><br>
+                    <input class="input1" placeholder="Ex: Supervisor" type="nome" id="nome_cadastro" minlength="4" required><br>
 
                     <label class="label_cadastro" for="email_cadastro">E-mail:</label><br>
-                    <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" id="email_cadastro"
-                        required><br>
+                    <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" id="email_cadastro" required><br>
 
                     <label class="label_cadastro" for="email_cadastro">URL da foto de perfil:</label><br>
-                    <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" id="Input_fotoPerfil  "
-                        required><br>
+                    <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" id="Input_fotoPerfil  " required><br>
 
                     <label class="label_cadastro" for="cargo_cadastro">Cargo de Ocupação:</label><br>
                     <select class="cbxcargo" id="Select_cargo">
@@ -62,10 +59,9 @@
                     <br>
 
                     <label class="label_cadastro" for="senha_cadastro">Senha:</label><br>
-                    <input class="input1" placeholder="********" type="password" id="senha_cadastro" minlength="5"
-                        required><br><br>
+                    <input class="input1" placeholder="********" type="password" id="senha_cadastro" minlength="5" required><br><br>
 
-                    <button id="btn_cadastrar" class="btn"> Cadastrar </button>
+                    <button id="btn_cadastrar" onclick="validaCadastro()" class="btn" type="button"> Cadastrar </button>
 
                 </form>
             </div>
@@ -77,8 +73,10 @@
                 .
             </div>
         </div>
-        </body>
-      </html>
-    </body>
-  </html>
-  <script src="./../js/returnDados.js"></script>
+</body>
+
+</html>
+</body>
+
+</html>
+<script src="./../js/returnDados.js"></script>
