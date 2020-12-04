@@ -51,7 +51,7 @@ public class OsHwTextPanel extends SuperVisorJpanel { // NOSONAR squid:S110
         GridBagConstraints osConstraints = new GridBagConstraints();
         osConstraints.gridy = 1;
         osConstraints.fill = GridBagConstraints.BOTH;
-        osConstraints.insets = new Insets(0, 0, 15, 15); // T,L,B,R
+        osConstraints.insets = new Insets(0, 0, 15, 25); // T,L,B,R
 
         GridBagConstraints procLabel = (GridBagConstraints) osLabel.clone();
         procLabel.gridy = 2;
@@ -62,7 +62,7 @@ public class OsHwTextPanel extends SuperVisorJpanel { // NOSONAR squid:S110
         displayLabel.gridy = 4;
         GridBagConstraints displayConstraints = (GridBagConstraints) osConstraints.clone();
         displayConstraints.gridy = 5;
-        displayConstraints.insets = new Insets(0, 0, 0, 15); // T,L,B,R
+        displayConstraints.insets = new Insets(0, 0, 0, 25); // T,L,B,R
 
         GridBagConstraints csLabel = (GridBagConstraints) osLabel.clone();
         csLabel.gridx = 1;

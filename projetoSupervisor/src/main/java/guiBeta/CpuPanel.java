@@ -1,7 +1,5 @@
 package guiBeta;
 
-import ArquivosLog.ArquivoLog;
-import static guiBeta.MemoriaPanel.config;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -76,7 +74,7 @@ public class CpuPanel extends SuperVisorJpanel {
                 true, false);
 
         cpuPanel.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#353b48")),
+                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#102842")),
                 "USO DE CPU - SUPERVISOR"));
 
         cpuPanel.setLayout(new GridBagLayout());
@@ -132,7 +130,7 @@ public class CpuPanel extends SuperVisorJpanel {
                 + "('%.1f', '%%', 'Uso da CPU', '%s', 1, 1)", f[0], dtf.format(now));
 
         // Conecta no banco e passa o insert como query SQL
-        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+        try (Connection connection = DriverManager.getConnection(SuperVisorAplication.config.connectionUrl);
                 PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
 
             // Executa o insert

@@ -1,22 +1,16 @@
 
 package login;
 
-import ArquivosLog.Logs;
 import configBanco.Conexao;
-import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
-import javax.swing.ImageIcon;   
-import javax.swing.JLabel;
 
 
 public class TelaLoginFuncional extends javax.swing.JFrame {
 
-    Logs log = new Logs();
     configBanco.Conexao config = new Conexao();
     
     public void verificarLogin() {

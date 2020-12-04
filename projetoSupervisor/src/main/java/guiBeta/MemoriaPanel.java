@@ -1,7 +1,5 @@
 package guiBeta;
 
-import ArquivosLog.ArquivoLog;
-import configBanco.Conexao;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -38,8 +36,6 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
     static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
     static LocalDateTime now = LocalDateTime.now();
-    
-    static Conexao config = new Conexao();
 
     private static final long serialVersionUID = 1L;
 
@@ -79,7 +75,7 @@ public class MemoriaPanel extends SuperVisorJpanel {
 
         JPanel MemoriaPanel = new JPanel();
         MemoriaPanel.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#353b48")),
+                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#102842")),
                 "USO DE MEMÓRIA RAM - SUPERVISOR"));
         MemoriaPanel.setLayout(new GridBagLayout());
         MemoriaPanel.add(new ChartPanel(memFis), pmConstraints);
@@ -151,7 +147,7 @@ public class MemoriaPanel extends SuperVisorJpanel {
                 / memoria.getTotal(), dtf.format(now));
 
         // Conecta no banco e passa o insert como query SQL
-        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+        try (Connection connection = DriverManager.getConnection(SuperVisorAplication.config.connectionUrl);
                 PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
 
             // Executa o insert

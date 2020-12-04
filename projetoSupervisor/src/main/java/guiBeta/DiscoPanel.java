@@ -1,7 +1,5 @@
 package guiBeta;
 
-import ArquivosLog.ArquivoLog;
-import static guiBeta.MemoriaPanel.config;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -56,7 +54,7 @@ public class DiscoPanel extends SuperVisorJpanel {
 
         JPanel fsPanel = new JPanel();
         fsPanel.setBorder(BorderFactory.createTitledBorder(
-                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#353b48")),
+                BorderFactory.createMatteBorder(30, 30, 30, 30, Color.decode("#102842")),
                 "USO DE DISCO - SUPERVISOR"));
         fsPanel.setLayout(new GridBagLayout());
         GridBagConstraints fsConstraints = new GridBagConstraints();
@@ -145,7 +143,7 @@ public class DiscoPanel extends SuperVisorJpanel {
                 (double) Math.round((total - disponivel) * 100 / total), dtf.format(now));
 
         // Conecta no banco e passa o insert como query SQL
-        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+        try (Connection connection = DriverManager.getConnection(SuperVisorAplication.config.connectionUrl);
                 PreparedStatement prepsInsertProduct = connection.prepareStatement(insertSql);) {
 
             // Executa o insert
