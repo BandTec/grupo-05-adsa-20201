@@ -1,19 +1,18 @@
 require("./apiIsa/config/connection");
 const express = require('express');
 const app = express();
-// const connection = require('./connection');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3000;
+const port = process.env.PORT || 3333;
 const mssql = require('mssql');
 const request = new mssql.Request();
 
 
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-
+console.log(__dirname);
 
 //LOGIN USER - é chamado após a validação de campos na returnDados;
 app.post('/user', function (req, res) {
@@ -37,19 +36,6 @@ app.post('/user', function (req, res) {
         })
 });
 
-/////////////////////////////////////////////////////////////////////////////////
-//CPU (grafStatusCPU)
-// app.get('/dash', function (req, res) {
-//     console.log(req.body)
-
-//     request.query(`select top 5 * from Registro '`,
-    
-//         function (err, result) {
-//             if (err) throw err;
-//             res.json(result);
-//         })
-// });
-
 app.get('/dash', function (req, res, next) {
 
     const instrucaoSql = `select top 200 * from Registro order by idRegistro asc`;
@@ -66,48 +52,7 @@ app.get('/dash', function (req, res, next) {
         });
 });
 
-// //MEMÓRIA (grafStatusMemoria)
-// app.get('/dash', function (req, res) {
-//     console.log(req.body)
 
-//     request.query(`SELECT * FROM Registro`,
-//         function (err, result) {
-//             if (err) throw err;
-//             console.log(result);
-//             res.json(result)
-//         })
-// });
-
-
-// //DISCO (grafStatusDisco)
-// app.get('/dash', function (req, res) {
-//     console.log(req.body)
-
-//     request.query(`SELECT * FROM Registro`,
-//         function (err, result) {
-//             if (err) throw err;
-//             console.log(result);
-//             res.json(result)
-//         })
-// });
-
-
-// //GPU (grafStatusGPU)
-// app.get('/dash', function (req, res) {
-//     console.log(req.body)
-
-//     request.query(`SELECT * FROM Registro`,
-//         function (err, result) {
-//             if (err) throw err;
-//             console.log(result);
-//             res.json(result)
-//         })
-// });
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////
 //CADASTRO ADDUSER - é chamado após a validação de campos na returnDados;
 app.post('/addUser', (req, res) => {
 
@@ -122,6 +67,6 @@ app.post('/addUser', (req, res) => {
 
 
 //PORTA
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     console.log('Servidor rodando na porta ' + port);
 });
