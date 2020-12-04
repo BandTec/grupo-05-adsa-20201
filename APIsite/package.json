@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Api",
-  "main": "index.js",
+  "main": "API-site/index.js",
   "dependencies": {
     "body-parse": "^0.1.0",
     "cors": "^2.8.5",
@@ -14,8 +14,7 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon API-site/index.js"
   },
   "author": "isabella",
   "license": "ISC"

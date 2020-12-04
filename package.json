@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Api",
-  "main": "API-site/index.js",
+  "main": "APIsite/index.js",
   "dependencies": {
     "body-parse": "^0.1.0",
     "cors": "^2.8.5",
@@ -14,9 +14,18 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "start": "node API-site/index.js",
-    "dev": "nodemon API-site/index.js"
+    "start": "nodemon APIsite/index.js",
+    "dev": "nodemon APIsite/index.js"
   },
   "author": "isabella",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BandTec/grupo-05-adsa-20201.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/BandTec/grupo-05-adsa-20201/issues"
+  },
+  "homepage": "https://github.com/BandTec/grupo-05-adsa-20201#readme"
 }
