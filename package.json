@@ -14,7 +14,7 @@
     "nodemon": "^2.0.6"
   },
   "scripts": {
-    "start": "nodemon APIsite/index.js",
+    "start": "node APIsite/index.js",
     "dev": "nodemon APIsite/index.js"
   },
   "author": "isabella",

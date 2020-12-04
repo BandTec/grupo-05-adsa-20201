@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 3333;
+const port = process.env.PORT || 3333;
 const mssql = require('mssql');
 const request = new mssql.Request();
 
@@ -67,6 +67,6 @@ app.post('/addUser', (req, res) => {
 
 
 //PORTA
-app.listen(port, function () {
+app.listen(process.env.PORT || port, function () {
     console.log('Servidor rodando na porta ' + port);
 });
