@@ -38,9 +38,9 @@
 
                 <h2>Cadastro de máquina:</h2>
 
-                <form onsubmit="validaCadastroMaq()" class="form_cadastrado" id="form_cadastro" method="post" class="form">
+                <form class="form_cadastrado" id="form_cadastro" method="post" class="form">
 
-                    <label class="label_cadastro" for="nome">Host name:</label><br>
+                    <label class="label_cadastro" for="nomeMaq_cadastro">Host name:</label><br>
                     <input class="input1" placeholder="Ex: REM41QCF12" type="nome" id="nomeMaq_cadastro" minlength="8"
                         required><br>
    
@@ -67,7 +67,7 @@
                         <input id="gpu_check" class="checkbox" type="checkbox" name="comp" value="video"> Placa de Vídeo 
                     </label>
 
-                    <button id="btn_cadastrar" class="btn"> Cadastrar máquina </button>
+                    <button onclick="validaCadastroMaq()" id="btn_cadastrar" class="btn"> Cadastrar máquina </button>
                 </form>
             
                 </div>

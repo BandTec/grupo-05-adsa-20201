@@ -13,9 +13,7 @@ const config = {
         }
     }
 };
-
 mssql.connect(config, err => {
     if (err) throw err;
     console.log("CONECTADO");
 })
-

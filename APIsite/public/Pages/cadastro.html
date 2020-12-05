@@ -26,7 +26,6 @@
         </div>
         <div class="right_area">
             <a href="../Pages/Login.html" class="login_btn">Login</a>
-            <a href="../Pages/cadastro.html" class="cadastro_btn">Cadastrar</a>
         </div>
 
     </header>
@@ -41,17 +40,24 @@
 
                 <form class="form_cadastrado" id="form_cadastro" method="post" class="form">
 
-                    <label class="label_cadastro" for="nome">Nome:</label><br>
-                    <input class="input1" placeholder="Ex: Supervisor" type="nome" id="nome_cadastro" minlength="4" required><br>
+                    <label class="label_cadastro" for="nome_cadastro">Nome:</label><br>
+                    <input class="input1" placeholder="Ex: Carlos" type="nome" id="nome_cadastro" minlength="4" required><br>
 
                     <label class="label_cadastro" for="email_cadastro">E-mail:</label><br>
                     <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" id="email_cadastro" required><br>
 
-                    <label class="label_cadastro" for="email_cadastro">URL da foto de perfil:</label><br>
-                    <input class="input1" placeholder="Ex: supervisor@gmail.com" type="email" id="Input_fotoPerfil  " required><br>
+                    <label class="label_cadastro" for="userName">Nome de usuário:</label><br>
+                    <input class="input1" placeholder="Ex: Carlinhos_123" type="userName" id="user_Name" required><br>
+
+                    <label class="label_cadastro" for="cargo_cadastro">Faculdade:</label><br>
+                    <select class="cbxcargo" id="Select_cargo">
+                        <option value="" selected disabled>Selecionar</option>
+                        <option value="1">Bandtec</option>
+                        <option value="2">FMU</option>
+                    </select>
 
                     <label class="label_cadastro" for="cargo_cadastro">Cargo de Ocupação:</label><br>
-                    <select class="cbxcargo" id="Select_cargo">
+                    <select class="cbxcargo" id="Select_faculdade">
                         <option value="" selected disabled>Selecionar</option>
                         <option value="1">Professor</option>
                         <option value="2">Suporte de T.I.</option>
