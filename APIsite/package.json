@@ -2,7 +2,7 @@
     "name": "api",
     "version": "1.0.0",
     "description": "Api",
-    "main": "API-site/index.js",
+    "main": "APISITE/index.js",
     "dependencies": {
         "body-parse": "^0.1.0",
         "cors": "^2.8.5",
@@ -14,7 +14,7 @@
         "nodemon": "^2.0.6"
     },
     "scripts": {
-        "start": "nodemon API-site/index.js"
+        "start": "nodemon APISITE/index.js"
     },
     "author": "isabella",
     "license": "ISC"
