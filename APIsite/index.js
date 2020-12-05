@@ -12,20 +12,17 @@ app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-console.log(__dirname);
+// console.log(__dirname);
 
 //LOGIN USER - é chamado após a validação de campos na returnDados;
 app.post('/user', function(req, res) {
     console.log("index.js está ok")
-
-    console.log(req.body)
 
     request.query(`SELECT * FROM 
                     CadastroFuncionario where usuario='${req.body.usuario1}' 
                     and senha='${req.body.senha1}' and cargo= ${req.body.cargo}`,
         function(err, result) {
             if (err) throw err;
-            console.log("teste", result);
             if (result.recordsets[0].length) {
                 res.json({
                     msg: result.recordsets[0]
@@ -47,7 +44,6 @@ app.get('/dash', function(req, res, next) {
 
     request.query(instrucaoSql)
         .then(resultado => {
-            console.log(`Encontrados: ${resultado.length}`);
 
             res.json(resultado);
         }).catch(erro => {
@@ -60,13 +56,25 @@ app.get('/dash', function(req, res, next) {
 //CADASTRO ADDUSER - é chamado após a validação de campos na returnDados;
 app.post('/addUser', (req, res) => {
 
-    let data = [req.body.nome, req.body.email1, req.body.senha1, req.body.cargo1];
-    console.log("TESTE", data);
-    console.log(req.body);
-    // let sql = "INSERT INTO CadastroFuncionario (nomeFuncionario, email, senha, cargo) values (?,?,?,?)";
+    let data = [req.body.nome1, req.body.email1, req.body.senha1, req.body.cargo1];
     let sql = `INSERT INTO CadastroFuncionario VALUES ('${data[0]}', '${data[1]}', '${data[2]}', 1, ${data[3]}, 'Lu')`;
 
     request.query(sql, data, function(err, result) {
+        if (err) throw err;
+        res.send(result);
+    });
+})
+
+//CADASTRO ADDUSER - é chamado após a validação de campos na returnDados;
+app.post('/addMaquina', (req, res) => {
+
+    let data1 = [req.body.maquina];
+    console.log("MÁQUINA", data1[0]);
+
+    let sql = `INSERT INTO Maquina VALUES ('${data1[0]}', 1)`;
+    console.log("insert da máquina", sql)
+
+    request.query(sql, data1, function(err, result) {
         if (err) throw err;
         res.send(result);
     });

@@ -38,47 +38,47 @@
 
                 <h2>Cadastro de máquina:</h2>
 
-                <form onsubmit="validaCadastroMaq()" class="form_cadastrado" id="form_cadastro" method="post" class="form">
+                <form class="form_cadastrado" id="form_cadastro" method="post" class="form">
 
                     <label class="label_cadastro" for="nome">Host name:</label><br>
-                    <input class="input1" placeholder="Ex: REM41QCF12" type="nome" id="nomeMaq_cadastro" minlength="8"
-                        required><br>
-   
-                
-            
+                    <input class="input1" placeholder="Ex: REM41QCF12" type="nome" id="nomeMaq_cadastro" minlength="8" required><br>
 
-            <div class="componentes">
-                <!-- <form onsubmit="validaComponente()" class="form_componente" id="form_componente" method="post" class="form"> -->
-                    <h3>Componentes da máquina:</h3>
-                    <label for="cpu_check" class="componentes" >
+
+
+
+                    <div class="componentes">
+                        <!-- <form onsubmit="validaComponente()" class="form_componente" id="form_componente" method="post" class="form"> -->
+                        <h3>Componentes da máquina:</h3>
+                        <label for="cpu_check" class="componentes">
                         <input id="cpu_check" class="checkbox" type="checkbox" name="comp" value="cpu">CPU 
                     </label>
-            
-                    <label for="memoria_check" class="componentes">
+
+                        <label for="memoria_check" class="componentes">
                         <input id="memoria_check" class="checkbox" type="checkbox" name="comp" value="memoria">Memória
                     </label>
-            
-                    
-                    <label for="disco_check" class="componentes">
+
+
+                        <label for="disco_check" class="componentes">
                         <input id="disco_check" class="checkbox" type="checkbox" name="comp" value="disco">Disco 
                     </label>
-                   
-                    <label for="gpu_check" class="componentes">
+
+                        <label for="gpu_check" class="componentes">
                         <input id="gpu_check" class="checkbox" type="checkbox" name="comp" value="video"> Placa de Vídeo 
                     </label>
 
-                    <button id="btn_cadastrar" class="btn"> Cadastrar máquina </button>
+                        <button onclick="validaCadastroMaq()" id="btn_cadastrar" class="btn"> Cadastrar máquina </button>
                 </form>
-            
+
                 </div>
             </div>
             <div class="footer">
-                      </div>
+            </div>
         </div>
-        </body>
-      </html>
-    </body>
-    
-    <script src="./../js/returnDados.js"></script>
+</body>
 
- </html>
+</html>
+</body>
+
+<script src="../js/returnDados.js"></script>
+
+</html>

@@ -13,12 +13,7 @@ let senha1 = document.querySelector('#senha_login');
 let func = document.querySelector('#funcionarios');
 
 // variáveis que regataram o corpo dos inputs na tela cadastro de máquina
-let form2 = document.querySelector("#form_cadastro");
-let maquina = document.querySelector("#nomeMaq_cadastro");
-let cpu = document.querySelector("#cpu_check");
-let memoria = document.querySelector("#memoria_check");
-let disco = document.querySelector("#disco_check");
-let gpu = document.querySelector("#gpu_check");
+// let form2 = document.querySelector("#form_cadastro");
 
 //----------------------------------------------------------------------//
 
@@ -41,7 +36,7 @@ function validaCadastro() {
             body: JSON.stringify({ nome1, email1, senha1, cargo1 })
         }).then(respostaDoServidor => {
             if (respostaDoServidor.status === 200) {
-                console.log("Foiiii viado");
+                alert("Cadastro realizado com sucesso!");
             }
         })
     }
@@ -78,8 +73,6 @@ function validaLogin() {
 
 //----------------------------------------------------------------------//
 
-let teste = [];
-
 function pegarusuario() {
     let usuario1 = document.querySelector('#user_login').value;
     let senha1 = document.querySelector('#senha_login').value;
@@ -114,93 +107,32 @@ function pegarusuario() {
     })
 
 }
-
-//----------------------------------------------------------------------//
-
-
-function addMaquina() {
-    let ajax1 = new XMLHttpRequest();
-    let params1 = "nomeMaq_cadastro=" + maquina.value + "cpu_check= 1" + cpu.value + "memoria_check= 2" + memoria.value +
-        "disco_check= 3" + disco.value + "gpu_check= 4" + gpu.value;
-    console.log('OK');
-    ajax1.open("POST", "http://localhost:3000/user");
-    ajax1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    ajax1.onreadystatechange = function() {
-
-    }
-    ajax1.send(params1);
-};
-
-
-
-
-
-// const abc =()=>{
-//     fetch('/dash', { cache: 'no-store' }).then(function (response) {
-//         if (response.ok) {
-
-
-//           response.json().then(function (resposta) {
-
-
-
-//             resposta.reverse();
-
-
-
-//           });
-//         } else {
-//           console.error('Nenhum dado encontrado ou erro na API');
-//         }
-//       })
-//         .catch(function (error) {
-//           console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-//         });
-
-
-
-
-// }
-
-
 //----------------------------------------------------------------------//
 
 //VALIDAÇÃO CADASTRO DE MÁQUINA
 function validaCadastroMaq() {
+    let maquina = document.querySelector("#nomeMaq_cadastro").value;
+    // let cpu = document.querySelector("#cpu_check");
+    // let memoria = document.querySelector("#memoria_check");
+    // let disco = document.querySelector("#disco_check");
+    // let gpu = document.querySelector("#gpu_check");
 
-    let nome2 = document.querySelector('#nomeMaq_cadastro').value;
-
-    if (!nome2.value) {
-        alert("Não esqueça de preencher o hostname!")
+    if (maquina.length < 5) {
+        alert("Preencha o hostName corretamente!")
     } else {
-        addMaquina();
+        fetch("/addMaquina", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({ maquina })
+        }).then(respostaDoServidor => {
+            if (respostaDoServidor.status === 200) {
+                alert("Cadastro realizado com sucesso!");
+            }
+        })
     }
 
 }
-
 //----------------------------------------------------------------------//
-
-
-function addMaquina() {
-    let ajax1 = new XMLHttpRequest();
-    let params1 = "nomeMaq_cadastro=" + maquina.value + "cpu_check= 1" + cpu.value + "memoria_check= 4" + memoria.value +
-        "disco_check= 3" + disco.value + "gpu_check= 2" + gpu.value;
-    console.log('OK');
-    ajax1.open("POST", "http://localhost:3000/user");
-    ajax1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    ajax1.onreadystatechange = function() {
-
-    }
-    ajax1.send(params1);
-};
-
-
-
-//----------------------------------------------------------------------//
-/* aqui estará adicionando eventos quando o input type submit for clicado 
-no caso as funções disparadas serão addUser e UserLogin, cada uma com seu proprio evento. */
-
-////////////////////////////////////////////////////||
-// form.addEventListener("submit",validaCadastro);  ||
-// form1.addEventListener("submit",validaLogin);    ||
-////////////////////////////////////////////////////||
