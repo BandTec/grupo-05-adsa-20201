@@ -1,7 +1,6 @@
 .body_cadastro{
     background: url("../Image/notebook.jpg") no-repeat;
-    /* padding-left: 5px;
-    padding-right: 15px; */
+    background-size: cover;
 }
 
 
