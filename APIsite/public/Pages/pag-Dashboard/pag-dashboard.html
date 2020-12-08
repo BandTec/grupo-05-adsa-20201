@@ -4,16 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="imagem/png" href="../../Image/logo3.png"/>
+    <link rel="icon" type="imagem/png" href="../../Image/logo3.png" />
     <title>SUPERVISOR - DASHBOARD</title>
     <link rel="stylesheet" href="../../css/dashboard.css">
     <link rel="stylesheet" href="../../CSS/menu.css">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="../../../index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css"></link>
 </head>
 
 <body onload="carregarDados()">
@@ -101,13 +99,25 @@
         <!-- Div Status Máquinas -->
         <div class="divFarois">
 
+            
             <i class="fa fa-arrow-circle-o-left fa-3x" aria-hidden="true" id="btnVoltar" onclick="funcVoltar()"></i>
 
+            <div class="divCritico">
+                <p class="pCritico">Crítico</p>
             <button class="divFarolCrit" onclick="exibirInfoCrit()" id="idQtdCrit"> - </button>
+               
+            </div>
 
+            <div class="divAlerta">
+                <p class="pAlerta">Alerta</p>
             <button class="divFarolAlerta" onclick="exibirInfoAlerta()" id="idQtdAlerta"> - </button>
+            </div>
 
-            <button class="divFarolOk" onclick="exibirInfoOk()" id="idQtdOk"> - </button>
+            <div class="divEstaveis">
+                <p class="pEstaveis">Estáveis</p>
+                <button class="divFarolOk" onclick="exibirInfoOk()" id="idQtdOk"> - </button>
+            </div>
+
 
         </div>
         <!-- Fechamento Status Máquinas -->
@@ -191,9 +201,6 @@
     let idComputadorCrit = [];
 
     function carregarDados() {
-
-
-
 
         for (let i = 0; i < qtdComputador; i++) {
             let dadoCpu = parseInt(Math.random() * 100 + 1);

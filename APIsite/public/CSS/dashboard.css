@@ -1,6 +1,5 @@
 body {
     background: url("../Image/notebook.jpg") no-repeat;
-    background-size: cover;
     background-color: #dfe6e9;
     /* overflow: hidden; */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -139,6 +138,37 @@ body {
     color: #4c7bad;
 }
 
+.divCritico {
+    text-align: end;  
+}
+
+.pCritico{
+    margin-right: 74px;
+    color: white;
+    font-weight: 600;
+}
+
+.divAlerta{
+    text-align: center;
+    
+}
+
+.pAlerta{
+    margin-left: 79px;
+    color: white;
+    font-weight: 600;
+}
+
+.divEstaveis{
+    text-align: center;
+}
+
+.pEstaveis{
+    margin-left: 80px;
+    color: white;
+    font-weight: 600; 
+}
+
 .divFarolCrit {
     background-color: #eb4d4b;
     box-shadow: 4.5px 4.5px 6px -2px #222;
@@ -240,7 +270,7 @@ body {
 
 .divGraficos {
     border-radius: 5px;
-    margin: 100px 0 0 330px;
+    margin: 150px 0 0 330px;
     position: absolute;
     float: left;
     width: 1000px;
