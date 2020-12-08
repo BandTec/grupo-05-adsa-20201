@@ -139,8 +139,9 @@ public class DiscoPanel extends SuperVisorJpanel {
         long disponivel = store.getUsableSpace();
         // Coloca o insert em uma String
         String insertSql = String.format("INSERT INTO Registro VALUES "
-                + "('%.1f', '%%', 'Uso de disco', '%s', 1, 3)",
-                (double) Math.round((total - disponivel) * 100 / total), dtf.format(now));
+                + "(1, 3, '%.1f', '%%', 'Uso de disco', '%s')",
+                (double) Math.round((total - disponivel) * 100 / total), 
+                dtf.format(now));
 
         // Conecta no banco e passa o insert como query SQL
         try (Connection connection = DriverManager.getConnection(SuperVisorAplication.config.connectionUrl);

@@ -6,38 +6,97 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JLabel;
 
-
-
 public class Gerenciador {
-    
+
     private Boolean conectado = true;
-//    CriarArquivo LogsTxt = new CriarArquivo();
-    
-    configBanco.Conexao config = new Conexao();
-    
-    public void recuperarDados(Integer categoria, JLabel lblLocal) {
-    
-         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+    Conexao config = new Conexao();
+
+    List<String> valoresRecuperados = new ArrayList<>();
+
+    public void recuperarDados(JLabel lblestavel, JLabel lblalerta, JLabel lblRisco) {
+
+        Integer quantidadeEstavel = 0, quantidadeAlerta = 0, quantidadeRisco = 0;
+
+        definirStatus();
+
+//        for (Integer i = 1; i <= contagemMaquinas(); i++) {
+//
+//            if (valoresRecuperados.get(0) > 70.0 || valoresRecuperados.get(1) > 70.0 || valoresRecuperados.get(2) > 80.0) 
+//                quantidadeRisco++;
+//            else if (valoresRecuperados.get(0) > 40.0 || valoresRecuperados.get(1) > 50.0 || valoresRecuperados.get(2) > 60.0) 
+//                quantidadeAlerta++;
+//            else
+//                quantidadeEstavel++;
+//
+//        }
+
+        lblRisco.setText(quantidadeEstavel.toString());
+        lblRisco.setText(quantidadeAlerta.toString());
+        lblRisco.setText(quantidadeRisco.toString());
+    }
+
+    public void definirStatus() {
+
+        String valor = "";
+        
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
                 Statement statement = connection.createStatement();) {
 
-            // Cria e depois executa uma query feita por colunas, 
-            // mas * funciona da mesma forma e poupa tempo.
-            String selectSql = String.format("SELECT COUNT(CATEGORIA) FROM Maquina" 
-                  + " WHERE CATEGORIA = '%d'", categoria);
+            if (!valoresRecuperados.isEmpty()) {
+                valoresRecuperados.clear();
+            }
 
-            ResultSet resultSet = statement.executeQuery(selectSql);
-            
-            while (resultSet.next()) {
-                lblLocal.setText(resultSet.getString(1));
+            for (Integer i = 1; i <= 3; i++) {
+
+                // Cria e depois executa uma query feita por colunas, 
+                // mas * funciona da mesma forma e poupa tempo.
+                String selectSql = String.format("SELECT TOP 1 VALOR FROM Registro"
+                        + " WHERE fkComponentes = '%d' ORDER BY idRegistro DESC", i);
+
+                ResultSet resultSet = statement.executeQuery(selectSql);
+
+                while (resultSet.next()) {
+                    valor = resultSet.getString("VALOR");
+                    System.out.println(Double.valueOf(valor));
+                }
             }
             
+            System.out.println(valoresRecuperados);
 
         } catch (SQLException e) {
             e.printStackTrace();
             conectado = false;
         }
+
+    }
+
+    public Integer contagemMaquinas() {
+
+        Integer qtdMaquina = 0;
+
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                Statement statement = connection.createStatement();) {
+
+            // Cria e depois executa uma query feita por colunas, 
+            // mas * funciona da mesma forma e poupa tempo.
+            String selectSql = "SELECT COUNT(idMaquina) FROM Maquina";
+
+            ResultSet resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                qtdMaquina++;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            conectado = false;
+        }
+
+        return qtdMaquina;
     }
 
     public Boolean getConectado() {
@@ -47,17 +106,5 @@ public class Gerenciador {
     public void setConectado(Boolean conectado) {
         this.conectado = conectado;
     }
-    
-//    public void exibirLogsConexao(){
-//        if (conectado.equals(false)) {
-//            LogsTxt.logBtnAtualizar();
-//            System.out.println("Botão atualizar sem funcionamento esperado, procurar administrador.");
-//        }
-//        
-//        else {
-//             LogsTxt.logBtnAtualizar();
-//             System.out.println("Deu certo");
-//        }
-//    }
-    
+
 }
