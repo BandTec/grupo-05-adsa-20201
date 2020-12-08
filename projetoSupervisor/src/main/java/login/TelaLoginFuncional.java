@@ -1,10 +1,6 @@
 package login;
 
-<<<<<<< HEAD
 import cadastrar.Cadastrar;
-=======
-import com.sun.java.swing.plaf.windows.WindowsBorders;
->>>>>>> ca72c13ec66663c3f110058fc088869845b0bc95
 import configBanco.Conexao;
 import dashboard.Dashboard;
 import java.sql.Connection;
@@ -15,16 +11,9 @@ import java.sql.Statement;
 
 public class TelaLoginFuncional extends javax.swing.JFrame {
 
-<<<<<<< HEAD
     Conexao config = new Conexao();
     Dashboard dash = new Dashboard();
-
-=======
-    configBanco.Conexao config = new Conexao();
     
-    dashboard.Dashboard dash = new Dashboard();
-    
->>>>>>> ca72c13ec66663c3f110058fc088869845b0bc95
     public void verificarLogin() {
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
                 Statement statement = connection.createStatement();) {
@@ -45,13 +34,8 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
             }
 
             if (email.equals(tfMail.getText()) && senha.equals(tfSenha.getText())) {
-<<<<<<< HEAD
                 dash.setVisible(true);
                 this.dispose();
-=======
-               dash.setVisible(true);
-               this.dispose();
->>>>>>> ca72c13ec66663c3f110058fc088869845b0bc95
             } else {
                 System.out.println("Login incorreto.");
             }

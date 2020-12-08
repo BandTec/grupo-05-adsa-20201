@@ -61,7 +61,7 @@ public class Gerenciador {
 
                 while (resultSet.next()) {
                     valor = resultSet.getString("VALOR");
-                    System.out.println(Double.valueOf(valor));
+                    System.out.println(valor);
                 }
             }
             
