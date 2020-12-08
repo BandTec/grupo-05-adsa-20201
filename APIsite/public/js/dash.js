@@ -21,6 +21,7 @@ let grafStatusGPU = document.getElementById('canvasStatusGPU').getContext('2d');
 
 
 function exibirGraficos() {
+    var maquinasCriticas = [];
     var contadorCpu = 0;
     var contadorMemoria = 0;
     var contadorDisco = 0;
@@ -37,9 +38,13 @@ function exibirGraficos() {
                     if (registro.DESCRICAO == "Uso da CPU") {
                         console.log(registro.DESCRICAO);
                         if (contadorCpu < 5) {
+
                             canvasStatusCPU.data.labels.push(registro.DATA_HORA);
                             canvasStatusCPU.data.datasets[0].data.push(parseInt(registro.VALOR));
                             contadorCpu++;
+
+
+
                         }
                     } else if (registro.DESCRICAO == "Uso de memória RAM") {
                         if (contadorMemoria == 0) {
@@ -65,6 +70,8 @@ function exibirGraficos() {
                 canvasStatusCPU.update();
                 canvasStatusMemoria.update();
                 canvasStatusDisco.update();
+                console.log(maquinasCriticas);
+                localStorage.setItem("maquinasCriticas", maquinasCriticas);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
@@ -76,6 +83,9 @@ function exibirGraficos() {
 
 
 
+    function x() {
+        
+    }
     let canvasStatusCPU = new Chart(grafStatusCPU, {
         type: 'line',
 
@@ -137,4 +147,7 @@ function exibirGraficos() {
             }]
         }
     });
+    // setTimeout(() => {
+    //     exibirGraficos();
+    //    }, 5000);
 }

@@ -195,18 +195,39 @@
     let qtdComputadorAlerta = 0;
     let qtdComputadorCrit = 0;
 
-
+    let idMaquinaFormat;
     let idComputadorOk = [];
     let idComputadorAlerta = [];
     let idComputadorCrit = [];
 
-    function carregarDados() {
+    async function carregarDados(){
+        fetch('/maquina', { cache: 'no-store' }).then(function (response) {
+            if(response.ok){
+                response.json().then((resposta)=>{
+                    idMaquinaFormat= resposta.recordsets[0][0].hostMaquina;
+                });
+            }
+        });
+        // setTimeout(()=>{
+        var arrayMaquinaC=[];
+        var maquinasCriticas=localStorage.getItem("maquinasCriticas");
+        var format = maquinasCriticas.replaceAll(",","");
+        
+        for(var i=0;i<format.length;i++){
+        
+            arrayMaquinaC.push(format[i]);
+     //       arrayMaquinaC.push(parseInt(format[i]));
+        }
+        console.log(arrayMaquinaC);
+    // },3000);
+        
+        
 
         for (let i = 0; i < qtdComputador; i++) {
-            let dadoCpu = parseInt(Math.random() * 100 + 1);
-            let dadoMemoria = parseInt(Math.random() * 100 + 1);
-            let dadoDisco = parseInt(Math.random() * 100 + 1);
-            let dadoGpu = parseInt(Math.random() * 100 + 1);
+            // let dadoCpu = parseInt(Math.random() * 100 + 1);
+            // let dadoMemoria = parseInt(Math.random() * 100 + 1);
+            // let dadoDisco = parseInt(Math.random() * 100 + 1);
+            // let dadoGpu = parseInt(Math.random() * 100 + 1);
 
             if ((dadoCpu < 60 && dadoMemoria < 60) || (dadoGpu < 60 && dadoDisco < 60)) {
                 idComputadorOk.push("00" + (i + 1));
@@ -219,9 +240,10 @@
                 qtdComputadorCrit++;
             }
         }
+        
 
         idQtdOk.innerHTML = `${qtdComputadorOk} <i class="fa fa-check-circle" aria-hidden="true"></i>`;
-        idQtdAlerta.innerHTML = `${qtdComputadorAlerta} <i class="fa fa-exclamation-circle" aria-hidden="true"></i>`;
+        idQtdAlerta.innerHTML = `${arrayMaquinaC.length} <i class="fa fa-exclamation-circle" aria-hidden="true"></i>`;
         idQtdCrit.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
 
         exibirInfoCrit();
@@ -239,10 +261,10 @@
         document.getElementById('idSpanStatus').style.color = "#eb4d4b"
         document.getElementById('idSpanStatus').innerHTML = "Crítico"
 
-        for (let i = 0; i < qtdComputadorCrit; i++) {
+        // for (let i = 0; i < qtdComputadorCrit; i++) {
 
-            computadoresCrits.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorCrit[i]} </button> <br>`;
-        }
+            computadoresCrits.innerHTML = `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idMaquinaFormat} </button> <br>`;
+        // }
 
     }
 
@@ -283,6 +305,7 @@
         }
 
     }
+   
 
     function funcVoltar() {
         document.getElementById('canvasGrafSemanal').style.display = "block";

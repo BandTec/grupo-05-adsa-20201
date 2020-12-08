@@ -47,6 +47,20 @@ app.get('/dash', function(req, res, next) {
             res.status(500).send(erro.message);
         });
 });
+app.get('/maquina', function(req, res, next) {
+
+    const instrucaoSql = `SELECT TOP 1 * FROM Maquina ORDER BY idMaquina DESC`;
+
+    request.query(instrucaoSql)
+        .then(resultado => {
+            console.log(`Encontrados: ${resultado.length}`);
+            res.json(resultado);
+
+        }).catch(erro => {
+            console.error(erro);
+            res.status(500).send(erro.message);
+        });
+});
 
 
 //CADASTRO ADDUSER - é chamado após a validação de campos na returnDados;
