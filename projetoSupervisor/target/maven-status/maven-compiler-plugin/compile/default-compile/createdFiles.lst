@@ -10,7 +10,7 @@ guiBeta\DiscoPanel.class
 dashboard\Dashboard$3.class
 dashboard\Gerenciador.class
 login\TelaLoginFuncional$1.class
-ArquivosLog\ArquivoLog.class
+arquivosLog\ArquivoLog.class
 guiBeta\SuperVisorAplication$AddMenuBarTask.class
 cadastrar\Cadastrar$5.class
 cadastrar\Cadastrar$8.class

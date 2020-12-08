@@ -16,6 +16,7 @@ import login.TelaLoginFuncional;
 public class Cadastrar extends javax.swing.JFrame {
 
     Conexao config = new Conexao();
+    TelaLoginFuncional login = new TelaLoginFuncional();
 
     
     TelaLoginFuncional linkLogin = new TelaLoginFuncional();
@@ -36,11 +37,14 @@ public class Cadastrar extends javax.swing.JFrame {
 
             // Confirma a execução
             System.out.println("Inserção feita com sucesso!\n");
+            login.setVisible(true);
+            this.dispose();
 
         } // Handle any errors that may have occurred.
         catch (Exception e) {
             e.printStackTrace();
         }
+        
         JOptionPane.showMessageDialog(null, "Cadastro realizado");
         
         verificarCadastro();
@@ -72,6 +76,7 @@ public class Cadastrar extends javax.swing.JFrame {
     }
 
     public Cadastrar() {
+        login.setVisible(false);
         initComponents();
 
     }
@@ -110,10 +115,6 @@ public class Cadastrar extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(16, 40, 66));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\guilh\\OneDrive\\Documentos\\grupo-05-adsa-20201\\API\\apiCorreta\\src\\main\\java\\imagem\\logo3.1.png")); // NOI18N
-
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\guilh\\OneDrive\\Documentos\\grupo-05-adsa-20201\\API\\apiCorreta\\src\\main\\java\\imagem\\LogoSpervisor.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -255,10 +256,6 @@ public class Cadastrar extends javax.swing.JFrame {
                 lblSenhaActionPerformed(evt);
             }
         });
-
-        lblImagem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\guilh\\OneDrive\\Documentos\\grupo-05-adsa-20201\\API\\apiCorreta\\src\\main\\java\\imagem\\computador.png")); // NOI18N
-
-        lblImagem2.setIcon(new javax.swing.ImageIcon("C:\\Users\\guilh\\OneDrive\\Documentos\\grupo-05-adsa-20201\\API\\apiCorreta\\src\\main\\java\\imagem\\dev-computer.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

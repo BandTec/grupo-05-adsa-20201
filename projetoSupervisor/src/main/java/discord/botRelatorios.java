@@ -30,11 +30,11 @@ public class botRelatorios {
                 relatorio.clear();
                 for (Integer i = 1; i <= 3; i++) {
 
-                   relatorio.add(criarMensagem(i.toString()));
+                    relatorio.add(criarMensagem(i.toString()));
                 }
-                
+
                 final MessageChannel channel = message.getChannel().block();
-                channel.createMessage("**INFORMAÇÕES DOS COMPONENTES: **\n" 
+                channel.createMessage("**INFORMAÇÕES DOS COMPONENTES: **\n"
                         + relatorio.toString()).block();
             }
         });
@@ -57,7 +57,7 @@ public class botRelatorios {
             // em ordem decrescente, portanto, pegará o último valor e descrição
             // inseridos para cada componente
             String selectSql = String.format("SELECT TOP 1 VALOR, DESCRICAO FROM Registro"
-                    + " WHERE fkComponentes = '%s' ORDER BY idRegistro DESC", 
+                    + " WHERE fkComponentes = '%s' ORDER BY idRegistro DESC",
                     idComponente);
 
             ResultSet resultSet = statement.executeQuery(selectSql);
@@ -76,6 +76,5 @@ public class botRelatorios {
         // Retorna os dados concatenados
         return "\n" + descricao + " - " + valor + "%\n";
     }
-    
-    
+
 }

@@ -1,7 +1,6 @@
 package dashboard;
 
 import api.ApiOshi;
-import guiBeta.MemoriaPanel;
 import guiBeta.SuperVisorAplication;
 
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import oshi.hardware.GraphicsCard;
 import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
-import oshi.software.os.OperatingSystem.ProcessSort;
 import oshi.util.FormatUtil;
 
 public class Dashboard extends javax.swing.JFrame {
@@ -44,7 +42,6 @@ public class Dashboard extends javax.swing.JFrame {
         for (String item : listaExibicao) {
             jTAContent.setText( jTAContent.getText() + item + "\n");
         }
-
     }
 
     public void limparLista() {
@@ -140,7 +137,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblAtencao.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblAtencao.setForeground(new java.awt.Color(255, 255, 255));
         lblAtencao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAtencao.setText("-");
+        lblAtencao.setText("0");
 
         javax.swing.GroupLayout jpAtencaoLayout = new javax.swing.GroupLayout(jpAtencao);
         jpAtencao.setLayout(jpAtencaoLayout);
@@ -172,7 +169,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblEstavel.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblEstavel.setForeground(new java.awt.Color(255, 255, 255));
         lblEstavel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblEstavel.setText("-");
+        lblEstavel.setText("0");
 
         javax.swing.GroupLayout jpEstavelLayout = new javax.swing.GroupLayout(jpEstavel);
         jpEstavel.setLayout(jpEstavelLayout);
@@ -204,7 +201,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblRisco.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         lblRisco.setForeground(new java.awt.Color(255, 255, 255));
         lblRisco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRisco.setText("-");
+        lblRisco.setText("0");
 
         javax.swing.GroupLayout jpRiscoLayout = new javax.swing.GroupLayout(jpRisco);
         jpRisco.setLayout(jpRiscoLayout);
@@ -369,9 +366,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
 
-        gerenciadorDados.recuperarDados(1, lblEstavel);
-        gerenciadorDados.recuperarDados(2, lblAtencao);
-        gerenciadorDados.recuperarDados(3, lblRisco);
+        gerenciadorDados.recuperarDados(lblEstavel, lblAtencao, lblRisco);
 
     }//GEN-LAST:event_btnAtualizarActionPerformed
 
