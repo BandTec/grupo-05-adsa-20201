@@ -18,6 +18,9 @@ public class Cadastrar extends javax.swing.JFrame {
     Conexao config = new Conexao();
     TelaLoginFuncional login = new TelaLoginFuncional();
 
+    
+    TelaLoginFuncional linkLogin = new TelaLoginFuncional();
+    
     public void cadastrarUsuario() {
         // Coloca o insert em uma String
         String insertSql = String.format("INSERT INTO CadastroFuncionario "
@@ -406,12 +409,14 @@ public class Cadastrar extends javax.swing.JFrame {
                 || lblConfiEmail.getText().equals("") || lblSenha.getText().equals(" "))) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos");
         } else if (lblEmail.getText().length() < 8 || !email.equals(lblConfiEmail.getText())) {
-            JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de e-mail");
+            JOptionPane.showMessageDialog(null, "Senha deve ser maior que 8 digitos");
         } else if (lblSenha.getText().length() < 8 || !senha.equals(lblConfiSenha.getText())) {
-            JOptionPane.showMessageDialog(null, "Verifique o preenchimento dos campos de senha");
+            JOptionPane.showMessageDialog(null, "Senha deve ser maior que 8 digitos");
         } else {
 
             cadastrarUsuario();
+            linkLogin.setVisible(true);
+            this.dispose();
         }
 
     }//GEN-LAST:event_bntCadastrarActionPerformed

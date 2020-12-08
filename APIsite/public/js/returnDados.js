@@ -9,7 +9,11 @@ function validaCadastro() {
     let userName = document.querySelector('#user_Name').value;
 
     if (email1.indexOf('@') == -1 || email1.indexOf('.') == -1 || email1.length < 10 || senha1.length < 5 || userName < 5) {
-        alert('Campos inválidos!')
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Campos inválidos!'
+          })
     } else {
         fetch("/addUser", {
             headers: {
@@ -48,7 +52,11 @@ function validaLogin() {
     let usuario1 = document.querySelector('#user_login').value;
     let senha1 = document.querySelector('#senha_login').value;
     if (usuario1 == "" || senha1 == "") {
-        alert('Verifique se todos os campos foram preenchidos!')
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Verifique se todos os campos foram preenchidos!'
+          })
     } else {
         pegarusuario();
     }
@@ -78,13 +86,13 @@ function pegarusuario() {
                 }
             })
         } else {
-            alert("usuario/senha invalido")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Usuario ou senha inválido!'
+              })
         }
-        // if (res.status === 200) {
-        //     alert('Deu certo "loko" ')
-        // } else {
-        //     alert("Usuario/Senha 'invalido' ")
-        // }
+        
     })
 
 }
@@ -111,7 +119,11 @@ function validaCadastroMaq() {
             body: JSON.stringify({ maquina })
         }).then(respostaDoServidor => {
             if (respostaDoServidor.status === 200) {
-                alert("Cadastro realizado com sucesso!");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Não esqueça de preencher o hostname!'
+                  })
             }
         })
     }
