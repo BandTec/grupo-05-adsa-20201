@@ -49,7 +49,7 @@ app.get('/dash', function(req, res, next) {
 });
 app.get('/maquina', function(req, res, next) {
 
-    const instrucaoSql = `SELECT TOP 1 * FROM Maquina ORDER BY idMaquina DESC`;
+    const instrucaoSql = `SELECT TOP 10 * FROM Maquina ORDER BY idMaquina DESC`;
 
     request.query(instrucaoSql)
         .then(resultado => {
