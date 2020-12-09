@@ -78,10 +78,13 @@ function pegarusuario() {
     }).then(respostaDoServidor => {
         if (respostaDoServidor.status === 200) {
             respostaDoServidor.json().then(objetoDoBanco => {
+                
                 if (objetoDoBanco.msg[0].cargo === 1) {
-                    window.location.assign('pagSuporte.html');
+                    localStorage.setItem("nome",objetoDoBanco.msg[0].nomeFuncionario);
+                   window.location.assign('pagSuporte.html');
                 } else if (objetoDoBanco.msg[0].cargo === 2) {
                     localStorage.setItem("idUsuario", objetoDoBanco.msg[0].idFuncionario);
+                    localStorage.setItem("nome",objetoDoBanco.msg[0].nomeFuncionario);
                     window.location.assign('pag-Dashboard/pag-dashboard.html');
                 }
             })

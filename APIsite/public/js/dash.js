@@ -19,7 +19,6 @@ let grafStatusDisco = document.getElementById('canvasStatusDisco').getContext('2
 let grafStatusMemoria = document.getElementById('canvasStatusMemoria').getContext('2d');
 let grafStatusGPU = document.getElementById('canvasStatusGPU').getContext('2d');
 
-
 function exibirGraficos() {
     var maquinasCriticas = [];
     var contadorCpu = 0;
@@ -42,9 +41,6 @@ function exibirGraficos() {
                             canvasStatusCPU.data.labels.push(registro.DATA_HORA);
                             canvasStatusCPU.data.datasets[0].data.push(parseInt(registro.VALOR));
                             contadorCpu++;
-
-
-
                         }
                     } else if (registro.DESCRICAO == "Uso de memória RAM") {
                         if (contadorMemoria == 0) {
