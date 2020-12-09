@@ -17,7 +17,7 @@ let chart = new Chart(canvasGrafSemanal, {
 let grafStatusCPU = document.getElementById('canvasStatusCPU').getContext('2d');
 let grafStatusDisco = document.getElementById('canvasStatusDisco').getContext('2d');
 let grafStatusMemoria = document.getElementById('canvasStatusMemoria').getContext('2d');
-let grafStatusGPU = document.getElementById('canvasStatusGPU').getContext('2d');
+// let grafStatusGPU = document.getElementById('canvasStatusGPU').getContext('2d');
 
 function exibirGraficos() {
     var maquinasCriticas = [];
