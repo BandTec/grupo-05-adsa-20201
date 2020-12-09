@@ -32,7 +32,6 @@ public class Dashboard extends javax.swing.JFrame {
     public Dashboard() {
         initComponents();
         jTAContent.setEditable(false);
-//        discord.botRelatorios.init_Bot();
     }
 
     public void exibeInfo() {

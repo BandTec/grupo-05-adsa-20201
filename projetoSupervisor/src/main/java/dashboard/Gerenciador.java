@@ -61,12 +61,9 @@ public class Gerenciador {
 
                 while (resultSet.next()) {
                     valor = resultSet.getString("VALOR");
-                    System.out.println(valor);
                     valoresRecuperados.add(Double.valueOf(valor));
                 }
             }
-
-            System.out.println(valoresRecuperados);
 
         } catch (SQLException e) {
             e.printStackTrace();

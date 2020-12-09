@@ -230,7 +230,7 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 90, 860, 410);
+        jPanel2.setBounds(0, 90, 820, 410);
 
         jPanel1.setBackground(new java.awt.Color(16, 40, 66));
 
