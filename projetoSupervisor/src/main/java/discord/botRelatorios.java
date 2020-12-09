@@ -18,24 +18,65 @@ public class botRelatorios {
 
     static Conexao config = new Conexao();
 
-    public static void main(final String[] args) {
-        final String token = "NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.-ed9i3BJUfxenSyLb9zethpqkYw";
+    public static void  main(String[] args) {
+        final String token = "NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.zYibL3v4uv0Bxm1XqZLXNIXdgd8";
         final DiscordClient client = DiscordClient.create(token);
         final GatewayDiscordClient gateway = client.login().block();
         final List<String> relatorio = new ArrayList<>();
+        final List<String> componentes = new ArrayList<>();
+        final Integer maquinasAtivas = contagemMaquinas();
 
         gateway.on(MessageCreateEvent.class).subscribe(event -> {
             final Message message = event.getMessage();
-            if ("Relatorio".equalsIgnoreCase(message.getContent())) {
+            // Relatório
+            if ("Relatorio".toUpperCase().equalsIgnoreCase(message.getContent())) {
                 relatorio.clear();
                 for (Integer i = 1; i <= 3; i++) {
 
-                    relatorio.add(criarMensagem(i.toString()));
+                    relatorio.add(criarRelatorio(i.toString()));
                 }
 
                 final MessageChannel channel = message.getChannel().block();
-                channel.createMessage("**INFORMAÇÕES DOS COMPONENTES: **\n"
-                        + relatorio.toString()).block();
+                channel.createMessage("```\n"
+                        + "• INFORMAÇÕES DOS COMPONENTES: \n"
+                        + relatorio.toString() + "```").block();
+            }
+            // Componentes
+            else if ("Componentes".toUpperCase().equalsIgnoreCase(message.getContent())) {
+                for (Integer i = 1; i <= 3; i++) {
+
+                    componentes.add(exibirComponentes(i));
+                }
+
+                final MessageChannel channel = message.getChannel().block();
+                channel.createMessage("```\n"
+                        + "• COMPONENTES: \n"
+                        + componentes.toString() + "```").block();
+            }
+            // Elogio
+            else if ("Elogios".toUpperCase().equalsIgnoreCase(message.getContent())) {
+
+                final MessageChannel channel = message.getChannel().block();
+                channel.createMessage("```diff\n"
+                        + "• SEMPRE QUIS TER FILHOS ASSIM!!```").block();
+            }
+            // Maquinas ativas
+            else if ("Maquinas".toUpperCase().equalsIgnoreCase(message.getContent())) {
+                final MessageChannel channel = message.getChannel().block();
+                channel.createMessage("```\n"
+                        + "• MÁQUINAS ATIVAS: \n" + 
+                        maquinasAtivas.toString() + "```").block();
+            }
+            // ajuda
+            else if ("Ajuda".toUpperCase().equalsIgnoreCase(message.getContent())) {
+                final MessageChannel channel = message.getChannel().block();
+                channel.createMessage("```\n"
+                        + "COMANDOS ACEITOS: \n"
+                        + "• 'Relatorio' - Retornará um relatório com os últimos dados de CPU, memória e disco.\n"
+                        + "• 'Componentes' - Retornará uma lista dos componentes que estão sendo monitorados.\n"
+                        + "• 'Maquinas' - Retornará a quantidade de máquinas sendo monitoradas.\n"
+                        + "• 'Ajuda' - Retornará uma lista com os comandos aceitos.\n"
+                        + "• 'Elogios' - A nossa supervisora elogiará o grupo.\n```").block();
             }
         });
 
@@ -45,7 +86,7 @@ public class botRelatorios {
     // Recebe o id do componente, gerado pelo for (linha 31), passa dentro do 
     // select no lugar da fk do componente para poder pegar o componente e seu 
     // respectivo valor
-    public static String criarMensagem(String idComponente) {
+    public static String criarRelatorio(String idComponente) {
         String descricao = null;
         String valor = null;
 
@@ -75,6 +116,54 @@ public class botRelatorios {
 
         // Retorna os dados concatenados
         return "\n" + descricao + " - " + valor + "%\n";
+    }
+    
+    public static Integer contagemMaquinas() {
+
+        Integer qtdMaquina = 0;
+
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                Statement statement = connection.createStatement();) {
+
+            // Cria e depois executa uma query feita por colunas, 
+            // mas * funciona da mesma forma e poupa tempo.
+            String selectSql = "SELECT COUNT(idMaquina) FROM Maquina";
+
+            ResultSet resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                qtdMaquina = resultSet.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return qtdMaquina;
+    }
+    
+    public static String exibirComponentes(Integer i) {
+        String descricao = null;
+        
+        try (Connection connection = DriverManager.getConnection(config.connectionUrl);
+                Statement statement = connection.createStatement();) {
+
+            // Cria e depois executa uma query feita por colunas, 
+            // mas * funciona da mesma forma e poupa tempo.
+            String selectSql = String.format("SELECT descricao FROM Componentes "
+                    + "WHERE idComponentes = %d", i);
+
+            ResultSet resultSet = statement.executeQuery(selectSql);
+
+            while (resultSet.next()) {
+                descricao = resultSet.getString("descricao");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return "\n" + descricao + "\n";
     }
 
 }

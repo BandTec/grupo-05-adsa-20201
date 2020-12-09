@@ -15,34 +15,34 @@ public class Gerenciador {
     private Boolean conectado = true;
     Conexao config = new Conexao();
 
-    List<String> valoresRecuperados = new ArrayList<>();
+    List<Double> valoresRecuperados = new ArrayList<>();
 
     public void recuperarDados(JLabel lblestavel, JLabel lblalerta, JLabel lblRisco) {
 
         Integer quantidadeEstavel = 0, quantidadeAlerta = 0, quantidadeRisco = 0;
 
         definirStatus();
+        for (Integer i = 1; i <= contagemMaquinas(); i++) {
 
-//        for (Integer i = 1; i <= contagemMaquinas(); i++) {
-//
-//            if (valoresRecuperados.get(0) > 70.0 || valoresRecuperados.get(1) > 70.0 || valoresRecuperados.get(2) > 80.0) 
-//                quantidadeRisco++;
-//            else if (valoresRecuperados.get(0) > 40.0 || valoresRecuperados.get(1) > 50.0 || valoresRecuperados.get(2) > 60.0) 
-//                quantidadeAlerta++;
-//            else
-//                quantidadeEstavel++;
-//
-//        }
+            if (valoresRecuperados.get(0) > 70.0 || valoresRecuperados.get(1) > 70.0 || valoresRecuperados.get(2) > 80.0) {
+                quantidadeRisco++;
+            } else if (valoresRecuperados.get(0) > 40.0 || valoresRecuperados.get(1) > 50.0 || valoresRecuperados.get(2) > 60.0) {
+                quantidadeAlerta++;
+            } else {
+                quantidadeEstavel++;
+            }
 
-        lblRisco.setText(quantidadeEstavel.toString());
-        lblRisco.setText(quantidadeAlerta.toString());
+        }
+
+        lblestavel.setText(quantidadeEstavel.toString());
+        lblalerta.setText(quantidadeAlerta.toString());
         lblRisco.setText(quantidadeRisco.toString());
     }
 
     public void definirStatus() {
 
         String valor = "";
-        
+
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
                 Statement statement = connection.createStatement();) {
 
@@ -62,9 +62,10 @@ public class Gerenciador {
                 while (resultSet.next()) {
                     valor = resultSet.getString("VALOR");
                     System.out.println(valor);
+                    valoresRecuperados.add(Double.valueOf(valor));
                 }
             }
-            
+
             System.out.println(valoresRecuperados);
 
         } catch (SQLException e) {

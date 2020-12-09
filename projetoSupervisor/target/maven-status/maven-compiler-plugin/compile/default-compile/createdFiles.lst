@@ -1,5 +1,4 @@
 guiBeta\ProcessosJPanel.class
-configBanco\TesteConfig.class
 cadastrar\Cadastrar$3.class
 dashboard\Dashboard$1.class
 guiBeta\OsHwTextPanel.class
@@ -10,7 +9,7 @@ guiBeta\DiscoPanel.class
 dashboard\Dashboard$3.class
 dashboard\Gerenciador.class
 login\TelaLoginFuncional$1.class
-arquivosLog\ArquivoLog.class
+ArquivosLog\ArquivoLog.class
 guiBeta\SuperVisorAplication$AddMenuBarTask.class
 cadastrar\Cadastrar$5.class
 cadastrar\Cadastrar$8.class
@@ -18,6 +17,7 @@ discord\botRelatorios.class
 cadastrar\Cadastrar.class
 guiBeta\CpuPanel.class
 guiBeta\SuperVisorAplication$1.class
+login\TelaLoginFuncional$4.class
 cadastrar\Cadastrar$4.class
 dashboard\Dashboard$7.class
 configBanco\Conexao.class
