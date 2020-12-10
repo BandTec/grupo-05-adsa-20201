@@ -297,7 +297,9 @@ body {
     border-radius: 5px;
     padding: 10px;
     display: block;
-    margin-top: -20px;
+    margin-left: -1%;
+    height: 133%;
+    margin-top: -101px;
     background: #f9f9f9;
     box-shadow: 2px 2px 6px -2px #222;
     border: 2px solid #102842;

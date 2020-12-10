@@ -126,10 +126,8 @@ app.post('/addUser', (req, res) => {
 app.post('/addMaquina', (req, res) => {
 
     let data1 = [req.body.maquina];
-    console.log("MÁQUINA", data1[0]);
 
     let sql = `INSERT INTO Maquina VALUES ('${data1[0]}', 1)`;
-    console.log("insert da máquina", sql)
 
     request.query(sql, data1, function(err, result) {
         if (err) throw err;

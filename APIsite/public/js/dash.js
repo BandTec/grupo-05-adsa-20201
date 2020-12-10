@@ -1,22 +1,3 @@
-// let canvasGrafSemanal = document.getElementById('canvasGrafSemanal').getContext('2d');
-// let chart = new Chart(canvasGrafSemanal, {
-//     type: 'line',
-// const { response } = require("express");
-
-// const { response } = require("express");
-
-//     data: {
-//         labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
-
-//         datasets: [{
-//             label: 'Relatório da semana',
-//             data: [3, 1, 5, 12, 7, 3],
-//             backgroundColor: "#10284200",
-//             borderColor: "#e84118"
-//         }]
-//     }
-// });
-
 
 let qtdComputadorOk = 0;
 let qtdComputadorAlert = 0;
@@ -25,13 +6,15 @@ let qtdComputadorCrit = 0;
 let idMaquinaFormat;
 var contadorCpu = 0;
 
+nameFunc.innerHTML = localStorage.getItem("nome");
+
 //CPU
 var configGraficoCPU = {
     type: 'line',
     data: {
         labels: [],
         datasets: [{
-            label: 'Temperatura',
+            label: 'Uso de CPU (%)',
             backgroundColor: "blue",
             borderColor: "blue",
             data: [],
@@ -42,7 +25,6 @@ var configGraficoCPU = {
         responsive: true,
         title: {
             display: true,
-            text: 'Gráfico de histórico de temperatura'
         },
         tooltips: {
             mode: 'index',
@@ -64,7 +46,6 @@ var configGraficoCPU = {
                 display: true,
                 scaleLabel: {
                     display: true,
-                    labelString: 'ºC'
                 }
             }]
         }
@@ -75,9 +56,9 @@ var configGraficoCPU = {
 var configGraficoMemoria = {
     type: 'bar',
     data: {
-        labels: ["Uso em (%)"],
+        labels: [],
         datasets: [{
-            label: 'Dataset 1',
+            label: 'Uso em (%)',
             backgroundColor: "red",
             borderColor: "red",
             borderWidth: 1,
@@ -92,7 +73,6 @@ var configGraficoMemoria = {
         },
         title: {
             display: true,
-            text: 'Chart.js Bar Chart'
         }
     },
 };
@@ -107,7 +87,7 @@ var configGraficoDisco = {
                 "green",
                 "red",
             ],
-            label: 'Dataset 1'
+            label: 'Disco'
         }],
         labels: [
             'Disponível',
@@ -162,7 +142,8 @@ function receberLeiturasGrafDISCO() {
                     
                     grafStatusDisco.data.labels.shift()
                     grafStatusDisco.data.labels.shift()
-                    grafStatusDisco.data.labels.push(disponivel,resposta.VALOR)
+                    // grafStatusDisco.data.labels.push(disponivel,resposta.VALOR)
+                    grafStatusDisco.data.labels.push("Disponível", "Em uso")
                     grafStatusDisco.data.datasets[0].data.shift()
                     grafStatusDisco.data.datasets[0].data.shift()
                     grafStatusDisco.data.datasets[0].data.push(disponivel,resposta.VALOR)
@@ -212,21 +193,21 @@ function receberRegistros() {
             console.log("res", response)
 
             for (let i = 0; i < response.length; i++) {
-                if ((response[i].DESCRICAO == "Uso da CPU" && response[i].VALOR < 50) && (response[i].DESCRICAO == "Uso de memória RAM" && response[i].VALOR < 40) && (response[i].DESCRICAO == "Uso de disco" && response[i].VALOR < 40)) {
-                    
-                    idQtdOk.innerHTML = "1";
-                    idQtdAlerta.innerHTML = "0";
-                    idQtdCrit.innerHTML = "0";
-                }else if((response[i].DESCRICAO == "Uso da CPU" && response[i].VALOR >= 50) || (response[i].DESCRICAO == "Uso de memória RAM" && response[i].VALOR >= 60) || (response[i].DESCRICAO == "Uso de disco" && response[i].VALOR >= 60)){
-                    
-                    idQtdAlerta.innerHTML = "1";
-                    idQtdOk.innerHTML = "0";
-                    idQtdCrit.innerHTML = "0";
+                if ((response[i].DESCRICAO == "Uso da CPU" && response[i].VALOR < 50) && (response[i].DESCRICAO == "Uso de memória RAM" && response[i].VALOR < 40) && (response[i].DESCRICAO == "Uso de disco" && response[i].VALOR <= 40)) {
+                    // console.log("um")
+                    // idQtdOk.innerHTML = "1";
+                    // idQtdAlerta.innerHTML = "1";
+                    // idQtdCrit.innerHTML = "1";
+                }else if((response[i].DESCRICAO == "Uso da CPU" && (response[i].VALOR >= 50 && response[i].VALOR <75)) || (response[i].DESCRICAO == "Uso de memória RAM" && (response[i].VALOR >= 41 && response[i].VALOR < 80 )) || (response[i].DESCRICAO == "Uso de disco" && (response[i].VALOR >= 50 && response[i].VALOR < 80))){
+                    // console.log("dois")
+                    // idQtdAlerta.innerHTML = "0";
+                    // idQtdOk.innerHTML = "0";
+                    // idQtdCrit.innerHTML = "0";
                 }else if((response[i].DESCRICAO == "Uso da CPU" && response[i].VALOR >= 75) || (response[i].DESCRICAO == "Uso de memória RAM" && response[i].VALOR >= 80) || (response[i].DESCRICAO == "Uso de disco" && response[i].VALOR >= 80)){
-                    
-                    idQtdCrit.innerHTML = "1";
-                    idQtdOk.innerHTML = "0";
-                    idQtdAlerta.innerHTML = "0";
+                    // console.log("tres")
+                    // idQtdCrit.innerHTML = "0";
+                    // idQtdOk.innerHTML = "0";
+                    // idQtdAlerta.innerHTML = "0";
                 }
             }
         })
@@ -370,7 +351,7 @@ function exibirInfoCrit() {
     document.getElementById('idSpanStatus').style.color = "#eb4d4b"
     document.getElementById('idSpanStatus').innerHTML = "Crítico"
 
-    computadoresCrits.innerHTML = `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">certo ${idMaquinaFormat} </button> <br>`;
+    computadoresCrits.innerHTML = `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID 456.418.810/00 </button> <br>`;
 
 }
 
@@ -388,7 +369,7 @@ function exibirInfoAlerta() {
 
     for (let i = 0; i < qtdComputadorAlerta; i++) {
 
-        computadoresAlerta.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorAlerta[i]}</button> <br>`;
+        computadoresAlerta.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID 456.418.810/00 </button> <br>`;
     }
 
 }
@@ -407,7 +388,7 @@ function exibirInfoOk() {
 
     for (let i = 0; i < qtdComputadorOk; i++) {
 
-        computadoresOk.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">${idMaquinaFormat} </button> <br>`;
+        computadoresOk.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID 456.418.810/00 </button> <br>`;
 
     }
 
