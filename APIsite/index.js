@@ -33,28 +33,14 @@ app.post('/user', function(req, res) {
         })
 });
 
-app.get('/dash', function(req, res, next) {
+app.get('/cpu', function(req, res, next) {
 
-    const instrucaoSql = `SELECT TOP 200 * FROM Registro ORDER BY idRegistro DESC`;
-
-    request.query(instrucaoSql)
-        .then(resultado => {
-            console.log(`Encontrados: ${resultado.length}`);
-            res.json(resultado);
-
-        }).catch(erro => {
-            console.error(erro);
-            res.status(500).send(erro.message);
-        });
-});
-app.get('/maquina', function(req, res, next) {
-
-    const instrucaoSql = `SELECT TOP 10 * FROM Maquina ORDER BY idMaquina DESC`;
+    const instrucaoSql = `SELECT TOP 1 VALOR, DATA_HORA FROM Registro WHERE fkComponentes = 1 ORDER BY idRegistro DESC`;
 
     request.query(instrucaoSql)
         .then(resultado => {
-            console.log(`Encontrados: ${resultado.length}`);
-            res.json(resultado);
+            
+            res.json(resultado.recordsets[0][0]);
 
         }).catch(erro => {
             console.error(erro);
@@ -62,6 +48,67 @@ app.get('/maquina', function(req, res, next) {
         });
 });
 
+
+app.get('/memoria', function(req, res, next) {
+
+    const instrucaoSql = `SELECT TOP 1 VALOR, DATA_HORA FROM Registro WHERE fkComponentes = 2 ORDER BY idRegistro DESC`;
+
+    request.query(instrucaoSql)
+        .then(resultado => {
+            
+            res.json(resultado.recordsets[0][0]);
+
+        }).catch(erro => {
+            console.error(erro);
+            res.status(500).send(erro.message);
+        });
+});
+
+
+app.get('/disco', function(req, res, next) {
+
+    const instrucaoSql = `SELECT TOP 1 VALOR, DATA_HORA FROM Registro WHERE fkComponentes = 3 ORDER BY idRegistro DESC`;
+
+    request.query(instrucaoSql)
+        .then(resultado => {
+            
+            res.json(resultado.recordsets[0][0]);
+
+        }).catch(erro => {
+            console.error(erro);
+            res.status(500).send(erro.message);
+        });
+});
+
+app.get('/maquina', function(req, res) {
+
+    const instrucaoSql = `SELECT COUNT(idMaquina) FROM Maquina`;
+
+    request.query(instrucaoSql)
+        .then(resultado => {
+            // console.log(`Encontrados: ${resultado}`);
+            res.json(resultado); 
+
+        }).catch(erro => {
+            console.error(erro);
+            res.status(500).send(erro.message);
+        });
+});
+
+app.get('/registro', function(req, res) {
+
+    const instrucaoSql = `SELECT * FROM Registro WHERE fkMaquina = 2`;
+
+    request.query(instrucaoSql)
+        .then(resultado => {
+
+            res.json(resultado.recordsets[0]);
+
+        }).catch(erro => {
+            console.error(erro);
+            res.status(500).send(erro.message);
+        });
+});
 
 //CADASTRO ADDUSER - é chamado após a validação de campos na returnDados;
 app.post('/addUser', (req, res) => {

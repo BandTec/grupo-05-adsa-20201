@@ -14,7 +14,7 @@
     <script src="../../../index.js"></script>
 </head>
 
-<body onload="carregarDados()">
+<body>
 
     <!-- Inicio nave da página -->
 
@@ -143,7 +143,6 @@
                     </div>
 
 
-
                     <div class="divStatusMemoria">
 
                         <span class="pMemoria">MEMÓRIA</span>
@@ -157,12 +156,11 @@
                 <div class="divCPUGPU">
 
 
-
                     <div class="divCPU">
 
                         <span class="pCPU">CPU</span>
 
-                        <canvas id="canvasStatusCPU" height="110"></canvas>
+                        <canvas id="canvasStatusCPU"></canvas>
 
                     </div>
 
@@ -189,228 +187,132 @@
 
 <script src="../../js/dash.js"></script>
 
-<script>
+<!-- <script>
     nameFunc.innerHTML = localStorage.getItem("nome");
+
     let idMaquinaFormat;
     let qtdComputador = 1;
-    let criticosCpu = [];
     let qtdComputadorOk = 0;
     let qtdComputadorAlerta = 0;
     let qtdComputadorCrit = 0;
 
-
-    let idComputadorOk = [];
-    let idComputadorAlerta = [];
     let idComputadorCrit = [];
-    var controleCritico = "";
-    var controleOk = "";
-    var controleAlerta = "";
+    let idComputadorAlerta = [];
+    let idComputadorOk = [];
 
     var contadorCpu = 0;
     var contadorRam = 0;
 
 
-
     async function carregarDados() {
-        setTimeout(async function () {
 
+        await fetch('/maquina', { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then((resposta) => {
+                    idMaquinaFormat = resposta.recordsets[0][0].hostMaquina;
+                });
+            }
+        });
 
-            alert("funcionou");
-            await fetch('/maquina', { cache: 'no-store' }).then(function (response) {
-                if (response.ok) {
-                    response.json().then((resposta) => {
-                        idMaquinaFormat = resposta.recordsets[0][0].hostMaquina;
-                    });
-                }
-            });
+        await fetch('/dash', { cache: 'no-store' }).then(function (response) {
+            console.log("chegou aqui", response)
+            if (response.ok) {
+                
+                response.json().then(function (resposta) {
+                    for (var i = 0; i < resposta.recordset.length; i++) {
+                        console.log("TESTE", resposta.recordset.length);
+                        var registro = resposta.recordset[i];
+                        console.log(resposta.recordset[i])
 
-            await fetch('/dash', { cache: 'no-store' }).then(function (response) {
-                if (response.ok) {
-
-
-                    response.json().then(function (resposta) {
-                        for (var i = 0; i < resposta.recordset.length; i++) {
-                            var registro = resposta.recordset[i];
-                            if (registro.DESCRICAO == "Uso da CPU") {
-
-                                if (contadorCpu < 5) {
-                                    if (parseInt(registro.VALOR) > 75) {
-                                        if (controleCritico === "") {
-                                            idComputadorCrit.push(registro.fkMaquina);
-                                            qtdComputadorCrit++;
-                                            idQtdCrit.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
-                                            controleCritico = registro.fkMaquina;
-                                        } else {
-                                            if (registro.fkMaquina != controleCritico) {
-                                                idComputadorCrit.push(registro.fkMaquina);
-                                                qtdComputadorCrit++;
-                                                idQtdCrit.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
-
-                                                controleCritico = registro.fkMaquina;
-                                            }
-                                        }
-
-
-                                    } else if (parseInt(registro.VALOR) > 50) {
-                                        if (controleAlerta === "") {
-                                            idComputadorAlerta.push(registro.fkMaquina);
-                                            qtdComputadorAlerta++;
-                                            idQtdAlerta.innerHTML = `${qtdComputadorAlerta}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
-                                            controleAlerta = registro.fkMaquina;
-                                        } else {
-                                            if (registro.fkMaquina != controleAlerta) {
-                                                idComputadorAlerta.push(registro.fkMaquina);
-                                                qtdComputadorAlerta++;
-                                                idQtdAlerta.innerHTML = `${qtdComputadorAlerta}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
-
-                                                controleAlerta = registro.fkMaquina;
-
-                                            }
-                                        }
-                                    } else {
-                                        if (controleOk === "") {
-                                            idComputadorOk.push(registro.fkMaquina);
-                                            qtdComputadorOk++;
-
-                                            idQtdOk.innerHTML = `${qtdComputadorOk}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
-
-                                            controleOk = registro.fkMaquina;
-                                        } else {
-                                            if (registro.fkMaquina != controleOk) {
-                                                idComputadorOk.push(registro.fkMaquina);
-                                                qtdComputadorOk++;
-                                                idQtdOk.innerHTML = `${qtdComputadorOk}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
-                                                controleOk = registro.fkMaquina;
-
-
-                                            }
-                                        }
-
-                                    }
-                                    contadorCpu++;
-
-                                }
-                            } else if (registro.DESCRICAO == "Uso de memória RAM") {
-                                if (contadorRam == 0) {
-                                    if (parseInt(registro.VALOR) > 5) {
-
-                                    }
-
-                                }
-                            } else if (registro.DESCRICAO == "Uso de disco") {
-                                if (i == 0) {
-
-                                }
-                            } else {
-                                if (i < 5) {
-
-                                }
+                        if (contadorCpu < 5) {
+                            
+                            if ((registro.DESCRICAO == "Uso da CPU" && registro.VALOR < 50) && (registro.DESCRICAO == "Uso de memória RAM" && registro.VALOR < 40) && (registro.DESCRICAO == "Uso de disco" && registro.VALOR < 40)) {                                
+                                qtdComputadorOk++
+                                idComputadorOk.push(registro.fkMaquina);
                             }
+                            else if ((registro.DESCRICAO == "Uso da CPU" && registro.VALOR >= 50) || (registro.DESCRICAO == "Uso de memória RAM" && registro.VALOR >= 60) || (registro.DESCRICAO == "Uso de disco" && registro.VALOR >= 60)) {
+                                qtdComputadorAlerta++
+                                idComputadorAlerta.push(registro.fkMaquina);
+                            }
+                            else if ((registro.DESCRICAO == "Uso da CPU" && registro.VALOR >= 75 ) || (registro.DESCRICAO == "Uso de memória RAM" && registro.VALOR >= 80) || (registro.DESCRICAO == "Uso de disco" && registro.VALOR >= 80)) {
+                                qtdComputadorCrit++
+                                idComputadorCrit.push(registro.fkMaquina);
+                            }
+                            contadorCpu++
+                        }
+                        exibirInfoCrit();
+                    }
+                    
+                    idQtdCrit.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
+                    idQtdAlerta.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
+                    idQtdOk.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
+
+                    function exibirInfoCrit() {
+
+                        document.getElementById('computadoresOk').style.display = "none";
+                        document.getElementById('computadoresAlerta').style.display = "none";
+                        document.getElementById('computadoresCrits').style.display = "block";
+
+
+                        computadoresCrits.innerHTML = '';
+
+                        document.getElementById('idSpanStatus').style.color = "#eb4d4b"
+                        document.getElementById('idSpanStatus').innerHTML = "Crítico"
+
+                        // for (let i = 0; i < qtdComputadorCrit; i++) {
+
+                        // computadoresCrits.innerHTML = `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">certo ${idMaquinaFormat} </button> <br>`;
+                        // }
+
+                    }
+
+                    function exibirInfoAlerta() {
+
+                        document.getElementById('computadoresOk').style.display = "none";
+                        document.getElementById('computadoresCrits').style.display = "none";
+                        document.getElementById('computadoresAlerta').style.display = "block";
+
+
+                        computadoresAlerta.innerHTML = '';
+
+                        document.getElementById('idSpanStatus').style.color = "#f9ca24"
+                        document.getElementById('idSpanStatus').innerHTML = "Em Alerta"
+
+                        for (let i = 0; i < qtdComputadorAlerta; i++) {
+
+                            computadoresAlerta.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorAlerta[i]}</button> <br>`;
                         }
 
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            }).catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+                    }
+
+                    function exibirInfoOk() {
+
+                        document.getElementById('computadoresOk').style.display = "block";
+                        document.getElementById('computadoresCrits').style.display = "none";
+                        document.getElementById('computadoresAlerta').style.display = "none";
+
+                        computadoresOk.innerHTML = '';
+
+                        document.getElementById('idSpanStatus').style.color = "#43B581"
+                        document.getElementById('idSpanStatus').innerHTML = "Estável"
 
 
+                        for (let i = 0; i < qtdComputadorOk; i++) {
 
+                            computadoresOk.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">${idMaquinaFormat} </button> <br>`;
 
-            // for (let i = 0; i < qtdComputador; i++) {
-            //     // let dadoCpu = parseInt(Math.random() * 100 + 1);
-            //     // let dadoMemoria = parseInt(Math.random() * 100 + 1);
-            //     // let dadoDisco = parseInt(Math.random() * 100 + 1);
-            //     // let dadoGpu = parseInt(Math.random() * 100 + 1);
+                        }
 
-            //     if ((dadoCpu < 60 && dadoMemoria < 60) || (dadoGpu < 60 && dadoDisco < 60)) {
-            //         idComputadorOk.push("00" + (i + 1));
-            //         qtdComputadorOk++;
-            //     } else if ((dadoCpu <= 70 && dadoMemoria <= 70) || (dadoGpu <= 70 && dadoDisco <= 70)) {
-            //         idComputadorAlerta.push("00" + (i + 1));
-            //         qtdComputadorAlerta++;
-            //     } else {
-            //         idComputadorCrit.push("00" + (i + 1));
-            //         qtdComputadorCrit++;
-            //     }
-            // }
+                    }
 
-
-            // idQtdOk.innerHTML = `${qtdComputadorOk} <i class="fa fa-check-circle" aria-hidden="true"></i>`;
-            //  idQtdAlerta.innerHTML = `${arrayMaquinaC.length} <i class="fa fa-exclamation-circle" aria-hidden="true"></i>`;
-            // idQtdCrit.innerHTML = `${qtdComputadorCrit}<i class="fa fa-exclamation-triangle fa-4x" aria-hidden="true"></i>`;
-
-            exibirInfoCrit();
-
-        }, 1000);
+                    function funcVoltar() {
+                        document.getElementById('canvasGrafSemanal').style.display = "block";
+                        document.getElementById('divStatusPC').style.display = 'none';
+                        document.getElementById('btnVoltar').style.display = "none";
+                    }
+                });
+             }   
+        });
     }
 
-
-
-    function exibirInfoCrit() {
-
-        document.getElementById('computadoresOk').style.display = "none";
-        document.getElementById('computadoresAlerta').style.display = "none";
-        document.getElementById('computadoresCrits').style.display = "block";
-
-
-        computadoresCrits.innerHTML = '';
-
-        document.getElementById('idSpanStatus').style.color = "#eb4d4b"
-        document.getElementById('idSpanStatus').innerHTML = "Crítico"
-
-        // for (let i = 0; i < qtdComputadorCrit; i++) {
-
-        // computadoresCrits.innerHTML = `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">certo ${idMaquinaFormat} </button> <br>`;
-        // }
-
-    }
-
-    function exibirInfoAlerta() {
-
-        document.getElementById('computadoresOk').style.display = "none";
-        document.getElementById('computadoresCrits').style.display = "none";
-        document.getElementById('computadoresAlerta').style.display = "block";
-
-
-        computadoresAlerta.innerHTML = '';
-
-        document.getElementById('idSpanStatus').style.color = "#f9ca24"
-        document.getElementById('idSpanStatus').innerHTML = "Em Alerta"
-
-        for (let i = 0; i < qtdComputadorAlerta; i++) {
-
-            computadoresAlerta.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">ID ${idComputadorAlerta[i]}</button> <br>`;
-        }
-
-    }
-
-    function exibirInfoOk() {
-
-        document.getElementById('computadoresOk').style.display = "block";
-        document.getElementById('computadoresCrits').style.display = "none";
-        document.getElementById('computadoresAlerta').style.display = "none";
-
-        computadoresOk.innerHTML = '';
-
-        document.getElementById('idSpanStatus').style.color = "#43B581"
-        document.getElementById('idSpanStatus').innerHTML = "Estável"
-
-
-        for (let i = 0; i < qtdComputadorOk; i++) {
-
-            computadoresOk.innerHTML += `<button style = " margin-left: 15px;" class="idMaquina" id="idGraficos" onclick="exibirGraficos()">${idMaquinaFormat} </button> <br>`;
-
-        }
-
-    }
-
-
-    function funcVoltar() {
-        document.getElementById('canvasGrafSemanal').style.display = "block";
-        document.getElementById('divStatusPC').style.display = 'none';
-        document.getElementById('btnVoltar').style.display = "none";
-    }
-</script>
+  </script> -->

@@ -296,7 +296,7 @@ body {
 #divStatusPC {
     border-radius: 5px;
     padding: 10px;
-    display: none;
+    display: block;
     margin-top: -20px;
     background: #f9f9f9;
     box-shadow: 2px 2px 6px -2px #222;
@@ -305,6 +305,7 @@ body {
 
 #divStatusPC span {
     font-size: 110%;
+    display: block;
     font-weight: bold;
     color: #222;
 }
@@ -321,6 +322,7 @@ body {
 
 .divStatusMemoria {
     /* border: solid black 2px; */
+    display: block;
     padding-left: 60px;
     margin-left: 123px;
     height: 100px;
