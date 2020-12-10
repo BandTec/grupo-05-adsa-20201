@@ -1,0 +1,38 @@
+.body_cadastro{
+    background: url("../Image/notebook.jpg") no-repeat;
+    background-size: cover;
+}
+
+
+.container .label_cadastro{
+    font-weight: bolder;
+    font-size: 19px;
+}
+
+
+.componentes h3{
+    margin-left: 5%;
+    margin-bottom: 8px;
+    color: #dfe6e9
+}
+
+.componentes .componentes {
+    color: #dfe6e9
+
+}
+    
+.componentes .checkbox {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: center;  
+}
+
+
+.componentes .btn {
+margin-top: 5%;
+}
+
+.footer{
+    margin: 0%;
+
+} 
