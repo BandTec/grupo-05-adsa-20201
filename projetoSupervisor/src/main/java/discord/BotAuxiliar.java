@@ -13,14 +13,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class BotAuxiliar {
 
     static Conexao config = new Conexao();
 
-    public static void  main(String[] args) {
-//        NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.8oRwKsEN3vPDSkpvEzpH2scG-B0 token correto
-        final String token = "NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.YRvNvKcEgOm9o6mKzp_Asf8t4mc";
+    public static void main(String[] args) {
+        final String token = "";
         final DiscordClient client = DiscordClient.create(token);
         final GatewayDiscordClient gateway = client.login().block();
         final List<String> relatorio = new ArrayList<>();
@@ -30,7 +30,7 @@ public class BotAuxiliar {
         gateway.on(MessageCreateEvent.class).subscribe(event -> {
             final Message message = event.getMessage();
             // Relatório
-            if ("Relatorio".toUpperCase().equalsIgnoreCase(message.getContent())) {
+            if ("/relatorio".toUpperCase().equalsIgnoreCase(message.getContent())) {
                 relatorio.clear();
                 for (Integer i = 1; i <= 3; i++) {
 
@@ -41,9 +41,8 @@ public class BotAuxiliar {
                 channel.createMessage("```\n"
                         + "• INFORMAÇÕES DOS COMPONENTES: \n"
                         + relatorio.toString() + "```").block();
-            }
-            // Componentes
-            else if ("Componentes".toUpperCase().equalsIgnoreCase(message.getContent())) {
+            } // Componentes
+            else if ("/componentes".toUpperCase().equalsIgnoreCase(message.getContent())) {
                 for (Integer i = 1; i <= 3; i++) {
 
                     componentes.add(exibirComponentes(i));
@@ -53,31 +52,48 @@ public class BotAuxiliar {
                 channel.createMessage("```\n"
                         + "• COMPONENTES: \n"
                         + componentes.toString() + "```").block();
-            }
-            // Elogio
-            else if ("Elogios".toUpperCase().equalsIgnoreCase(message.getContent())) {
+            } // Elogio
+            else if ("/frases_famosas".toUpperCase().equalsIgnoreCase(message.getContent())) {
+                Integer random = ThreadLocalRandom.current().nextInt(0, 6);
 
                 final MessageChannel channel = message.getChannel().block();
-                channel.createMessage("```diff\n"
-                        + "• SEMPRE QUIS TER FILHOS ASSIM!!```").block();
-            }
-            // Maquinas ativas
-            else if ("Maquinas".toUpperCase().equalsIgnoreCase(message.getContent())) {
+
+                if (random == 0) {
+                    channel.createMessage("```diff\n"
+                            + "• SEMPRE QUIS TER FILHOS ASSIM!! \n(Yoshi - 2020)```").block();
+                } else if (random == 1) {
+                    channel.createMessage("```diff\n"
+                            + "• Hmmm... Está bom, mas pode melhorar... \n(Gerson - 2020) ```").block();
+                } else if (random == 2) {
+                    channel.createMessage("```diff\n"
+                            + "• AGORA, ALUNINHOS, A CEREJA DO BOLO!! \n(Marise - 2020) ```").block();
+                } else if (random == 3) {
+                    channel.createMessage("```diff\n"
+                            + "• VOCÊS ME SURPREENDEM! \n(Jesus - 2020)```").block();
+                } else if (random == 4) {
+                    channel.createMessage("```diff\n"
+                            + "• ESSE PROJETO VALEU UM MORANGUETE!! \n(Barreira - 2020) ```").block();
+                } else {
+                    channel.createMessage("```diff\n"
+                            + "• Nuca fale sobre o peso da galinha do Jesus... \n(Diego - 2020) ```").block();
+                }
+
+            } // Maquinas ativas
+            else if ("/maquinas_ativas".toUpperCase().equalsIgnoreCase(message.getContent())) {
                 final MessageChannel channel = message.getChannel().block();
                 channel.createMessage("```\n"
-                        + "• MÁQUINAS ATIVAS: \n" + 
-                        maquinasAtivas.toString() + "```").block();
-            }
-            // ajuda
-            else if ("Ajuda".toUpperCase().equalsIgnoreCase(message.getContent())) {
+                        + "• MÁQUINAS ATIVAS: \n"
+                        + maquinasAtivas.toString() + "```").block();
+            } // ajuda
+            else if ("/ajuda".toUpperCase().equalsIgnoreCase(message.getContent())) {
                 final MessageChannel channel = message.getChannel().block();
                 channel.createMessage("```\n"
                         + "COMANDOS ACEITOS: \n"
-                        + "• 'Relatorio' - Retornará um relatório com os últimos dados de CPU, memória e disco.\n"
-                        + "• 'Componentes' - Retornará uma lista dos componentes que estão sendo monitorados.\n"
-                        + "• 'Maquinas' - Retornará a quantidade de máquinas sendo monitoradas.\n"
-                        + "• 'Ajuda' - Retornará uma lista com os comandos aceitos.\n"
-                        + "• 'Elogios' - A nossa supervisora elogiará o grupo.\n```").block();
+                        + "• '/Relatorio' - Retornará um relatório com os últimos dados de CPU, memória e disco.\n"
+                        + "• '/Componentes' - Retornará uma lista dos componentes que estão sendo monitorados.\n"
+                        + "• '/Maquinas_ativas' - Retornará a quantidade de máquinas sendo monitoradas.\n"
+                        + "• '/Ajuda' - Retornará uma lista com os comandos aceitos.\n"
+                        + "• '/Frases_famosas' - A nossa supervisora elogiará o grupo.\n```").block();
             }
         });
 
@@ -118,7 +134,7 @@ public class BotAuxiliar {
         // Retorna os dados concatenados
         return "\n" + descricao + " - " + valor + "%\n";
     }
-    
+
     public static Integer contagemMaquinas() {
 
         Integer qtdMaquina = 0;
@@ -142,10 +158,10 @@ public class BotAuxiliar {
 
         return qtdMaquina;
     }
-    
+
     public static String exibirComponentes(Integer i) {
         String descricao = null;
-        
+
         try (Connection connection = DriverManager.getConnection(config.connectionUrl);
                 Statement statement = connection.createStatement();) {
 
