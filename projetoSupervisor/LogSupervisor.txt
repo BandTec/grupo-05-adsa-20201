@@ -64,3 +64,5 @@
 [07/12/2020 22:19:17] ERRO: Não foi possivel inserir os dados de CPU. 
 [07/12/2020 22:20:08] ERRO: Não foi possivel inserir os dados de Memória. 
 [07/12/2020 22:20:13] ERRO: Não foi possivel inserir os dados de CPU. 
+[09/12/2020 20:35:49] ERRO: Não foi possivel inserir os dados de CPU. 
+[09/12/2020 20:35:49] ERRO: Não foi possivel inserir os dados de CPU. 

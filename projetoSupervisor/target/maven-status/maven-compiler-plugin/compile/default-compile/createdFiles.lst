@@ -6,11 +6,11 @@ dashboard\Dashboard$6.class
 interfaceGraficos\MemoriaPanel.class
 dashboard\Dashboard$3.class
 dashboard\Gerenciador.class
+discord\BotAuxiliar.class
 login\TelaLoginFuncional$1.class
 ArquivosLog\ArquivoLog.class
 cadastrar\Cadastrar$5.class
 cadastrar\Cadastrar$8.class
-discord\botRelatorios.class
 interfaceGraficos\SuperVisorJpanel.class
 cadastrar\Cadastrar.class
 interfaceGraficos\Config.class
@@ -36,3 +36,4 @@ login\TelaLoginFuncional.class
 login\TelaLoginFuncional$2.class
 dashboard\Dashboard$4.class
 interfaceGraficos\SuperVisorAplication$AddMenuBarTask.class
+cadastrar\Cadastrar$9.class
