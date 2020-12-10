@@ -19,7 +19,7 @@ public class BotAuxiliar {
     static Conexao config = new Conexao();
 
     public static void  main(String[] args) {
-//        NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.VzBeBggJeEcact3y-gK1B3fGi_g token correto
+//        NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.8oRwKsEN3vPDSkpvEzpH2scG-B0 token correto
         final String token = "NzgxNjQ3OTg1Mzc2NjI0NjUx.X8Asag.YRvNvKcEgOm9o6mKzp_Asf8t4mc";
         final DiscordClient client = DiscordClient.create(token);
         final GatewayDiscordClient gateway = client.login().block();

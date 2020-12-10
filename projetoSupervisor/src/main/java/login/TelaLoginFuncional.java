@@ -230,7 +230,7 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 90, 820, 410);
+        jPanel2.setBounds(0, 90, 890, 410);
 
         jPanel1.setBackground(new java.awt.Color(16, 40, 66));
 
@@ -247,7 +247,7 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(574, Short.MAX_VALUE))
+                .addContainerGap(594, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +262,7 @@ public class TelaLoginFuncional extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 860, 90);
+        jPanel1.setBounds(0, 0, 880, 90);
 
         pack();
         setLocationRelativeTo(null);
